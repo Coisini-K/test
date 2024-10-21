@@ -1,26 +1,10 @@
-// router/routes.js
-import HomeView from "@/views/HomeView.vue";
-import NotFoundView from "@/views/NotFoundView.vue";
+// router/index.js
+import { createRouter, createWebHistory } from "vue-router";
+import routes from "./routes";
 
-const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackPrefetch: true */ "@/views/AboutView.vue"),
-  },
-  {
-    path: "/:pathMatch(.*)*",
-    name: "not-found",
-    component: NotFoundView,
-  },
-];
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes,
+});
 
-export default routes;
+export default router;
