@@ -1,30 +1,30 @@
 <!-- HomeView.vue -->
 <template>
-    <div>
-        <h1>首页</h1>
-        <!-- 主页内容 -->
+	<div>
+		<h1>首页</h1>
+		<!-- 主页内容 -->
 
-        <!-- 显示当前计数 -->
-        <h1>计数: {{ mainStore.count }}</h1>
+		<!-- 显示当前计数 -->
+		<h1>计数: {{ mainStore.count }}</h1>
 
-        <HelloWorld />
+		<HelloWorld />
 
-        <i>
-            <DocumentationIcon />
-        </i>
-        <i>
-            <ToolingIcon />
-        </i>
-        <i>
-            <EcosystemIcon />
-        </i>
-        <i>
-            <CommunityIcon />
-        </i>
-        <i>
-            <SupportIcon />
-        </i>
-    </div>
+		<i>
+			<DocumentationIcon />
+		</i>
+		<i>
+			<ToolingIcon />
+		</i>
+		<i>
+			<EcosystemIcon />
+		</i>
+		<i>
+			<CommunityIcon />
+		</i>
+		<i>
+			<SupportIcon />
+		</i>
+	</div>
 </template>
 
 <script setup>
@@ -41,6 +41,6 @@ const mainStore = useMainStore()
 
 <style scoped>
 i {
-    margin: 10px;
+	margin: 10px;
 }
 </style>
