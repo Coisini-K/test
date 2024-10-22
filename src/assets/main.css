@@ -1,48 +1,48 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-weight: normal;
 }
 
 #app {
-  display: flex;
-  /* 启用 Flex 布局 */
-  flex-direction: column;
-  /* 子元素垂直排列 */
-  align-items: center;
-  /* 水平居中对齐 */
-  justify-content: center;
-  /* 垂直居中对齐 */
-  height: 80vh;
-  /* 容器高度 */
-  border: 1px solid #ccc;
-  /* 边框用于视觉区分容器 */
+    display: flex;
+    /* 启用 Flex 布局 */
+    flex-direction: column;
+    /* 子元素垂直排列 */
+    align-items: center;
+    /* 水平居中对齐 */
+    /* justify-content: center; */
+    /* 垂直居中对齐 */
+    height: 80vh;
+    /* 容器高度 */
+    border: 1px solid #ccc;
+    /* 边框用于视觉区分容器 */
 }
 
 a,
 .green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+    text-decoration: none;
+    color: hsla(160, 100%, 37%, 1);
+    transition: 0.4s;
+    padding: 3px;
 }
 
 @media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+    a:hover {
+        background-color: hsla(160, 100%, 37%, 0.2);
+    }
 }
 
 @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+    body {
+        display: flex;
+        place-items: center;
+    }
 
-  /* #app {
+    /* #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;

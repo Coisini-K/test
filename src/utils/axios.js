@@ -1,5 +1,5 @@
 // src/utils/axios.js
-import axios from 'axios';
+import axios from 'axios'
 
 // 创建 axios 实例
 //  使用 .env 文件设置环境变量
@@ -19,33 +19,33 @@ const instance = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
-});
+})
 
 // 请求拦截器
 instance.interceptors.request.use(
     config => {
         // 在这里可以添加请求头等
         // 例如：添加 token 到请求头
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token')
         if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+            config.headers.Authorization = `Bearer ${token}`
         }
-        return config;
+        return config
     },
     error => {
-        return Promise.reject(error);
+        return Promise.reject(error)
     }
-);
+)
 
 // 响应拦截器
 instance.interceptors.response.use(
     response => {
-        return response;
+        return response
     },
     error => {
         // 在这里处理错误响应，例如重新登录等
-        return Promise.reject(error);
+        return Promise.reject(error)
     }
-);
+)
 
-export default instance;
+export default instance
