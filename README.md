@@ -2,6 +2,12 @@
 
 这是一个基于 Vue 3 和 Vite 的项目模板。
 
+位于
+
+```sh
+cd .\Desktop\rain\code\vueShop\
+```
+
 推荐的 IDE 设置：
 
 - VSCode + Volar （并禁用 Vetur）

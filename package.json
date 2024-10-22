@@ -17,7 +17,7 @@
 		"git:status": "git status",
 		"git:add": "git add .",
 		"git:commit": "git add . && git commit -m ",
-		"git:push": "git push",
+		"git:push": "git push origin master",
 		"git:checkout": "git checkout",
 		"git:branch": "git branch",
 		"git:merge": "git merge",

@@ -1,5 +1,7 @@
 <template>
 	<div class="container">
+		<h1>About</h1>
+
 		<!-- 显示当前计数 -->
 		<h1>计数: {{ mainStore.count }}</h1>
 

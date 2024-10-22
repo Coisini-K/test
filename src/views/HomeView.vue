@@ -1,7 +1,7 @@
 <!-- HomeView.vue -->
 <template>
 	<div>
-		<h1>首页</h1>
+		<h1>Home</h1>
 		<!-- 主页内容 -->
 
 		<!-- 显示当前计数 -->
