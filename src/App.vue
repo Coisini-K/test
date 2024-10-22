@@ -1,10 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import { computed } from "vue";
-import { HOME_PATH, ABOUT_PATH } from "@/constants/routes";
+import { RouterLink, RouterView } from 'vue-router'
+import { computed } from 'vue'
+import { HOME_PATH, ABOUT_PATH } from '@/constants/routes'
 
-const homePath = computed(() => HOME_PATH);
-const aboutPath = computed(() => ABOUT_PATH);
+const homePath = computed(() => HOME_PATH)
+const aboutPath = computed(() => ABOUT_PATH)
 </script>
 
 <template>
