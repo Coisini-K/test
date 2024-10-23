@@ -1,7 +1,5 @@
 <template>
 	<div class="container">
-		<h1>About</h1>
-
 		<!-- 显示当前计数 -->
 		<h1>计数: {{ mainStore.count }}</h1>
 
@@ -23,30 +21,6 @@
 			</li>
 		</ul>
 
-		<!-- 增加计数按钮 -->
-		<button @click="incrementCount">增加计数</button>
-
-		<!-- 减少计数按钮，当计数大于0时才允许减少 -->
-		<button @click="decrementCount">减少计数</button>
-
-		<!-- 设置用户信息按钮 -->
-		<button @click="setUser">设置用户</button>
-
-		<!-- 登出按钮 -->
-		<button @click="logout">登出</button>
-
-		<!-- 添加商品到购物车按钮 -->
-		<button @click="addCartItem">添加商品到购物车</button>
-
-		<!-- 清空购物车按钮 -->
-		<button @click="clearCart">清空购物车</button>
-
-		<!-- 添加订单按钮 -->
-		<button @click="addOrder">添加订单</button>
-
-		<!-- 清空所有订单按钮 -->
-		<button @click="clearOrders">清空订单</button>
-
 		<!-- 列表展示订单信息 -->
 		<ul>
 			<li v-for="(order, orderIndex) in mainStore.orders" :key="orderIndex">
@@ -56,11 +30,56 @@
 				<button @click="removeOrder(orderIndex)">删除</button>
 			</li>
 		</ul>
+
+		<div class="container_button">
+			<!-- 增加计数按钮 -->
+			<button @click="incrementCount">增加计数</button>
+
+			<!-- 减少计数按钮，当计数大于0时才允许减少 -->
+			<button @click="decrementCount">减少计数</button>
+
+			<!-- 设置用户信息按钮 -->
+			<button @click="setUser">设置用户</button>
+
+			<!-- 登出按钮 -->
+			<button @click="logout">登出</button>
+
+			<!-- 添加商品到购物车按钮 -->
+			<button @click="addCartItem">添加商品到购物车</button>
+
+			<!-- 清空购物车按钮 -->
+			<button @click="clearCart">清空购物车</button>
+
+			<!-- 添加订单按钮 -->
+			<button @click="addOrder">添加订单</button>
+
+			<!-- 清空所有订单按钮 -->
+			<button @click="clearOrders">清空订单</button>
+		</div>
+	</div>
+
+	<div class="info-container-ul">
+		<LatestDeals
+			:deals="deals"
+			title="最新成交"
+			date="2024-10-19"
+			iterations="100"
+		/>
 	</div>
 </template>
 
 <script setup>
 import useMainStore from '@/stores'
+
+import LatestDeals from '@/components/home/LatestDeals.vue'
+
+// 示例数据
+const deals = [
+	{ area: '北京', sellerName: '张三', productType: '电子产品' },
+	{ area: '上海', sellerName: '李四', productType: '服装' },
+	{ area: '广州', sellerName: '王五', productType: '家具' },
+	// 更多数据...
+]
 
 const mainStore = useMainStore()
 
@@ -68,39 +87,32 @@ const mainStore = useMainStore()
 function incrementCount() {
 	mainStore.increment()
 }
-
 // 定义减少计数的函数，当计数大于0时才允许减少
 function decrementCount() {
 	if (mainStore.count > 0) {
 		mainStore.decrement()
 	}
 }
-
 // 定义设置用户信息的函数
 function setUser() {
 	mainStore.setUser({ name: 'John Doe', email: 'john@example.com' })
 }
-
 // 定义登出用户的函数
 function logout() {
 	mainStore.logout()
 }
-
 // 定义向购物车中添加商品的函数
 function addCartItem() {
 	mainStore.addCartItem({ name: 'Product A', quantity: 1 })
 }
-
 // 定义从购物车中移除商品的函数
 function removeCartItem(index) {
 	mainStore.removeCartItem(index)
 }
-
 // 定义清空购物车的函数
 function clearCart() {
 	mainStore.clearCart()
 }
-
 // 定义添加订单的函数
 function addOrder() {
 	mainStore.addOrder({
@@ -108,12 +120,10 @@ function addOrder() {
 		items: [{ name: 'Product B', quantity: 2 }],
 	})
 }
-
 // 定义从订单列表中移除订单的函数
 function removeOrder(index) {
 	mainStore.removeOrder(index)
 }
-
 // 定义清空所有订单的函数
 function clearOrders() {
 	mainStore.clearOrders()
@@ -127,6 +137,13 @@ function clearOrders() {
 	margin: 0 auto;
 	padding: 20px;
 	text-align: center;
+}
+
+.container_button {
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: center;
+	align-items: center;
 }
 
 /* 设置标题样式 */
