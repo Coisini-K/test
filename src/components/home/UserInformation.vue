@@ -61,7 +61,7 @@ const props = defineProps({
 		default() {
 			return {
 				avatar: '/src/assets/images/mine/doge.jpg',
-				name: 'John Doe',
+				name: '・ࡇ・',
 				// email: 'john.doe@example.com',
 				// bio: 'A software engineer with a passion for technology and innovation.',
 			}

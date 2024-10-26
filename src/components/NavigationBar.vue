@@ -1,11 +1,17 @@
 <template>
-	<header ref="navbarRef">
+	<div ref="navbarRef">
 		<nav :class="{ 'is-fixed': isSticky }">
 			<RouterLink v-once :to="homePath" class="nav-link">Home</RouterLink>
 			<RouterLink v-once :to="aboutPath" class="nav-link">About</RouterLink>
 			<RouterLink v-once :to="otherPath" class="nav-link">Other</RouterLink>
+			<RouterLink v-once :to="homePath" class="nav-link">Home</RouterLink>
+			<RouterLink v-once :to="aboutPath" class="nav-link">About</RouterLink>
+			<RouterLink v-once :to="otherPath" class="nav-link">Other</RouterLink>
+			<RouterLink v-once :to="homePath" class="nav-link">Home</RouterLink>
+			<RouterLink v-once :to="aboutPath" class="nav-link">About</RouterLink>
+			<RouterLink v-once :to="otherPath" class="nav-link">Other</RouterLink>
 		</nav>
-	</header>
+	</div>
 	<!-- <RouterView /> -->
 </template>
 
@@ -31,7 +37,7 @@ const handleScroll = () => {
 
 onMounted(() => {
 	// 监听滚动事件
-	window.addEventListener('scroll', handleScroll)
+	// window.addEventListener('scroll', handleScroll)
 
 	// 初始化状态
 	handleScroll()
@@ -39,22 +45,27 @@ onMounted(() => {
 
 onUnmounted(() => {
 	// 移除滚动监听器
-	window.removeEventListener('scroll', handleScroll)
+	// window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
 <style scoped>
-header {
-	position: relative;
+.navbarRef {
 	width: 100%;
+	position: relative;
+	/* display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center; */
 	background-color: #fff;
-	z-index: 1000;
+	/* z-index: 1000; */
 	transition: all 0.3s ease-out;
 }
 
 nav {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	padding: 1rem;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

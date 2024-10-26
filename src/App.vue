@@ -1,13 +1,20 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import NavigationBar from './components/NavigationBar.vue'
-// import SidebarView from './components/SidebarRight.vue'
+// import NavigationBar from '@/components/NavigationBar.vue'
+import HeaderView from '@/views/HeaderView.vue'
+import SidebarView from '@/components/SidebarRight.vue'
 </script>
 
 <template>
-	<NavigationBar />
-	<!-- <SidebarView /> -->
-	<RouterView />
+	<div class="container">
+		<HeaderView />
+		<SidebarView />
+		<RouterView />
+	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+	border: 1px solid #ccc;
+}
+</style>
