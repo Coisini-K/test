@@ -21,9 +21,6 @@ dist-ssr
 dist/
 build/
 
-/cypress/videos/
-/cypress/screenshots/
-
 # Editor directories and files
 .vscode
 .vscode/*
