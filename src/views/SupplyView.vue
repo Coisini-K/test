@@ -1,21 +1,19 @@
 <template>
   <div class="about">
     <!-- <h1>About Us</h1> -->
-    <CarouselComponent
-      :slides="images"
-      :interval="3000"
-      class="CarouselComponent"
-    />
+    <CarouselComponent :slides="images" :interval="3000" class="CarouselComponent" />
     <!-- 传递 deals、title 和 date 参数 -->
-    <LatestDeals
-      :deals="deals"
-      :title="title"
-      :date="date"
-      class="LatestDeals"
-    />
+    <LatestDeals :deals="deals" :title="title" :date="date" class="LatestDeals" />
   </div>
   <div class="app-box">
     <VegetableCategories :vegetables="vegetables" />
+    <NewSupplies :supplies="supplies" />
+  </div>
+  <div class="app-box">
+    <RecommendedProducts :products="products" />
+  </div>
+  <div class="app-box">
+    <VegetableCategories :vegetables="agriculture"></VegetableCategories>
     <NewSupplies :supplies="supplies" />
   </div>
   <div class="app-box">
@@ -211,6 +209,112 @@ export default defineComponent({
         {
           name: '蔬菜',
           },
+      ],
+      agriculture: [
+        {
+          "name": "农用机械设备",
+          "items": [
+            "农用拖拉机",
+            "农机配件",
+            "耕整机",
+            "食品加工机械",
+            "果蔬机械",
+            "植保机",
+            "饲料机",
+            "肥料机械",
+            "发电设备",
+            "屠宰及肉类加工设备",
+            "食用菌机械",
+          ]
+        },
+        {
+          "name": "肥料",
+          "items": [
+            "复合肥",
+            "缓释肥",
+            "螯合肥料",
+            "单质肥",
+            "生物肥",
+            "水溶肥",
+            "叶面肥",
+            "有机肥",
+            "间接肥料",
+            "果实着色剂",
+            "肥料套餐"
+          ]
+        },
+        {
+          "name": "农药",
+          "items": [
+            "杀虫剂",
+            "杀菌剂",
+            "杀螨剂",
+            "除草剂",
+            "生物农药",
+            "植物生长调节剂",
+            "助剂",
+            "农药套餐",
+            "拌种剂"
+          ]
+        },
+        {
+          "name": "饲料",
+          "items": [
+            "青绿饲料",
+            "预混料",
+            "宠物饲料",
+            "饼粕饲料",
+            "蛋白质补充饲料",
+            "干草类饲料",
+            "谷物饲料",
+            "秸秆饲料",
+            "糠麸类饲料",
+            "矿物质饲料",
+            "配合饲料",
+            "青贮饲料",
+            "糟渣类饲料",
+            "发酵饲料",
+            "饲料添加剂"
+          ]
+        },
+        {
+          "name": "农用百货",
+          "items": [
+            "农用工具",
+            "渔具",
+            "劳保用品",
+            "硫磺粉",
+            "保水剂",
+            "不锈钢管",
+            "热熔胶",
+            "塑料膜",
+            "护栏",
+            "栽培基质",
+            "活性花粉",
+            "炭",
+            "木材",
+            "养殖百货",
+            "育苗防护资材",
+            "园林管理资材",
+          ]
+        },
+        {
+          "name": "排灌设备",
+          "items": [
+            "涵管",
+            "管材管件",
+            "滴灌喷灌",
+            "过滤设备",
+            "灌溉设备",
+            "泵",
+            "格栅",
+            "排水板",
+            "蓄水板"
+          ]
+        },
+        {
+          name: '农具',
+        },
       ],
       //蔬菜分类 右栏
       supplies: [
