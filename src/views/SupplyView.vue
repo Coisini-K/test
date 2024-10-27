@@ -17,7 +17,7 @@
     <NewSupplies :supplies="machinery" :vegetables="agriculture" />
   </div>
   <div class="app-box">
-    <RecommendedProducts :products="products" :vegetables="agriculture" />
+    <RecommendedProducts :products="equipment" :vegetables="agriculture" />
   </div>
 </template>
 
