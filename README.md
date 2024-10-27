@@ -105,13 +105,7 @@ npm run git:add
 提交所有更改（需提供提交信息）：
 
 ```sh
-npm run git:commit "提交信息"
-```
-
-例如：
-
-```sh
-npm run git:commit "Routine maintenance"
+npm run git:commit
 ```
 
 推送提交到远程仓库：
