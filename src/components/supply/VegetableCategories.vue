@@ -81,8 +81,8 @@ export default {
   width: 100%;
   /* background-color: #7e2d2d; */
   height: 50px;
-  font-size: 1.7em;
-  font-weight: bold;
+  font-size: 1.6em;
+  font-weight: 500;
   /* margin-left: 5px; */
 }
 .vegetable-categories table {
@@ -98,12 +98,12 @@ export default {
 }
 .vegetable-categories td {
   vertical-align: top;
-  /* padding: 20px; */
+  padding: 15px;
   width: 50%;
 }
 
 .vegetable-categories h2 {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
   /* margin-bottom: 10px; */
 }
@@ -118,7 +118,7 @@ export default {
 }
 
 .vegetable-categories li {
-  font-size: 0.9em;
+  font-size: 0.8em;
   line-height: 1em;
   margin-bottom: 1.5px;
   cursor: pointer; /* 改变鼠标指针形状 */

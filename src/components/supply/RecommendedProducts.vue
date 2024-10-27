@@ -1,6 +1,6 @@
 <template>
   <div class="recommended-products">
-    <h2>好货推荐・蔬菜</h2>
+    <h2>好货推荐·{{ vegetables[6].name }}</h2>
     <div class="product" v-for="(product, index) in products" :key="index">
       <img :src="product.image" alt="Product Image" />
       <div class="product-info">
@@ -19,6 +19,10 @@ export default {
       type: Array,
       required: true,
     },
+    vegetables: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
@@ -31,13 +35,13 @@ export default {
   margin-top: 20px;
   width: 100%;
   height: 350px;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
 }
 .recommended-products h2 {
   width: 100%;
   height: 50px;
   font-weight: bold;
-  font-size: 1.7em;
+  font-size: 1.3em;
 }
 .product {
   width: 16.5%;
@@ -46,7 +50,7 @@ export default {
   /* border-radius: 4px; */
   overflow: hidden;
   cursor: pointer;
-  /* background-color: bisque; */
+  background-color: rgb(255, 255, 255);
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -68,11 +72,17 @@ export default {
 .title {
   width: 100%;
   height: 50px;
+  overflow: hidden;
+    /* 隐藏超出的内容 */
+    text-overflow: ellipsis;
+    /* 使用省略标记(...)来代替被修剪的文本 */
+    white-space: nowrap;
+    /* 不换行 */
 }
 .product-info .price {
   width: 55%;
   height: 50px;
-  font-size: 1.5em;
+  font-size: 1em;
   color: red;
   /* margin-right: 9px; */
 }
