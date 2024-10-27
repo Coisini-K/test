@@ -105,7 +105,7 @@ npm run git:add
 提交所有更改（需提供提交信息）：
 
 ```sh
-npm run git:commit "提交信息"
+npm run git:commit
 ```
 
 例如：

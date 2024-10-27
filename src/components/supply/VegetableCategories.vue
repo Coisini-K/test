@@ -1,16 +1,13 @@
 <template>
   <div class="vegetable-categories">
-    <h1>蔬菜</h1>
+    <h1>{{ vegetables[6].name }}</h1>
     <table>
+      <tbody>
       <tr>
         <td>
           <h2>{{ vegetables[0].name }}</h2>
           <ul>
-            <li
-              v-for="(item, index) in vegetables[0].items"
-              :key="index"
-              @click="navigateToPage"
-            >
+            <li v-for="(item, index) in vegetables[0].items" :key="index" @click="navigateToPage">
               {{ item }}
             </li>
           </ul>
@@ -18,11 +15,7 @@
         <td>
           <h2>{{ vegetables[1].name }}</h2>
           <ul>
-            <li
-              v-for="(item, index) in vegetables[1].items"
-              :key="index"
-              @click="navigateToPage"
-            >
+            <li v-for="(item, index) in vegetables[1].items" :key="index" @click="navigateToPage">
               {{ item }}
             </li>
           </ul>
@@ -30,11 +23,7 @@
         <td>
           <h2>{{ vegetables[2].name }}</h2>
           <ul>
-            <li
-              v-for="(item, index) in vegetables[2].items"
-              :key="index"
-              @click="navigateToPage"
-            >
+            <li v-for="(item, index) in vegetables[2].items" :key="index" @click="navigateToPage">
               {{ item }}
             </li>
           </ul>
@@ -42,11 +31,7 @@
         <td>
           <h2>{{ vegetables[3].name }}</h2>
           <ul>
-            <li
-              v-for="(item, index) in vegetables[3].items"
-              :key="index"
-              @click="navigateToPage"
-            >
+            <li v-for="(item, index) in vegetables[3].items" :key="index" @click="navigateToPage">
               {{ item }}
             </li>
           </ul>
@@ -54,11 +39,7 @@
         <td>
           <h2>{{ vegetables[4].name }}</h2>
           <ul>
-            <li
-              v-for="(item, index) in vegetables[4].items"
-              :key="index"
-              @click="navigateToPage"
-            >
+            <li v-for="(item, index) in vegetables[4].items" :key="index" @click="navigateToPage">
               {{ item }}
             </li>
           </ul>
@@ -66,16 +47,12 @@
         <td>
           <h2>{{ vegetables[5].name }}</h2>
           <ul>
-            <li
-              v-for="(item, index) in vegetables[5].items"
-              :key="index"
-              @click="navigateToPage"
-            >
+            <li v-for="(item, index) in vegetables[5].items" :key="index" @click="navigateToPage">
               {{ item }}
             </li>
           </ul>
         </td>
-      </tr>
+      </tr></tbody>
     </table>
   </div>
 </template>

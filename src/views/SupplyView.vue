@@ -208,6 +208,9 @@ export default defineComponent({
             '蔬菜2R',
           ],
         },
+        {
+          name: '蔬菜',
+          },
       ],
       //蔬菜分类 右栏
       supplies: [
