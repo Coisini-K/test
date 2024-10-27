@@ -1,5 +1,5 @@
 <template>
-  <div ref="navbarRef">
+  <div ref="navbarRef" class="navbar">
     <nav :class="{ 'is-fixed': isSticky }">
       <RouterLink v-once :to="homePath" class="nav-link">Home</RouterLink>
       <RouterLink v-once :to="aboutPath" class="nav-link">About</RouterLink>
@@ -51,7 +51,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.navbarRef {
+.navbar {
   width: 100%;
   position: relative;
   /* display: flex;
@@ -64,10 +64,11 @@ onUnmounted(() => {
 }
 
 nav {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -86,6 +87,7 @@ nav {
 nav.is-fixed {
   position: fixed;
   width: 100%;
+  max-width: 1200px;
   top: 0;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
