@@ -65,7 +65,7 @@ const props = defineProps({
   },
 });
 
-console.log(props.slides);
+// console.log(props.slides);
 
 // 当前显示的幻灯片索引
 const currentSlide = ref(0);

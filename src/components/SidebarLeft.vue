@@ -1,5 +1,3 @@
-<!-- 右边导航栏 -->
-
 <template>
   <div class="sidebar">
     <div class="sidebar-header"></div>
@@ -13,29 +11,26 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [
-        { name: '首页', isActive: true },
-        { name: '服务', isActive: false },
-        { name: '关于我们', isActive: false },
-        { name: '联系我们', isActive: false },
-      ],
-    };
-  },
-  methods: {
-    navigate(item) {
-      // 模拟导航行为
-      console.log(`Navigating to ${item.name}`);
-      // 设置当前项为激活状态
-      this.items.forEach((i) => (i.isActive = i === item));
-    },
-  },
+<script setup>
+import { computed } from 'vue';
+import useMainStore from '@/stores';
+const mainStore = useMainStore();
 
-  
-};
+// 创建一个计算属性，依赖于 mainStore.bar
+const items = computed(() => {
+  const barItems = mainStore.bar;
+  // console.log("Computed bar value:", barItems);
+  return barItems;
+});
+
+// 使用 vue 的 watchEffect 来监听 items 的变化
+// watchEffect(() => {
+  // console.log("Watched items value:", items.value);
+// });
+
+function navigate(item) {
+  items.value.forEach((i) => (i.isActive = i === item));
+}
 </script>
 
 <style scoped>
@@ -46,7 +41,7 @@ export default {
   align-items: center;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   height: 100%;
   width: 120px;
   background-color: #f8f9fa;

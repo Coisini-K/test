@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <h1>数组: {{ mainStore.bar }}</h1>
+
     <!-- 显示当前计数 -->
     <h1>计数: {{ mainStore.count }}</h1>
 
@@ -59,19 +61,25 @@
   </div>
 
   <div class="info-container-ul">
-    <LatestDeals
-      :deals="deals"
-      title="最新成交"
-      date="2024-10-19"
-      iterations="100"
-    />
+    <LatestDeals :deals="deals" title="最新成交" date="2024-10-19" iterations="100" />
   </div>
 </template>
 
 <script setup>
+import {  onMounted } from 'vue';
 import useMainStore from '@/stores';
+const mainStore = useMainStore();
 
 import LatestDeals from '@/components/LatestDeals.vue';
+
+const clearBar = () => {
+  mainStore.clearBar();
+};
+
+onMounted(() => {
+  clearBar();
+  // console.log("bar:", mainStore.bar);
+});
 
 // 示例数据
 const deals = [
@@ -81,7 +89,6 @@ const deals = [
   // 更多数据...
 ];
 
-const mainStore = useMainStore();
 
 // 定义增加计数的函数
 function incrementCount() {

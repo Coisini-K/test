@@ -3,6 +3,7 @@
   <div>
     <h1>Home</h1>
     <!-- 主页内容 -->
+    <h1>数组: {{ mainStore.bar }}</h1>
 
     <!-- 显示当前计数 -->
     <h1>计数: {{ mainStore.count }}</h1>
@@ -19,7 +20,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 // 导入图标组件
 import DocumentationIcon from '@/components/icons/IconDocumentation.vue';
@@ -31,6 +32,18 @@ import SupportIcon from '@/components/icons/IconSupport.vue';
 // 导入并使用mainStore
 import useMainStore from '@/stores';
 const mainStore = useMainStore();
+
+const initBar = () => {
+  mainStore.setBar([{ name: '首页', isActive: true },
+    { name: '服务', isActive: false },
+    { name: '关于我们', isActive: false },
+    { name: '联系我们', isActive: false },]);
+};
+
+onMounted(() => {
+  initBar();
+  // console.log("bar:", mainStore.bar);
+});
 
 // 导入EchartsStore组件
 import EchartsStore from '@/components/EchartsStore.vue';

@@ -9,6 +9,17 @@ const useMainStore = defineStore('main', () => {
   const cartItemCount = computed(() => cartItems.value.length);
   const orders = ref([]);
 
+  //声明电梯导航栏数组
+  const bar = ref([]);
+  //设置数组函数
+  const setBar = (arr) => {
+    bar.value = arr;
+  };
+  //清空数组方法
+  const clearBar = () => {
+    bar.value = [];
+  };
+
   const increment = () => {
     count.value++;
   };
@@ -58,6 +69,10 @@ const useMainStore = defineStore('main', () => {
   };
 
   return {
+    bar,
+    setBar,
+    clearBar,
+
     count,
     user,
     cartItems,

@@ -80,6 +80,7 @@ export default {
 .name-num2 {
   width: 30%;
   text-align: center;
+  color: red;
 }
 .name:hover {
   color: #63b555; /* 鼠标悬停时改变字体颜色*/

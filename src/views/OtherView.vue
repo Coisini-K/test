@@ -80,6 +80,20 @@ import CarouselModule from '@/components/CarouselModule.vue';
 import UserInformation from '@/components/home/UserInformation.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 
+import { onMounted } from 'vue';
+import useMainStore from '@/stores';
+const mainStore = useMainStore();
+const initBar = () => {
+  mainStore.setBar([{ name: '你好', isActive: true },
+  { name: '信息', isActive: false },
+  { name: '关于', isActive: false },]);
+};
+
+onMounted(() => {
+  initBar();
+  // console.log("bar:", mainStore.bar);
+});
+
 const photos = [
   '/src/assets/images/home/carousel/1.jpg',
   '/src/assets/images/home/carousel/3.jpg',
