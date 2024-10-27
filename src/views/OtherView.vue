@@ -66,7 +66,7 @@
 
 <script setup>
 import CategoryList from '@/components/home/CategoryList.vue';
-import CarouselComponent from '@/components/home/CarouselComponent.vue';
+import CarouselComponent from '@/components/CarouselComponent.vue';
 import UserInformation from '@/components/home/UserInformation.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 

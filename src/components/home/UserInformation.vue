@@ -51,7 +51,7 @@
 // 文本分割
 import ServiceText from '@/components/ServiceText.vue';
 // 列表滚动
-import LatestDeals from '@/components/home/LatestDeals.vue';
+import LatestDeals from '@/components/LatestDeals.vue';
 
 // 如果需要从外部接收用户信息，可以通过 props 传递
 const props = defineProps({

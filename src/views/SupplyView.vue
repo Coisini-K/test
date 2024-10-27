@@ -1,17 +1,14 @@
 <template>
   <div class="about">
     <!-- <h1>About Us</h1> -->
-    <CarouselComponent
-      :slides="images"
-      :interval="3000"
-      class="CarouselComponent"
-    />
+    <CarouselComponent :slides="images" :interval="3000" class="carousel" />
     <!-- 传递 deals、title 和 date 参数 -->
     <LatestDeals
       :deals="deals"
       :title="title"
+      :info="info"
       :date="date"
-      class="LatestDeals"
+      class="latestDeals"
     />
   </div>
   <div class="app-box">
@@ -25,8 +22,8 @@
 
 <script>
 import { defineComponent } from 'vue';
-import CarouselComponent from '@/components/supply/CarouselComponent.vue'; // 引入轮播图组件
-import LatestDeals from '@/components/supply/LatestDeals.vue';
+import CarouselComponent from '@/components/CarouselComponent.vue'; // 引入轮播图组件
+import LatestDeals from '@/components/LatestDeals.vue';
 import VegetableCategories from '@/components/supply/VegetableCategories.vue';
 import NewSupplies from '@/components/supply/NewSupplies.vue';
 import RecommendedProducts from '@/components/supply/RecommendedProducts.vue';
@@ -50,7 +47,8 @@ export default defineComponent({
         new URL('@/assets/images/supply/03.jpg', import.meta.url).href,
       ],
       // 成交数据
-      title: '最新成交',
+      title: true,
+      info: '最新成交',
       date: '2024-10-19',
       deals: [
         {
@@ -210,7 +208,7 @@ export default defineComponent({
         },
         {
           name: '蔬菜',
-          },
+        },
       ],
       //蔬菜分类 右栏
       supplies: [
@@ -277,7 +275,16 @@ export default defineComponent({
 .about {
   display: flex;
   width: 1200px;
+  justify-content: space-between;
   /* border: 1px solid #333; */
+}
+.carousel {
+  width: 700px;
+}
+
+.latestDeals{
+  width: 460px;
+  height: 340px;
 }
 .app-box {
   width: 1200px;

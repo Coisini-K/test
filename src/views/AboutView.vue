@@ -71,7 +71,7 @@
 <script setup>
 import useMainStore from '@/stores';
 
-import LatestDeals from '@/components/home/LatestDeals.vue';
+import LatestDeals from '@/components/LatestDeals.vue';
 
 // 示例数据
 const deals = [
