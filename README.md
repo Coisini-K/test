@@ -108,12 +108,6 @@ npm run git:add
 npm run git:commit
 ```
 
-例如：
-
-```sh
-npm run git:commit "Routine maintenance"
-```
-
 推送提交到远程仓库：
 
 ```sh
