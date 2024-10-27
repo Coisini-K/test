@@ -56,9 +56,9 @@ export default defineComponent({
     return {
       // 轮播图
       images: [
-        new URL('@/assets/images/supply/01.jpg', import.meta.url).href,
-        new URL('@/assets/images/supply/02.jpg', import.meta.url).href,
-        new URL('@/assets/images/supply/03.jpg', import.meta.url).href,
+        new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
+        new URL('@/assets/images/supply/carousel/2.jpg', import.meta.url).href,
+        new URL('@/assets/images/supply/carousel/3.jpg', import.meta.url).href,
       ],
       // 成交数据
       title: true,
@@ -375,42 +375,42 @@ export default defineComponent({
       //好物推荐
       products: [
         {
-          image: new URL('@/assets/images/supply/01.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
           title: '广西/云南黄金水果玉米新鲜发货3/5/9斤一件代发包邮批发',
           price: '16.80',
           unit: '/箱',
           description: '成交8.3万元',
         },
         {
-          image: new URL('@/assets/images/supply/02.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
           title: '北虫草 【500g大孢子头】虫草虫草花金虫草蛹虫草干货泡茶',
           price: '4.60',
           unit: '/包',
           description: '成交45元',
         },
         {
-          image: new URL('@/assets/images/supply/01.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
           title: '古田丑耳3朵试吃装',
           price: '11.90',
           unit: '/包',
           description: '成交8.3万元',
         },
         {
-          image: new URL('@/assets/images/supply/02.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
           title: '黑木耳 富贵干货大礼包B款，年货送礼高档礼盒装',
           price: '59.00',
           unit: '/袋',
           description: '成交45元',
         },
         {
-          image: new URL('@/assets/images/supply/01.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
           title: '福建古田银耳现摘现发古田白木耳易糯多胶，1朵100G左右',
           price: '3.00',
           unit: '/朵',
           description: '成交8.3万元',
         },
         {
-          image: new URL('@/assets/images/supply/02.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
           title: '蒙阴紫罗兰紫薯-皮薄肉细，软糯香甜，口口惊艳，好吃到惊讶',
           price: '14.50',
           unit: '/袋',
@@ -419,42 +419,42 @@ export default defineComponent({
       ],
       equipment: [
         {
-          image: new URL('@/assets/images/supply/01.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
           title: '80%代森锰锌1000克 代森猛锌辛杀菌剂早疫病黑星病炭疽病',
           price: '31.80',
           unit: '/袋',
           description: '成交8.3万元',
         },
         {
-          image: new URL('@/assets/images/supply/02.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
           title: '颗粒锌 田当家EDTA螯合锌微量元素叶面肥糖醇小分子锌小叶黄',
           price: '28.00',
           unit: '/袋',
           description: '成交45元',
         },
         {
-          image: new URL('@/assets/images/supply/01.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
           title: '飞防专用助剂航空植保无人机增效剂防漂移促沉降强渗透耐冲刷',
           price: '55.00',
           unit: '/瓶',
           description: '成交8.3万元',
         },
         {
-          image: new URL('@/assets/images/supply/02.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
           title: '36%春雷喹啉铜溃疡病角斑病软腐病稻瘟病细菌病害专用杀菌剂',
           price: '2.00',
           unit: '/袋',
           description: '成交45元',
         },
         {
-          image: new URL('@/assets/images/supply/01.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
           title: '0.5%阿维菌素颗粒剂 阿维菌素农药黄瓜根结线虫杀虫剂',
           price: '3.00',
           unit: '/袋',
           description: '成交8.3万元',
         },
         {
-          image: new URL('@/assets/images/supply/02.jpg', import.meta.url).href,
+          image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
           title: '蒙阴紫罗兰紫薯-皮薄肉细，软糯香甜，口口惊艳，好吃到惊讶',
           price: '11.80',
           unit: '/袋',
