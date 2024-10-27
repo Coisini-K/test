@@ -52,7 +52,7 @@ const chartOptions = ref({
   },
   series: [
     {
-      data: [29.5, 29.5, 29.5, 29.5, 29.5, 29.5, 29.5],
+      data: [29.5, 29, 24.5, 31, 19.5, 22.5, 23.5],
       type: 'line',
       smooth: true,
     },
