@@ -33,7 +33,21 @@ export default [
     files: [
       'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
       'cypress/support/**/*.{js,ts,jsx,tsx}',
+      'cypress/integration/**/*.{js,ts,jsx,tsx}',
+      'cypress/component/**/*.{js,ts,jsx,tsx}',
     ],
+    languageOptions: {
+      globals: {
+        describe: 'readonly',
+        it: 'readonly',
+        cy: 'readonly',
+        expect: 'readonly',
+        before: 'readonly',
+        beforeEach: 'readonly',
+        after: 'readonly',
+        afterEach: 'readonly',
+      },
+    },
   },
   skipFormatting,
 ];

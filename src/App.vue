@@ -2,13 +2,13 @@
 import { RouterView } from 'vue-router';
 // import NavigationBar from '@/components/NavigationBar.vue'
 import HeaderView from '@/views/HeaderView.vue';
-import SidebarView from '@/components/SidebarRight.vue';
+// import SidebarView from '@/components/SidebarRight.vue';
 </script>
 
 <template>
   <div class="container">
     <HeaderView />
-    <SidebarView />
+    <!-- <SidebarView /> -->
     <RouterView />
   </div>
 </template>
