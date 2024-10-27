@@ -14,25 +14,7 @@
     <!-- 显示购物车中的商品数量 -->
     <h1>购物车商品数量: {{ mainStore.cartItems.length }}</h1>
 
-    <!-- 列表展示购物车中的商品 -->
-    <ul>
-      <li v-for="(item, index) in mainStore.cartItems" :key="index">
-        {{ item.name }} - {{ item.quantity }}
-        <!-- 删除按钮 -->
-        <button @click="removeCartItem(index)">删除</button>
-      </li>
-    </ul>
-
-    <!-- 列表展示订单信息 -->
-    <ul>
-      <li v-for="(order, orderIndex) in mainStore.orders" :key="orderIndex">
-        订单编号: {{ order.orderNumber }} - 商品数量:
-        {{ order.items.length }}
-        <!-- 删除订单按钮 -->
-        <button @click="removeOrder(orderIndex)">删除</button>
-      </li>
-    </ul>
-
+    <!-- 操作按钮 -->
     <div class="container_button">
       <!-- 增加计数按钮 -->
       <button @click="incrementCount">增加计数</button>
@@ -59,6 +41,25 @@
       <button @click="clearOrders">清空订单</button>
     </div>
   </div>
+
+  <!-- 列表展示购物车中的商品 -->
+  <ul>
+    <li v-for="(item, index) in mainStore.cartItems" :key="index">
+      {{ item.name }} - {{ item.quantity }}
+      <!-- 删除按钮 -->
+      <button @click="removeCartItem(index)">删除</button>
+    </li>
+  </ul>
+
+  <!-- 列表展示订单信息 -->
+  <ul>
+    <li v-for="(order, orderIndex) in mainStore.orders" :key="orderIndex">
+      订单编号: {{ order.orderNumber }} - 商品数量:
+      {{ order.items.length }}
+      <!-- 删除订单按钮 -->
+      <button @click="removeOrder(orderIndex)">删除</button>
+    </li>
+  </ul>
 
   <div class="info-container-ul">
     <LatestDeals :deals="deals" title="最新成交" date="2024-10-19" iterations="100" />
