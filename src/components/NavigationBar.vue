@@ -1,3 +1,5 @@
+<!-- 路由导航栏 -->
+
 <template>
   <div ref="navbarRef" class="navbar">
     <nav :class="{ 'is-fixed': isSticky }">

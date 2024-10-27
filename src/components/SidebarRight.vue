@@ -1,8 +1,8 @@
+<!-- 右边导航栏 -->
+
 <template>
   <div class="sidebar">
-    <div class="sidebar-header">
-      <!-- <h3>侧边栏标题</h3> -->
-    </div>
+    <div class="sidebar-header"></div>
     <nav class="sidebar-nav">
       <ul>
         <li v-for="(item, index) in items" :key="index" @click="navigate(item)">

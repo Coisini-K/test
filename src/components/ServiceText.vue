@@ -1,3 +1,5 @@
+<!-- 文本左右中划线 -->
+
 <template>
   <div class="service-text">
     {{ text }}

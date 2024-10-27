@@ -1,4 +1,6 @@
-<!-- use
+<!-- 首页个人信息模块 -->
+
+<!--
 <UserInformation
 	:userInfo="{
 		avatar: '/src/assets/images/mine/doge.jpg',

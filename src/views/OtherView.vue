@@ -5,13 +5,13 @@
     <div class="home_overview_show">
       <CarouselComponent :slides="photos" :interval="3000" />
       <div class="home_overview_show_imgs">
-        <img src="@/assets/images/carousel/4.jpg" alt="no!" />
-        <img src="@/assets/images/carousel/2.jpg" alt="no!" />
+        <img src="@/assets/images/home/carousel/4.jpg" alt="no!" />
+        <img src="@/assets/images/home/carousel/2.jpg" alt="no!" />
       </div>
     </div>
     <UserInformation
       :userInfo="{
-        avatar: '/src/assets/images/mine/doge.jpg',
+        avatar: '/src/assets/images/home/doge.jpg',
         name: 'oh my rain',
       }"
     />
@@ -19,31 +19,56 @@
   <div class="home_supply home_main">
     <NavigationBar />
     <div class="home_supply_show">
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-    </div>
-  </div>
-  <div class="home_procurement home_main">
-    <NavigationBar />
-    <div class="home_supply_show">
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
-      <img class="home_supply_img" src="@/assets/images/shop.png" alt="no!" />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
+      <img
+        class="home_supply_img"
+        src="@/assets/images/home/shop.png"
+        alt="no!"
+      />
     </div>
   </div>
   <!-- </div> -->
@@ -56,9 +81,9 @@ import UserInformation from '@/components/home/UserInformation.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 
 const photos = [
-  '/src/assets/images/carousel/1.jpg',
-  '/src/assets/images/carousel/3.jpg',
-  '/src/assets/images/carousel/6.jpg',
+  '/src/assets/images/home/carousel/1.jpg',
+  '/src/assets/images/home/carousel/3.jpg',
+  '/src/assets/images/home/carousel/6.jpg',
 ];
 </script>
 

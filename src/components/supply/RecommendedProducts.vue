@@ -1,3 +1,8 @@
+<!--
+供应页面
+图片列表模块
+-->
+
 <template>
   <div class="recommended-products">
     <h2>好货推荐·{{ vegetables[6].name }}</h2>
@@ -73,11 +78,11 @@ export default {
   width: 100%;
   height: 50px;
   overflow: hidden;
-    /* 隐藏超出的内容 */
-    text-overflow: ellipsis;
-    /* 使用省略标记(...)来代替被修剪的文本 */
-    white-space: nowrap;
-    /* 不换行 */
+  /* 隐藏超出的内容 */
+  text-overflow: ellipsis;
+  /* 使用省略标记(...)来代替被修剪的文本 */
+  white-space: nowrap;
+  /* 不换行 */
 }
 .product-info .price {
   width: 55%;

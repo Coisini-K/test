@@ -2,6 +2,7 @@
 
 <!--
 use:
+
 <CarouselComponent :slides="photos" :interval="3000" />
 
 const photos = [

@@ -1,3 +1,5 @@
+<!-- 文字列表滚动 -->
+
 <!--
 import LatestDeals from '@/components/home/LatestDeals.vue'
 
@@ -32,13 +34,17 @@ const deals = areas.map((area, index) => ({
 />
 -->
 <template>
+  <!-- 外层容器 -->
   <div class="div-box">
+    <!-- 条件性显示的头部信息 -->
     <div class="box-header" v-if="info || date">
       <p v-if="info">{{ info }}</p>
       <p v-if="date">{{ date }}</p>
     </div>
+    <!-- 表格容器 -->
     <div class="table-box">
       <table>
+        <!-- 条件性显示的表头 -->
         <thead class="thead-header" v-if="title">
           <tr>
             <th>地区</th>
@@ -46,6 +52,7 @@ const deals = areas.map((area, index) => ({
             <th>出售品类</th>
           </tr>
         </thead>
+        <!-- 可滚动的表格主体 -->
         <tbody class="scrolling-table-body" ref="tableBody">
           <tr
             v-for="(deal, index) in visibleDeals"
@@ -72,6 +79,7 @@ const deals = areas.map((area, index) => ({
 <script setup>
 import { ref, onMounted } from 'vue';
 
+// 定义组件接收的属性
 const props = defineProps({
   deals: { type: Array, required: true },
   title: { type: Boolean, default: false },
@@ -80,15 +88,25 @@ const props = defineProps({
   iterations: { type: Number, default: 40 },
 });
 
+// 可见的交易数据
 const visibleDeals = ref([]);
+// 当前高亮的行索引
 const highlightedIndex = ref(-1);
+// 是否暂停滚动
 const isScrollingPaused = ref(false);
+// 表体的引用
 const tableBody = ref(null);
 
+// 组件挂载时执行数据的存储和重复
 onMounted(() => {
   storeAndRepeatData(props.deals, props.iterations);
 });
 
+/**
+ * 存储并重复数据以生成可见的交易列表
+ * @param {Array} data - 原始交易数据
+ * @param {Number} iterations - 重复次数
+ */
 function storeAndRepeatData(data, iterations) {
   let repeatedData = [];
   for (let i = 0; i < iterations; i++) {
@@ -97,16 +115,22 @@ function storeAndRepeatData(data, iterations) {
   visibleDeals.value = repeatedData;
 }
 
+/**
+ * 高亮指定行
+ * @param {Number} index - 行索引
+ */
 function highlightRow(index) {
   highlightedIndex.value = index;
   pauseScrolling();
 }
 
+// 取消高亮行
 function unhighlightRow() {
   highlightedIndex.value = -1;
   resumeScrolling();
 }
 
+// 暂停表格滚动
 function pauseScrolling() {
   isScrollingPaused.value = true;
   if (tableBody.value) {
@@ -114,6 +138,7 @@ function pauseScrolling() {
   }
 }
 
+// 恢复表格滚动
 function resumeScrolling() {
   isScrollingPaused.value = false;
   if (tableBody.value) {
@@ -121,6 +146,7 @@ function resumeScrolling() {
   }
 }
 
+// 导航到交易详情页面
 function navigateToDeal() {
   window.location.href = `https://www.cnhnb.com/supply/`;
 }

@@ -13,16 +13,18 @@
     />
   </div>
   <div class="app-box">
-    <VegetableCategories :vegetables="vegetables" />
-    <NewSupplies :supplies="supplies" :vegetables="vegetables" />
+    <SupplyUlLeft :vegetables="vegetables" />
+    <SupplyUlRight :supplies="supplies" :vegetables="vegetables" />
   </div>
   <div class="app-box">
     <RecommendedProducts :products="products" :vegetables="vegetables" />
   </div>
+
   <div class="app-box">
-    <VegetableCategories :vegetables="agriculture"></VegetableCategories>
-    <NewSupplies :supplies="machinery" :vegetables="agriculture" />
+    <SupplyUlLeft :vegetables="agriculture"></SupplyUlLeft>
+    <SupplyUlRight :supplies="machinery" :vegetables="agriculture" />
   </div>
+
   <div class="app-box">
     <RecommendedProducts :products="equipment" :vegetables="agriculture" />
   </div>
@@ -31,10 +33,13 @@
 
 <script>
 import { defineComponent } from 'vue';
-import CarouselComponent from '@/components/CarouselComponent.vue'; // 引入轮播图组件
+// 轮播图
+import CarouselComponent from '@/components/CarouselComponent.vue';
+// 文字列表滚动
 import LatestDeals from '@/components/LatestDeals.vue';
-import VegetableCategories from '@/components/supply/VegetableCategories.vue';
-import NewSupplies from '@/components/supply/NewSupplies.vue';
+// 供应页面文字左右列表及图片列表
+import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
+import SupplyUlRight from '@/components/supply/SupplyUlRight.vue';
 import RecommendedProducts from '@/components/supply/RecommendedProducts.vue';
 
 export default defineComponent({
@@ -42,8 +47,8 @@ export default defineComponent({
   components: {
     CarouselComponent,
     LatestDeals,
-    VegetableCategories,
-    NewSupplies,
+    SupplyUlLeft,
+    SupplyUlRight,
     RecommendedProducts,
   },
 
