@@ -2,7 +2,7 @@
   <!-- <div class="supply_box"> -->
   <div class="about">
     <!-- <h1>About Us</h1> -->
-    <CarouselComponent :slides="images" :interval="3000" class="carousel" />
+    <CarouselModule :slides="images" :interval="3000" class="carousel" />
     <!-- 传递 deals、title 和 date 参数 -->
     <LatestDeals
       :deals="deals"
@@ -34,7 +34,7 @@
 <script>
 import { defineComponent } from 'vue';
 // 轮播图
-import CarouselComponent from '@/components/CarouselComponent.vue';
+import CarouselModule from '@/components/CarouselModule.vue';
 // 文字列表滚动
 import LatestDeals from '@/components/LatestDeals.vue';
 // 供应页面文字左右列表及图片列表
@@ -45,7 +45,7 @@ import RecommendedProducts from '@/components/supply/RecommendedProducts.vue';
 export default defineComponent({
   name: 'AboutView',
   components: {
-    CarouselComponent,
+    CarouselModule,
     LatestDeals,
     SupplyUlLeft,
     SupplyUlRight,

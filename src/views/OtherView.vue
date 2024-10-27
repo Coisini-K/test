@@ -3,7 +3,7 @@
   <div class="home_overview">
     <CategoryList />
     <div class="home_overview_show">
-      <CarouselComponent :slides="photos" :interval="3000" />
+      <CarouselModule :slides="photos" :interval="3000" />
       <div class="home_overview_show_imgs">
         <img src="@/assets/images/home/carousel/4.jpg" alt="no!" />
         <img src="@/assets/images/home/carousel/2.jpg" alt="no!" />
@@ -76,7 +76,7 @@
 
 <script setup>
 import CategoryList from '@/components/home/CategoryList.vue';
-import CarouselComponent from '@/components/CarouselComponent.vue';
+import CarouselModule from '@/components/CarouselModule.vue';
 import UserInformation from '@/components/home/UserInformation.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 
