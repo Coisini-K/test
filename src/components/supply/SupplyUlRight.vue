@@ -1,38 +1,37 @@
-<!--
-供应页面
-文字列表模块
-右
--->
-
 <template>
   <div class="new-supplies">
-    <h2>新供应·{{ vegetables[6].name }}</h2>
+    <h2>新供应·{{ vegetables[6]?.name || '蔬菜分类' }}</h2>
     <ul>
-      <li
-        v-for="(supply, index) in supplies"
-        :key="index"
-        class="supply-item"
-        @click="navigateToPage(supply.url)"
-      >
+      <li v-for="(supply, index) in supplies" :key="index" class="supply-item" @click="navigateToPage(supply.url)">
         <span class="name">
-          <p class="name-num1">{{ supply.name }}</p>
-          <p class="name-num2">{{ supply.price }}/{{ supply.unit }}</p>
+          <p class="name-num1">{{ supply.name || '商品名称' }}</p>
+          <p class="name-num2">{{ supply.price || '价格' }}/{{ supply.unit || '单位' }}</p>
         </span>
       </li>
     </ul>
   </div>
 </template>
 
-<script>
-export default {
-  props: ['supplies', 'vegetables'],
-  methods: {
-    navigateToPage() {
-      // 统一跳转到指定的URL
-      window.location.href = 'https://www.cnhnb.com/supply/';
-    },
+<script setup>
+
+const props = defineProps({
+  supplies: {
+    type: Array,
+    default: () => []
   },
-};
+  vegetables: {
+    type: Array,
+    default: () => []
+  }
+});
+
+function navigateToPage(url) {
+  if (url) {
+    window.location.href = url;
+  } else {
+    window.location.href = 'https://www.cnhnb.com/supply/';
+  }
+}
 </script>
 
 <style scoped>
@@ -57,8 +56,10 @@ export default {
 .supply-item {
   width: 100%;
   margin-bottom: 10px;
-  cursor: pointer; /* 改变鼠标指针形状 */
-  transition: color 0.3s ease; /* 平滑过渡 */
+  cursor: pointer;
+  /* 改变鼠标指针形状 */
+  transition: color 0.3s ease;
+  /* 平滑过渡 */
 }
 
 .supply-item .name {
@@ -68,6 +69,7 @@ export default {
   align-items: center;
   font-size: 0.9em;
 }
+
 .name-num1 {
   width: 70%;
   overflow: hidden;
@@ -77,12 +79,15 @@ export default {
   white-space: nowrap;
   /* 不换行 */
 }
+
 .name-num2 {
   width: 30%;
   text-align: center;
   color: red;
 }
+
 .name:hover {
-  color: #63b555; /* 鼠标悬停时改变字体颜色*/
+  color: #63b555;
+  /* 鼠标悬停时改变字体颜色*/
 }
 </style>

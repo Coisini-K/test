@@ -1,35 +1,30 @@
-<!--
-供应页面
-图片列表模块
--->
-
 <template>
   <div class="recommended-products">
-    <h2>好货推荐·{{ vegetables[6].name }}</h2>
+    <h2>好货推荐·{{ vegetables[6]?.name || '推荐分类' }}</h2>
     <div class="product" v-for="(product, index) in products" :key="index">
-      <img :src="product.image" alt="Product Image" />
+      <img :src="product.image || '/path/to/default-image.jpg'" alt="Product Image" />
       <div class="product-info">
-        <span class="price">{{ product.price }}元/{{ product.unit }}</span>
-        <span class="description">{{ product.description }}</span>
-        <span class="title">{{ product.title }}</span>
+        <span class="price">{{ product.price || '价格' }}元/{{ product.unit || '单位' }}</span>
+        <span class="description">{{ product.description || '描述' }}</span>
+        <span class="title">{{ product.title || '标题' }}</span>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    products: {
-      type: Array,
-      required: true,
-    },
-    vegetables: {
-      type: Array,
-      required: true,
-    },
+<script setup>
+const props = defineProps({
+  products: {
+    type: Array,
+    required: true,
+    default: () => []
   },
-};
+  vegetables: {
+    type: Array,
+    required: true,
+    default: () => []
+  },
+});
 </script>
 
 <style scoped>
@@ -42,12 +37,14 @@ export default {
   height: 350px;
   /* background-color: rgb(255, 255, 255); */
 }
+
 .recommended-products h2 {
   width: 100%;
   height: 50px;
   font-weight: bold;
   font-size: 1.3em;
 }
+
 .product {
   width: 16.5%;
   height: 300px;
@@ -74,6 +71,7 @@ export default {
   height: 100px;
   /* text-align: center; */
 }
+
 .title {
   width: 100%;
   height: 50px;
@@ -84,6 +82,7 @@ export default {
   white-space: nowrap;
   /* 不换行 */
 }
+
 .product-info .price {
   width: 55%;
   height: 50px;
@@ -91,6 +90,7 @@ export default {
   color: red;
   /* margin-right: 9px; */
 }
+
 .product-info .description {
   width: 45%;
   height: 50px;
