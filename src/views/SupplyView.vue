@@ -5,10 +5,16 @@
     <!-- <h1>About Us</h1> -->
     <CarouselModule :slides="images" :interval="3000" class="carousel" />
     <!-- 传递 deals、title 和 date 参数 -->
-    <LatestDeals :deals="deals" :title="title" :info="info" :date="date" class="latestDeals" />
+    <LatestDeals
+      :deals="deals"
+      :title="title"
+      :info="info"
+      :date="date"
+      class="latestDeals"
+    />
   </div>
 
-  <div class="app-box">
+  <div class="app-box" id="vegetables">
     <SupplyUlLeft :vegetables="vegetables" />
     <SupplyUlRight :supplies="supplies" :vegetables="vegetables" />
   </div>
@@ -16,7 +22,7 @@
     <RecommendedProducts :products="products" :vegetables="vegetables" />
   </div>
 
-  <div class="app-box">
+  <div class="app-box" id="agriculture">
     <SupplyUlLeft :vegetables="agriculture"></SupplyUlLeft>
     <SupplyUlRight :supplies="machinery" :vegetables="agriculture" />
   </div>
@@ -24,8 +30,7 @@
     <RecommendedProducts :products="equipment" :vegetables="agriculture" />
   </div>
 
-
-  <div class="app-box">
+  <div class="app-box" id="grain">
     <SupplyUlLeft :vegetables="grain"></SupplyUlLeft>
     <SupplyUlRight :supplies="rice" :vegetables="grain" />
   </div>
@@ -33,17 +38,7 @@
     <RecommendedProducts :products="noodles" :vegetables="grain" />
   </div>
 
-
-  <div class="app-box">
-    <SupplyUlLeft :vegetables="seeds"></SupplyUlLeft>
-    <SupplyUlRight :supplies="seedlings" :vegetables="seeds" />
-  </div>
-  <div class="app-box ">
-    <RecommendedProducts :products="planting" :vegetables="seeds" />
-  </div>
-
-
-  <div class="app-box">
+  <div class="app-box" id="seeds">
     <SupplyUlLeft :vegetables="seeds"></SupplyUlLeft>
     <SupplyUlRight :supplies="seedlings" :vegetables="seeds" />
   </div>
@@ -51,21 +46,18 @@
     <RecommendedProducts :products="planting" :vegetables="seeds" />
   </div>
 
-
-  <div class="app-box">
-    <SupplyUlLeft :vegetables="Agricultural "></SupplyUlLeft>
-    <SupplyUlRight :supplies="sideline " :vegetables="Agricultural " />
+  <div class="app-box" id="agricultural">
+    <SupplyUlLeft :vegetables="agricultural"></SupplyUlLeft>
+    <SupplyUlRight :supplies="sideline" :vegetables="agricultural" />
   </div>
   <div class="app-box">
-    <RecommendedProducts :products="processing" :vegetables="Agricultural" />
+    <RecommendedProducts :products="processing" :vegetables="agricultural" />
   </div>
-
 
   <Sections />
 </template>
 
 <script>
-
 import { defineComponent } from 'vue';
 // 轮播图
 import CarouselModule from '@/components/CarouselModule.vue';
@@ -77,6 +69,22 @@ import SupplyUlRight from '@/components/supply/SupplyUlRight.vue';
 import RecommendedProducts from '@/components/supply/RecommendedProducts.vue';
 import Sections from '@/components/supply/Sections.vue';
 
+// import { onMounted } from 'vue';
+// import useMainStore from '@/stores';
+// const mainStore = useMainStore();
+// const initBar = () => {
+//   mainStore.setBar([
+//     { name: '多样蔬菜', target: '#vegetables', isActive: true },
+//     { name: '农业农具', target: '#agriculture', isActive: false },
+//     { name: '粮油米面', target: '#grain', isActive: false },
+//     { name: '种子种苗', target: '#seeds', isActive: false },
+//     { name: '农副加工', target: '#agricultural', isActive: false },
+//   ]);
+// };
+
+// onMounted(() => {
+//   initBar();
+// });
 
 export default defineComponent({
   name: 'AboutView',
@@ -382,8 +390,8 @@ export default defineComponent({
             '亚麻籽油',
             '红花籽油',
             '核桃油',
-            '秋葵油'
-          ]
+            '秋葵油',
+          ],
         },
         {
           name: '调味品',
@@ -405,8 +413,8 @@ export default defineComponent({
             '汤料',
             '泡椒',
             '卤料',
-            '花生碎'
-          ]
+            '花生碎',
+          ],
         },
         {
           name: '香辛料',
@@ -427,8 +435,8 @@ export default defineComponent({
             '八角',
             '姜粉',
             '香砂仁',
-            '香草'
-          ]
+            '香草',
+          ],
         },
         {
           name: '谷物粉淀粉',
@@ -447,8 +455,8 @@ export default defineComponent({
             '木薯粉',
             '红薯干粉',
             '绿豆粉',
-            '黍米粉'
-          ]
+            '黍米粉',
+          ],
         },
         {
           name: '豆制品',
@@ -469,8 +477,8 @@ export default defineComponent({
             '豆笋',
             '豆钱子',
             '豆卷',
-            '纳豆'
-          ]
+            '纳豆',
+          ],
         },
         {
           name: '面食米食',
@@ -493,12 +501,12 @@ export default defineComponent({
             '凉皮',
             '凉粉',
             '饺子皮',
-            '馄饨皮'
-          ]
+            '馄饨皮',
+          ],
         },
         {
-          name:'粮米油面',
-        }
+          name: '粮米油面',
+        },
       ],
       seeds: [
         {
@@ -516,8 +524,8 @@ export default defineComponent({
             '猕猴桃苗',
             '桃树苗',
             '柑桔苗',
-            '柚树苗'
-          ]
+            '柚树苗',
+          ],
         },
         {
           name: '花草类种子',
@@ -531,8 +539,8 @@ export default defineComponent({
             '翠珠花种子',
             '球吉莉种子',
             '樱雪轮种子',
-            '蓍草种子'
-          ]
+            '蓍草种子',
+          ],
         },
         {
           name: '蔬菜种子',
@@ -547,8 +555,8 @@ export default defineComponent({
             '香菜种子',
             '芹菜种子',
             '韭菜种子',
-            '苦苣种子'
-          ]
+            '苦苣种子',
+          ],
         },
         {
           name: '水果类种子',
@@ -563,8 +571,8 @@ export default defineComponent({
             '柠檬种子',
             '蓝莓种子',
             '李子种子',
-            '柿子种子'
-          ]
+            '柿子种子',
+          ],
         },
         {
           name: '粮油类种子',
@@ -580,8 +588,8 @@ export default defineComponent({
             '蓖麻种子',
             '大麦种子',
             '青稞种子',
-            '燕麦种子'
-          ]
+            '燕麦种子',
+          ],
         },
         {
           name: '苗木类种子',
@@ -595,128 +603,120 @@ export default defineComponent({
             '柘树种子',
             '漆树种子',
             '山胡椒种子',
-            '羊蹄甲种子'
-          ]
+            '羊蹄甲种子',
+          ],
         },
         {
-          name:'种子种苗'
-        }
+          name: '种子种苗',
+        },
       ],
-      Agricultural: [
+      agricultural: [
         {
-          "name": "干果坚果",
-          "items": [
-            "榄钱",
-            "柿饼",
-            "红枣",
-            "枸杞",
-            "核桃",
-            "瓜子",
-            "板栗",
-            "葡萄干",
-            "桂圆干",
-            "山楂干",
-            "白果",
-            "芡实",
-            "榛子",
-            "巴旦木",
-            "杏仁",
-            "沙漠果",
-            "香榧",
-            "开心果"
-          ]
+          name: '干果坚果',
+          items: [
+            '榄钱',
+            '柿饼',
+            '红枣',
+            '枸杞',
+            '核桃',
+            '瓜子',
+            '板栗',
+            '葡萄干',
+            '桂圆干',
+            '山楂干',
+            '白果',
+            '芡实',
+            '榛子',
+            '巴旦木',
+            '杏仁',
+            '沙漠果',
+            '香榧',
+            '开心果',
+          ],
         },
         {
-          "name": "茶叶",
-          "items": [
-            "黑茶",
-            "普洱",
-            "乌龙茶",
-            "绿茶",
-            "红茶",
-            "花草茶",
-            "黄茶",
-            "白茶",
-            "茶粉"
-          ]
+          name: '茶叶',
+          items: [
+            '黑茶',
+            '普洱',
+            '乌龙茶',
+            '绿茶',
+            '红茶',
+            '花草茶',
+            '黄茶',
+            '白茶',
+            '茶粉',
+          ],
         },
         {
-          "name": "肉制品加工",
-          "items": [
-            "熟羊肉",
-            "火腿",
-            "腊肉",
-            "板鸭",
-            "肉卷",
-            "腌咸鸭",
-            "腌咸肉",
-            "腌咸鹅",
-            "甲鱼干",
-            "籽乌干",
-            "章鱼干",
-            "鱼鳞干",
-            "鱿鱼干",
-            "腌咸螺",
-            "蚬子干",
-            "腌咸鸡",
-            "烧鸡",
-            "卤鸭",
-            "熟牛肉",
-            "熟鸡肉",
-            "熟鸽肉",
-            "熟鹅肉",
-            "腊羊肉"
-          ]
+          name: '肉制品加工',
+          items: [
+            '熟羊肉',
+            '火腿',
+            '腊肉',
+            '板鸭',
+            '肉卷',
+            '腌咸鸭',
+            '腌咸肉',
+            '腌咸鹅',
+            '甲鱼干',
+            '籽乌干',
+            '章鱼干',
+            '鱼鳞干',
+            '鱿鱼干',
+            '腌咸螺',
+            '蚬子干',
+            '腌咸鸡',
+            '烧鸡',
+            '卤鸭',
+            '熟牛肉',
+            '熟鸡肉',
+            '熟鸽肉',
+            '熟鹅肉',
+            '腊羊肉',
+          ],
         },
         {
-          "name": "水产加工",
-          "items": [
-            "甲鱼干",
-            "籽乌干",
-            "章鱼干",
-            "鱼鳞干",
-            "鱿鱼干",
-            "腌咸螺",
-            "蚬子干",
-            "腌咸虾",
-            "虾仁",
-            "虾皮",
-            "虾干",
-            "沙虫干",
-            "墨鱼干",
-            "卤甲鱼",
-            "龙须菜干"
-          ]
+          name: '水产加工',
+          items: [
+            '甲鱼干',
+            '籽乌干',
+            '章鱼干',
+            '鱼鳞干',
+            '鱿鱼干',
+            '腌咸螺',
+            '蚬子干',
+            '腌咸虾',
+            '虾仁',
+            '虾皮',
+            '虾干',
+            '沙虫干',
+            '墨鱼干',
+            '卤甲鱼',
+            '龙须菜干',
+          ],
         },
         {
-          "name": "营养滋补",
-          "items": [
-            "蜂蜜",
-            "花粉",
-            "桃胶",
-            "雪燕",
-            "皂角米",
-            "鱼鳔",
-            "蜂王浆"
-          ]
+          name: '营养滋补',
+          items: ['蜂蜜', '花粉', '桃胶', '雪燕', '皂角米', '鱼鳔', '蜂王浆'],
         },
         {
-          "name": "速食食品",
-          "items": [
-            "速冻蔬果",
-            "饼干糕点",
-            "蜜饯果脯",
-            "休闲零食",
-            "罐头",
-            "方便食品",
-            "糖果",
-            "丸滑类",
-            "冲饮"
-          ]
+          name: '速食食品',
+          items: [
+            '速冻蔬果',
+            '饼干糕点',
+            '蜜饯果脯',
+            '休闲零食',
+            '罐头',
+            '方便食品',
+            '糖果',
+            '丸滑类',
+            '冲饮',
+          ],
         },
         {
-          name:'农副加工'
-        }
+          name: '农副加工',
+        },
       ],
 
       //蔬菜分类 右栏
@@ -764,59 +764,83 @@ export default defineComponent({
         },
       ],
       rice: [
-        { name: '黄剁辣椒坛香剁椒源头产地直供湖南剁辣椒...', price: '2.99', unit: '斤' },
+        {
+          name: '黄剁辣椒坛香剁椒源头产地直供湖南剁辣椒...',
+          price: '2.99',
+          unit: '斤',
+        },
         { name: '八角大茴香大料', price: '28', unit: '斤' },
-        { name: '莳萝子莳实落子石落子石萝子莳梦落子落子萝子', price: '38', unit: '斤' },
-        { name: '长沙市雨花区大量批发供应各类优质大米', price: '2.2', unit: '斤' },
+        {
+          name: '莳萝子莳实落子石落子石萝子莳梦落子落子萝子',
+          price: '38',
+          unit: '斤',
+        },
+        {
+          name: '长沙市雨花区大量批发供应各类优质大米',
+          price: '2.2',
+          unit: '斤',
+        },
         { name: '五常大米河水灌溉黑土地农户自产自销', price: '68', unit: '斤' },
-        { name: '农家自种自己加工的嘎嘎纯嘎板正的红薯...', price: '13', unit: '斤' },
-        { name: '芭蕉芋淀粉', price: '9000', unit: '吨' }
+        {
+          name: '农家自种自己加工的嘎嘎纯嘎板正的红薯...',
+          price: '13',
+          unit: '斤',
+        },
+        { name: '芭蕉芋淀粉', price: '9000', unit: '吨' },
       ],
       seedlings: [
         { name: '花牛苹果树苗蛇果树苗当年挂果', price: '4.8', unit: '棵' },
         { name: '丑苹果树苗苹果树苗南北方都可种植', price: '4.8', unit: '棵' },
-        { name: '楠木苗直发贵州毕节健康种苗安心种植绿化...', price: '0.5', unit: '棵' },
-        { name: '贵州省优质薄皮核桃苗供应大方县直发', price: '0.6', unit: '棵' },
+        {
+          name: '楠木苗直发贵州毕节健康种苗安心种植绿化...',
+          price: '0.5',
+          unit: '棵',
+        },
+        {
+          name: '贵州省优质薄皮核桃苗供应大方县直发',
+          price: '0.6',
+          unit: '棵',
+        },
         { name: '贵州省大方县高品质杉木树苗供应', price: '0.18', unit: '棵' },
         { name: '红美人三年苗杉木苗供应', price: '40', unit: '棵' },
-        { name: '大量出售蜂糖李苗直生苗嫁接苗', price: '8', unit: '棵' }
+        { name: '大量出售蜂糖李苗直生苗嫁接苗', price: '8', unit: '棵' },
       ],
       sideline: [
         {
           name: '广西钦州特产新鲜嫩黄瓜皮下饭菜农家腌制香...',
           price: '5.8',
-          unit: '斤'
+          unit: '斤',
         },
         {
           name: '广西广东特产年份黑老菜脯老萝卜干自制农...',
           price: '8.5',
-          unit: '斤'
+          unit: '斤',
         },
         {
           name: '卜豆角精品源头产地地扑豆角曝豆角下饭菜湖南...',
           price: '3.99',
-          unit: '斤'
+          unit: '斤',
         },
         {
           name: '长沙面包 糖渣 提供饲料厂 养殖户好帮手',
           price: '2400',
-          unit: '吨'
+          unit: '吨',
         },
         {
           name: '武汉面包',
           price: '2000',
-          unit: '吨'
+          unit: '吨',
         },
         {
           name: '枣夹腰果网红腰果泡芙奶酪奶香夹心腰果奶...',
           price: '18',
-          unit: '斤'
+          unit: '斤',
         },
         {
           name: '陇康土蜂蜜，一年取一次蜜',
           price: '60',
-          unit: '斤'
-        }
+          unit: '斤',
+        },
       ],
       //好物推荐
       products: [

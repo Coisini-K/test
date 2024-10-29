@@ -34,7 +34,8 @@ import useMainStore from '@/stores';
 const mainStore = useMainStore();
 
 const initBar = () => {
-  mainStore.setBar([{ name: '首页', isActive: true },
+  mainStore.setBar([
+    { name: '首页', isActive: true },
     { name: '服务', isActive: false },
     { name: '关于我们', isActive: false },
     { name: '联系我们', isActive: false },]);

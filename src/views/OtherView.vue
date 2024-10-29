@@ -84,9 +84,11 @@ import { onMounted } from 'vue';
 import useMainStore from '@/stores';
 const mainStore = useMainStore();
 const initBar = () => {
-  mainStore.setBar([{ name: '你好', isActive: true },
-  { name: '信息', isActive: false },
-  { name: '关于', isActive: false },]);
+  mainStore.setBar([
+    { name: '你好',  target: '#hello',isActive: true },
+    { name: '信息', target: '#hell',isActive: false },
+    { name: '关于', target: '#heo',isActive: false },
+  ]);
 };
 
 onMounted(() => {
