@@ -1,10 +1,20 @@
 <template>
-  <div class="recommended-products">
-    <h2>好货推荐·{{ vegetables[6]?.name || '推荐分类' }}</h2>
-    <div class="product" v-for="(product, index) in products" :key="index">
-      <img :src="product.image || '/path/to/default-image.jpg'" alt="Product Image" />
+  <div class="recommended-products" :style="{ height: height }">
+    <h2 v-if="title">好货推荐·{{ vegetables[6]?.name || '推荐分类' }}</h2>
+    <div
+      class="product"
+      v-for="(product, index) in products"
+      :key="index"
+      :style="{ width: width }"
+    >
+      <img
+        :src="product.image || '/path/to/default-image.jpg'"
+        alt="Product Image"
+      />
       <div class="product-info">
-        <span class="price">{{ product.price || '价格' }}元/{{ product.unit || '单位' }}</span>
+        <span class="price"
+          >{{ product.price || '价格' }}元/{{ product.unit || '单位' }}</span
+        >
         <span class="description">{{ product.description || '描述' }}</span>
         <span class="title">{{ product.title || '标题' }}</span>
       </div>
@@ -14,15 +24,29 @@
 
 <script setup>
 const props = defineProps({
+  title: {
+    type: Boolean,
+    default: false,
+  },
+  width: {
+    type: String,
+    required: false,
+    default: '195px',
+  },
+  height: {
+    type: String,
+    required: false,
+    default: '360px',
+  },
   products: {
     type: Array,
     required: true,
-    default: () => []
+    default: () => [],
   },
   vegetables: {
     type: Array,
-    required: true,
-    default: () => []
+    required: false,
+    default: () => [],
   },
 });
 </script>
@@ -32,9 +56,10 @@ const props = defineProps({
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   width: 100%;
-  height: 350px;
+  /* 高度 可通过父组件传递参数设置 */
+  height: 360px;
   /* background-color: rgb(255, 255, 255); */
 }
 
@@ -43,10 +68,15 @@ const props = defineProps({
   height: 50px;
   font-weight: bold;
   font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  /* margin-top: 20px; */
 }
 
 .product {
-  width: 16.5%;
+  /* 宽度 可通过父组件传递参数设置 */
+  width: 195px;
   height: 300px;
   /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
   /* border-radius: 4px; */
@@ -68,13 +98,13 @@ const props = defineProps({
 
   padding: 0 10px 10px 10px;
   width: 100%;
-  height: 100px;
+  height: 80px;
   /* text-align: center; */
 }
 
 .title {
   width: 100%;
-  height: 50px;
+  height: 20px;
   overflow: hidden;
   /* 隐藏超出的内容 */
   text-overflow: ellipsis;
@@ -84,17 +114,22 @@ const props = defineProps({
 }
 
 .product-info .price {
-  width: 55%;
+  width: 95px;
   height: 50px;
-  font-size: 1em;
+  font-size: 1.2em;
   color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* margin-right: 9px; */
 }
 
 .product-info .description {
-  width: 45%;
+  width: 80px;
   height: 50px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   color: darkgrey;
 }
 </style>

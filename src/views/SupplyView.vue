@@ -1,4 +1,5 @@
 <template>
+  <!-- <div class="home_box"> -->
   <div class="about">
     <div class="about-box">
       <CarouselModule :slides="images" :interval="3000" class="carousel" />
@@ -29,12 +30,14 @@
         <RecommendedProducts
           :products="section.products"
           :vegetables="section.vegetables"
+          :title="true"
         />
       </template>
     </div>
 
     <Sections />
   </div>
+  <!-- </div> -->
 </template>
 
 <script setup>
@@ -47,7 +50,7 @@ import LatestDeals from '@/components/LatestDeals.vue';
 // 供应页面文字左右列表及图片列表
 import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
 import SupplyUlRight from '@/components/supply/SupplyUlRight.vue';
-import RecommendedProducts from '@/components/supply/RecommendedProducts.vue';
+import RecommendedProducts from '@/components/RecommendedProducts.vue';
 import Sections from '@/components/supply/Sections.vue';
 
 // 左边电梯导航栏
@@ -86,7 +89,18 @@ const images = [
 // 成交数据
 const title = ref(true);
 const info = ref('最新成交');
-const date = ref('2024-10-19');
+  // 获取当前日期并格式化
+const date = ref(formatCurrentDate());
+// 格式化当前日期的函数
+function formatCurrentDate() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+// const date = ref('2024-10-19');
+
 const deals = [
   {
     area: '1郑州市荣阳 ',
@@ -817,42 +831,42 @@ const products = [
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '广西/云南黄金水果玉米新鲜发货3/5/9斤一件代发包邮批发',
     price: '16.80',
-    unit: '/箱',
+    unit: '箱',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '北虫草 【500g大孢子头】虫草虫草花金虫草蛹虫草干货泡茶',
     price: '4.60',
-    unit: '/包',
+    unit: '包',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '古田丑耳3朵试吃装',
     price: '11.90',
-    unit: '/包',
+    unit: '包',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '黑木耳 富贵干货大礼包B款，年货送礼高档礼盒装',
     price: '59.00',
-    unit: '/袋',
+    unit: '袋',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '福建古田银耳现摘现发古田白木耳易糯多胶，1朵100G左右',
     price: '3.00',
-    unit: '/朵',
+    unit: '朵',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '蒙阴紫罗兰紫薯-皮薄肉细，软糯香甜，口口惊艳，好吃到惊讶',
     price: '14.50',
-    unit: '/袋',
+    unit: '袋',
     description: '成交45元',
   },
 ];
@@ -861,42 +875,42 @@ const equipment = [
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '80%代森锰锌1000克 代森猛锌辛杀菌剂早疫病黑星病炭疽病',
     price: '31.80',
-    unit: '/袋',
+    unit: '袋',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '颗粒锌 田当家EDTA螯合锌微量元素叶面肥糖醇小分子锌小叶黄',
     price: '28.00',
-    unit: '/袋',
+    unit: '袋',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '飞防专用助剂航空植保无人机增效剂防漂移促沉降强渗透耐冲刷',
     price: '55.00',
-    unit: '/瓶',
+    unit: '瓶',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '36%春雷喹啉铜溃疡病角斑病软腐病稻瘟病细菌病害专用杀菌剂',
     price: '2.00',
-    unit: '/袋',
+    unit: '袋',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '0.5%阿维菌素颗粒剂 阿维菌素农药黄瓜根结线虫杀虫剂',
     price: '3.00',
-    unit: '/袋',
+    unit: '袋',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '蒙阴紫罗兰紫薯-皮薄肉细，软糯香甜，口口惊艳，好吃到惊讶',
     price: '11.80',
-    unit: '/袋',
+    unit: '袋',
     description: '成交45元',
   },
 ];
@@ -905,42 +919,42 @@ const noodles = [
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '梅花椒 韩城大红袍梅花花椒产地直销包邮',
     price: '31.80',
-    unit: '/斤',
+    unit: '斤',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '【东北燕麦米】燕麦仁农家裸燕麦新米胚芽米燕麦粒杂粮粗粮包邮',
     price: '3.29',
-    unit: '/袋',
+    unit: '袋',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '大红袍花椒 陕西2024新大红袍，红花椒颗粒。开口98以上',
     price: '55.00',
-    unit: '/斤',
+    unit: '斤',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '玉米油5升新疆纯正玉米物理压榨营养浓香食用油批发',
     price: '69.00',
-    unit: '/桶',
+    unit: '桶',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '包邮~内蒙古敖汉旗有机四色小米黑小米绿小米黄小米白小米',
     price: '36.00',
-    unit: '/袋',
+    unit: '袋',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '蒜蓉剁椒10斤/桶，烤生蚝茄子小龙虾调味料，48小时发货',
     price: '99.80',
-    unit: '/桶',
+    unit: '桶',
     description: '成交45元',
   },
 ];
@@ -949,42 +963,42 @@ const planting = [
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '红树莓苗 天然绿色养生水果树莓',
     price: '3.00',
-    unit: '/株',
+    unit: '株',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '凯撒大帝西芹种子净含量100克大颗芹菜 不空心口感好',
     price: '60.00',
-    unit: '/罐',
+    unit: '罐',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '神秘果苗 四季开花结果，当年种当年挂果，5年苗带营养袋发货',
     price: '89.00',
-    unit: '/株',
+    unit: '株',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '野菊花种子多年生野黄色菊花山坡路边野生花种籽子室外易活盆栽',
     price: '1.50',
-    unit: '/袋',
+    unit: '袋',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '红蕉苗',
     price: '7.50',
-    unit: '/株',
+    unit: '株',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '基地直发木春菊苗 绿化工程苗 四季开花 庭院种植 盆栽苗',
     price: '0.60',
-    unit: '/棵',
+    unit: '棵',
     description: '成交45元',
   },
 ];
@@ -993,42 +1007,42 @@ const processing = [
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '茶友们正山小种红茶正宗浓香型2024新茶叶礼盒装散装500g',
     price: '188.00',
-    unit: '/斤',
+    unit: '斤',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '涪陵榨菜手工榨菜218克装',
     price: '3.08',
-    unit: '/瓶',
+    unit: '瓶',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '草鱼条 地摊 电商 批发 精品草鱼条干 干草鱼 鱼干 干鱼',
     price: '9.00',
-    unit: '/斤',
+    unit: '斤',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '新疆红枣片 500g一包',
     price: '14.90',
-    unit: '/斤',
+    unit: '斤',
     description: '成交45元',
   },
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '味哲熊猫版螺蛳粉8袋*315g',
     price: '19.00',
-    unit: '/箱',
+    unit: '箱',
     description: '成交8.3万元',
   },
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
     title: '包邮~新疆喀什疆果果中秋节礼盒新疆特产坚果干果悦味',
     price: '99.80',
-    unit: '/箱',
+    unit: '箱',
     description: '成交45元',
   },
 ];
