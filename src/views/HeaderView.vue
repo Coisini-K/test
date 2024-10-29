@@ -147,16 +147,26 @@ onUnmounted(() => {
   /* border: 1px solid #000000; */
 }
 
-.main_left_img_max img,
-.main_left_img_min img {
-  width: 100%;
-  height: 100%;
-  /* border: 1px solid #000000; */
+.main_right {
+  width: 120px;
+  height: 180px;
 }
 
 .main_right_img {
-  width: 200px;
+  width: 100%;
   height: 120px;
+}
+
+.main_right_txt{
+  font-size: 0.8rem;
+}
+
+.main_left_img_max img,
+.main_left_img_min img,
+.main_right_img img {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid #000000; */
 }
 
 .top {
