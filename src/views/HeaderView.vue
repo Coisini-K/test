@@ -27,11 +27,15 @@
 
         <div class="main_main"></div>
 
-        <div class="main_right">
+        <div class="main_right" :class="{ top_right: !isSticky }">
           <div class="main_right_img">
             <img src="@/assets/images/header/QR.png" alt="no!" />
           </div>
-          <div class="main_right_txt">下载惠农网APP 手机询价，沟通更方便</div>
+
+          <div class="main_right_txt">
+            <div>下载惠农网APP</div>
+            <div>手机询价，沟通更方便</div>
+          </div>
         </div>
       </div>
       <div class="bar">
@@ -149,16 +153,17 @@ onUnmounted(() => {
 
 .main_right {
   width: 120px;
-  height: 180px;
+  height: 160px;
 }
 
 .main_right_img {
-  width: 100%;
+  width: 120px;
   height: 120px;
 }
 
-.main_right_txt{
-  font-size: 0.8rem;
+.main_right_txt {
+  font-size: 0.7rem;
+  text-align: center;
 }
 
 .main_left_img_max img,
@@ -180,6 +185,19 @@ onUnmounted(() => {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 100;
   border: 1px solid #ccc;
+}
+
+.top_right {
+  width: 180px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.top_right .main_right_img {
+  width: 52px;
+  height: 52px;
 }
 
 .bar {
