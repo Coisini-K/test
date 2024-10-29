@@ -62,16 +62,27 @@
   </ul>
 
   <div class="info-container-ul">
-    <LatestDeals :deals="deals" title="最新成交" date="2024-10-19" iterations="100" />
+    <LatestDeals
+      :deals="deals"
+      :title="title"
+      :info="info"
+      :date="date"
+      :iterations="iterations"
+    />
   </div>
 </template>
 
 <script setup>
-import {  onMounted } from 'vue';
+import { onMounted } from 'vue';
 import useMainStore from '@/stores';
 const mainStore = useMainStore();
 
 import LatestDeals from '@/components/LatestDeals.vue';
+
+const title = true;
+const info = '最新成交';
+const date = '2024-10-19';
+const iterations = 520;
 
 const clearBar = () => {
   mainStore.clearBar();
@@ -89,7 +100,6 @@ const deals = [
   { area: '广州', sellerName: '王五', productType: '家具' },
   // 更多数据...
 ];
-
 
 // 定义增加计数的函数
 function incrementCount() {

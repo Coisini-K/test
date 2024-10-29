@@ -27,11 +27,25 @@ const deals = areas.map((area, index) => ({
 // 3.除了deals是必须的，其他均可选
 <LatestDeals
 	:deals="deals"
-	title="true"
+	title=true
 	info="最新成交"
 	date="2024-10-19"
-	iterations="100"
+	iterations=100
 />
+
+// 4.建议使用变量引用方式，提高可维护性和安全性
+<LatestDeals
+  :deals="deals"
+  :title="title"
+  :info="info"
+  :date="date"
+  :iterations="iterations"
+/>
+const deals = [...];
+const title = true;
+const info = '最新成交';
+const date = '2024-10-19';
+const iterations = 100;
 -->
 <template>
   <!-- 外层容器 -->
@@ -85,7 +99,7 @@ const props = defineProps({
   title: { type: Boolean, default: false },
   info: { type: String, default: '' },
   date: { type: String, default: '' },
-  iterations: { type: Number, default: 40 },
+  iterations: { type: Number, default: 50 },
 });
 
 // 可见的交易数据
@@ -99,6 +113,7 @@ const tableBody = ref(null);
 
 // 组件挂载时执行数据的存储和重复
 onMounted(() => {
+  // console.log(props);
   storeAndRepeatData(props.deals, props.iterations);
 });
 

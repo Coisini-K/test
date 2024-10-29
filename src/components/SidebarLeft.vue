@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, watchEffect } from 'vue';
 import useMainStore from '@/stores';
 const mainStore = useMainStore();
 
@@ -24,12 +24,20 @@ const items = computed(() => {
 });
 
 // 使用 vue 的 watchEffect 来监听 items 的变化
-// watchEffect(() => {
-  // console.log("Watched items value:", items.value);
-// });
+watchEffect(() => {
+  // console.log('Watched items value:', items.value);
+});
 
 function navigate(item) {
+  // 更新所有项的激活状态
   items.value.forEach((i) => (i.isActive = i === item));
+  // 滚动到目标位置
+  if (item.target) {
+    const targetElement = document.querySelector(item.target);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
 </script>
 

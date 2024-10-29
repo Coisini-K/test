@@ -2,7 +2,7 @@
 
 <template>
   <div ref="navbarRef" class="navbar">
-    <nav :class="{ 'is-fixed': isSticky }">
+    <nav>
       <RouterLink v-once :to="homePath" class="nav-link">Home</RouterLink>
       <RouterLink v-once :to="aboutPath" class="nav-link">About</RouterLink>
       <RouterLink v-once :to="otherPath" class="nav-link">Other</RouterLink>
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import {
   HOME_PATH,
@@ -27,29 +27,6 @@ const homePath = ref(HOME_PATH);
 const aboutPath = ref(ABOUT_PATH);
 const otherPath = ref(OTHER_PATH);
 const supplyPath = ref(SUPPLY_PATH);
-
-const isSticky = ref(false);
-
-const handleScroll = () => {
-  if (window.scrollY > 0) {
-    isSticky.value = true;
-  } else {
-    isSticky.value = false;
-  }
-};
-
-onMounted(() => {
-  // 监听滚动事件
-  // window.addEventListener('scroll', handleScroll)
-
-  // 初始化状态
-  handleScroll();
-});
-
-onUnmounted(() => {
-  // 移除滚动监听器
-  // window.removeEventListener('scroll', handleScroll)
-});
 </script>
 
 <style scoped>
@@ -60,7 +37,7 @@ onUnmounted(() => {
 	flex-direction: column;
 	align-content: center;
 	justify-content: center; */
-  background-color: #fff;
+  /* background-color: #fff; */
   /* z-index: 1000; */
   transition: all 0.3s ease-out;
 }
@@ -71,7 +48,7 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .nav-link {
@@ -86,13 +63,4 @@ nav {
   color: #007bff;
 }
 
-nav.is-fixed {
-  position: fixed;
-  width: 100%;
-  max-width: 1200px;
-  top: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-}
 </style>

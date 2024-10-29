@@ -2,7 +2,13 @@
   <div class="about">
     <div class="about-box">
       <CarouselModule :slides="images" :interval="3000" class="carousel" />
-      <LatestDeals :deals="deals" :title="title" :info="info" :date="date" class="latestDeals" />
+      <LatestDeals
+      :deals="deals"
+      :title="title"
+      :info="info"
+      :date="date"
+      class="latestDeals"
+    />
     </div>
 
     <div v-for="(section, index) in allSections" :key="`section-${index}`" class="app-box">
@@ -15,14 +21,55 @@
         <RecommendedProducts :products="section.products" :vegetables="section.vegetables" />
       </template>
     </div>
+  <div class="app-box" id="vegetables">
+    <SupplyUlLeft :vegetables="vegetables" />
+    <SupplyUlRight :supplies="supplies" :vegetables="vegetables" />
+  </div>
+  <div class="app-box">
+    <RecommendedProducts :products="products" :vegetables="vegetables" />
+  </div>
+
+  <div class="app-box" id="agriculture">
+    <SupplyUlLeft :vegetables="agriculture"></SupplyUlLeft>
+    <SupplyUlRight :supplies="machinery" :vegetables="agriculture" />
+  </div>
+  <div class="app-box">
+    <RecommendedProducts :products="equipment" :vegetables="agriculture" />
+  </div>
 
     <Sections />
+  <div class="app-box" id="grain">
+    <SupplyUlLeft :vegetables="grain"></SupplyUlLeft>
+    <SupplyUlRight :supplies="rice" :vegetables="grain" />
   </div>
+  <div class="app-box">
+    <RecommendedProducts :products="noodles" :vegetables="grain" />
+  </div>
+
+  <div class="app-box" id="seeds">
+    <SupplyUlLeft :vegetables="seeds"></SupplyUlLeft>
+    <SupplyUlRight :supplies="seedlings" :vegetables="seeds" />
+  </div>
+  <div class="app-box">
+    <RecommendedProducts :products="planting" :vegetables="seeds" />
+  </div>
+
+  <div class="app-box" id="agricultural">
+    <SupplyUlLeft :vegetables="agricultural"></SupplyUlLeft>
+    <SupplyUlRight :supplies="sideline" :vegetables="agricultural" />
+  </div>
+  <div class="app-box">
+    <RecommendedProducts :products="processing" :vegetables="agricultural" />
+  </div>
+
+  <Sections />
 </template>
 
 <script setup>
 import { ref, computed } from 'vue';
 
+<script>
+import { defineComponent } from 'vue';
 // 轮播图
 import CarouselModule from '@/components/CarouselModule.vue';
 // 文字列表滚动
@@ -280,7 +327,7 @@ const machinery = [
   { name: '五常大米河水灌溉黑土地农户自产自销', price: '68', unit: '斤' },
   { name: '农家自种自己加工的嘎嘎纯嘎板正的红薯...', price: '13', unit: '斤' },
   { name: '芭蕉芋淀粉', price: '9000', unit: '吨' }
-];const seedlings= [
+]; const seedlings = [
   { name: '花牛苹果树苗蛇果树苗当年挂果', price: '4.8', unit: '棵' },
   { name: '丑苹果树苗苹果树苗南北方都可种植', price: '4.8', unit: '棵' },
   { name: '楠木苗直发贵州毕节健康种苗安心种植绿化...', price: '0.5', unit: '棵' },
@@ -288,7 +335,7 @@ const machinery = [
   { name: '贵州省大方县高品质杉木树苗供应', price: '0.18', unit: '棵' },
   { name: '红美人三年苗杉木苗供应', price: '40', unit: '棵' },
   { name: '大量出售蜂糖李苗直生苗嫁接苗', price: '8', unit: '棵' }
-]; const sideline= [
+]; const sideline = [
   {
     name: '广西钦州特产新鲜嫩黄瓜皮下饭菜农家腌制香...', price: '5.8', unit: '斤'
   },
@@ -332,26 +379,26 @@ const products = [
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '蒙阴紫罗兰紫薯-皮薄肉细，软糯香甜，口口惊艳，好吃到惊讶', price: '14.50', unit: '/袋', description: '成交45元',
   },
-]; const equipment= [
+]; const equipment = [
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '80%代森锰锌1000克 代森猛锌辛杀菌剂早疫病黑星病炭疽病', price: '31.80', unit: '/袋', description: '成交8.3万元',
-        },
-{
-  image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '颗粒锌 田当家EDTA螯合锌微量元素叶面肥糖醇小分子锌小叶黄', price: '28.00', unit: '/袋', description: '成交45元',
-        },
-{
-  image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '飞防专用助剂航空植保无人机增效剂防漂移促沉降强渗透耐冲刷', price: '55.00', unit: '/瓶', description: '成交8.3万元',
-        },
-{
-  image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '36%春雷喹啉铜溃疡病角斑病软腐病稻瘟病细菌病害专用杀菌剂', price: '2.00', unit: '/袋', description: '成交45元',
-        },
-{
-  image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '0.5%阿维菌素颗粒剂 阿维菌素农药黄瓜根结线虫杀虫剂', price: '3.00', unit: '/袋', description: '成交8.3万元',
-        },
-{
-  image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '蒙阴紫罗兰紫薯-皮薄肉细，软糯香甜，口口惊艳，好吃到惊讶', price: '11.80', unit: '/袋', description: '成交45元',
-        },
-]; const noodles= [
+  },
+  {
+    image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '颗粒锌 田当家EDTA螯合锌微量元素叶面肥糖醇小分子锌小叶黄', price: '28.00', unit: '/袋', description: '成交45元',
+  },
+  {
+    image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '飞防专用助剂航空植保无人机增效剂防漂移促沉降强渗透耐冲刷', price: '55.00', unit: '/瓶', description: '成交8.3万元',
+  },
+  {
+    image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '36%春雷喹啉铜溃疡病角斑病软腐病稻瘟病细菌病害专用杀菌剂', price: '2.00', unit: '/袋', description: '成交45元',
+  },
+  {
+    image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '0.5%阿维菌素颗粒剂 阿维菌素农药黄瓜根结线虫杀虫剂', price: '3.00', unit: '/袋', description: '成交8.3万元',
+  },
+  {
+    image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '蒙阴紫罗兰紫薯-皮薄肉细，软糯香甜，口口惊艳，好吃到惊讶', price: '11.80', unit: '/袋', description: '成交45元',
+  },
+]; const noodles = [
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '梅花椒 韩城大红袍梅花花椒产地直销包邮', price: '31.80', unit: '/斤', description: '成交8.3万元',
   },
@@ -370,7 +417,7 @@ const products = [
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '蒜蓉剁椒10斤/桶，烤生蚝茄子小龙虾调味料，48小时发货', price: '99.80', unit: '/桶', description: '成交45元',
   },
-]; const planting= [
+]; const planting = [
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '红树莓苗 天然绿色养生水果树莓', price: '3.00', unit: '/株', description: '成交8.3万元',
   },
@@ -389,7 +436,7 @@ const products = [
   {
     image: new URL('@/assets/images/aos/2.webp', import.meta.url).href, title: '基地直发木春菊苗 绿化工程苗 四季开花 庭院种植 盆栽苗', price: '0.60', unit: '/棵', description: '成交45元',
   },
-]; const processing= [
+]; const processing = [
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href, title: '茶友们正山小种红茶正宗浓香型2024新茶叶礼盒装散装500g', price: '188.00', unit: '/斤', description: '成交8.3万元',
   },
@@ -412,7 +459,7 @@ const products = [
 
 const allSections = computed(() => {
   // 第一组：vegetables, supplies, products
-  const firstGroup = vegetables.slice(0,1).map((veg, index) => [
+  const firstGroup = vegetables.slice(0, 1).map((veg, index) => [
     { vegetables: vegetables, supplies, type: 'supply' },
     { products, vegetables: vegetables, type: 'product' },
   ]).flat();
@@ -444,12 +491,12 @@ const allSections = computed(() => {
 </script>
 
 <style scoped>
-.about-box{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    /* border: 1px solid #333; */
-  }
+.about-box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* border: 1px solid #333; */
+}
 
 .carousel {
   width: 700px;
