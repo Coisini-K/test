@@ -19,10 +19,12 @@ import HeaderView from '@/views/HeaderView.vue';
 <style scoped>
 .container {
   /* border: 1px solid #000000; */
-  width: 1230px;
+  width: 1600px;
+  max-width: 100vw;
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
   align-items: center;
   justify-content: center;
 }

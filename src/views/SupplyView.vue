@@ -897,7 +897,7 @@ export default defineComponent({
         },
         {
           image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
-          title: '颗粒锌 田当家EDTA螯合锌微量元素叶面肥糖醇小分子锌小叶黄',
+          title: '颗粒锌 田当家ED TA螯合锌微量元素叶面肥糖醇小分子锌小叶黄',
           price: '28.00',
           unit: '/袋',
           description: '成交45元',
