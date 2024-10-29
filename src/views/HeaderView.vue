@@ -52,7 +52,7 @@ import { onMounted, onUnmounted, ref } from 'vue';
 const isSticky = ref(true);
 
 const handleScroll = () => {
-  if (window.scrollY > 0) {
+  if (window.scrollY > 320) {
     isSticky.value = false;
   } else {
     isSticky.value = true;
@@ -130,13 +130,14 @@ onUnmounted(() => {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
 }
 
 .main_left {
   /* width: 320px; */
   /* height: 80%; */
-  border: 1px solid #ff0000;
+  /* border: 1px solid #ff0000; */
+  padding:5px 0 ;
 }
 
 .main_left_img_max {
@@ -175,7 +176,7 @@ onUnmounted(() => {
 }
 
 .top {
-  height: 60px;
+  height: 72px;
   width: 100%;
   max-width: 100vw;
   position: fixed;
