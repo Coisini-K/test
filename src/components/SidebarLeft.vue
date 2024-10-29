@@ -1,6 +1,6 @@
 <template>
-  <div class="sidebar">
-    <div class="sidebar-header"></div>
+  <div class="sidebar" v-if="isSticky">
+    <!-- <div class="sidebar-header"></div> -->
     <nav class="sidebar-nav">
       <ul>
         <li v-for="(item, index) in items" :key="index" @click="navigate(item)">
@@ -25,6 +25,8 @@ const items = computed(() => {
 
 // 存储目标元素的位置
 const targetPositions = ref([]);
+// 根据滚动高度决定是否显示组件
+const isSticky = ref(false);
 
 // 是否已添加滚动监听器
 let hasAddedScrollListener = false;
@@ -66,7 +68,7 @@ function addScrollListener() {
 function removeScrollListener() {
   if (hasAddedScrollListener) {
     window.removeEventListener('scroll', handleScroll);
-   hasAddedScrollListener = false;
+    hasAddedScrollListener = false;
   }
 }
 
@@ -74,6 +76,11 @@ function removeScrollListener() {
 function handleScroll() {
   const scrollTop = window.scrollY;
   let activeIndex = 0;
+  if (scrollTop > 320) {
+    isSticky.value = true;
+  } else {
+    isSticky.value = false;
+  }
 
   for (let i = 0; i < targetPositions.value.length; i++) {
     if (scrollTop > targetPositions.value[i] - 100) {
@@ -134,34 +141,56 @@ function navigate(item) {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 120px;
-  background-color: #f8f9fa;
-  padding: 1rem;
+  top: 30%;
+  left: 135px;
+  /* height: 640px; */
+  /* width: 60px; */
+  /* padding: 1rem; */
   z-index: 99;
+  /* border: 1px solid #333; */
 }
 
-.sidebar-header {
-  margin-bottom: 1rem;
+.sidebar-nav {
+  width: 100%;
+  height: 100%;
 }
 
 .sidebar-nav ul {
-  list-style-type: none;
+  width: 100%;
+  height: 100%;
   padding: 0;
+  list-style-type: none;
+}
+
+.sidebar-nav li {
+  width: 60px;
+  height: 60px;
+  margin: 1px 0;
+  /* border-radius:15px; */
+  /* background-color: #ffffff; */
 }
 
 .sidebar-nav a {
+  width: 100%;
+  height: 100%;
   display: block;
-  padding: 0.5rem;
-  text-decoration: none;
   color: #333;
+  font-size: 1rem;
+  border-radius: 10px;
+  /* padding: 30px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #ffffff;
+
   transition: background-color 0.3s ease;
 }
 
-.sidebar-nav a:hover,
+.sidebar-nav a:hover {
+  cursor: pointer;
+}
 .sidebar-nav a.active {
-  background-color: #e9ecef;
+  background-color: #a9f8b5;
 }
 </style>
