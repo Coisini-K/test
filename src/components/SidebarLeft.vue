@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { computed, watchEffect } from 'vue';
+import { computed, onMounted, onUnmounted, watchEffect, ref } from 'vue';
 import useMainStore from '@/stores';
 const mainStore = useMainStore();
 
@@ -23,11 +23,73 @@ const items = computed(() => {
   return barItems;
 });
 
-// 使用 vue 的 watchEffect 来监听 items 的变化
-// watchEffect(() => {
-// console.log('Watched items value:', items.value);
-// });
+// 存储目标元素的位置
+const targetPositions = ref([]);
 
+// 是否已添加滚动监听器
+let hasAddedScrollListener = false;
+
+// 使用 vue 的 watchEffect 来监听 items 的变化
+watchEffect(() => {
+  // console.log('Watched items value:', items.value);
+  updateTargetPositions();
+  removeScrollListener();
+  addScrollListener();
+});
+
+// 在组件挂载完成后初始化目标元素的位置
+onMounted(() => {
+  updateTargetPositions();
+  addScrollListener();
+});
+
+// 在组件卸载时移除滚动监听器
+onUnmounted(removeScrollListener);
+
+// 更新目标元素的位置
+function updateTargetPositions() {
+  targetPositions.value = items.value.map((item) => {
+    const element = document.querySelector(item.target);
+    return element ? element.offsetTop : null;
+  });
+}
+
+// 添加滚动监听器
+function addScrollListener() {
+  if (!hasAddedScrollListener) {
+    window.addEventListener('scroll', handleScroll);
+    hasAddedScrollListener = true;
+  }
+}
+
+// 移除滚动监听器
+function removeScrollListener() {
+  if (hasAddedScrollListener) {
+    window.removeEventListener('scroll', handleScroll);
+   hasAddedScrollListener = false;
+  }
+}
+
+// 处理滚动事件
+function handleScroll() {
+  const scrollTop = window.scrollY;
+  let activeIndex = 0;
+
+  for (let i = 0; i < targetPositions.value.length; i++) {
+    if (scrollTop > targetPositions.value[i] - 100) {
+      activeIndex = i;
+    } else {
+      break;
+    }
+  }
+
+  // 更新激活状态
+  items.value.forEach((item, index) => {
+    item.isActive = index === activeIndex;
+  });
+}
+
+// 导航到指定位置
 function navigate(item) {
   // 更新所有项的激活状态
   items.value.forEach((i) => (i.isActive = i === item));
