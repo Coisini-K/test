@@ -50,7 +50,10 @@ function navigateToPage(url) {
 .new-supplies h2 {
   font-size: 1.2em;
   font-weight: bold;
-  margin: 0 0 10px 5px;
+  margin:  5px ;
+}
+.new-supplies ul {
+  padding: 0 30px;
 }
 
 .supply-item {
@@ -82,7 +85,7 @@ function navigateToPage(url) {
 
 .name-num2 {
   width: 30%;
-  text-align: center;
+  text-align: right;
   color: red;
 }
 

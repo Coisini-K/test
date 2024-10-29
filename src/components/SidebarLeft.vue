@@ -19,14 +19,14 @@ const mainStore = useMainStore();
 // 创建一个计算属性，依赖于 mainStore.bar
 const items = computed(() => {
   const barItems = mainStore.bar;
-  // console.log("Computed bar value:", barItems);
+  // console.log('Computed bar value:', barItems);
   return barItems;
 });
 
 // 使用 vue 的 watchEffect 来监听 items 的变化
-watchEffect(() => {
-  // console.log('Watched items value:', items.value);
-});
+// watchEffect(() => {
+// console.log('Watched items value:', items.value);
+// });
 
 function navigate(item) {
   // 更新所有项的激活状态
@@ -34,8 +34,32 @@ function navigate(item) {
   // 滚动到目标位置
   if (item.target) {
     const targetElement = document.querySelector(item.target);
+
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      // 直接滚动到id对应组件的位置，但会被页面顶部导航栏遮挡
+      // targetElement.scrollIntoView({ behavior: 'smooth' });
+
+      // 重新计数滚动距离，以避开页面顶部导航栏
+      const targetElement = document.querySelector(item.target);
+      if (targetElement) {
+        // 获取当前的滚动位置
+        const currentScroll = window.scrollY;
+
+        // 获取目标元素相对于视口的位置
+        const rect = targetElement.getBoundingClientRect();
+
+        // 计算目标元素顶部距离视口顶部的距离
+        const distanceToTop = rect.top;
+
+        // 计算新的滚动位置
+        const newScrollPosition = currentScroll + distanceToTop - 60; // 减去 60px 作为偏移量
+
+        // 平滑滚动到新位置
+        window.scrollTo({
+          top: newScrollPosition,
+          behavior: 'smooth',
+        });
+      }
     }
   }
 }
