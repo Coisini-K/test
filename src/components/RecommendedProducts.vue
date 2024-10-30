@@ -1,24 +1,24 @@
 <template>
   <div class="recommended-products" :style="{ height: height }">
     <h2 v-if="title">好货推荐·{{ vegetables[6]?.name || '推荐分类' }}</h2>
-    <div
-      class="product"
-      v-for="(product, index) in products"
-      :key="index"
-      :style="{ width: width }"
-    >
-      <img
-        :src="product.image || '/path/to/default-image.jpg'"
-        alt="Product Image"
-      />
-      <div class="product-info">
-        <span class="price"
-          >{{ product.price || '价格' }}元/{{ product.unit || '单位' }}</span
-        >
-        <span class="description">{{ product.description || '描述' }}</span>
-        <span class="title">{{ product.title || '标题' }}</span>
+      <div
+        class="product"
+        v-for="(product, index) in products"
+        :key="index"
+        :style="{ width: width }"
+      >
+        <img
+          :src="product.image || '/path/to/default-image.jpg'"
+          alt="Product Image"
+        />
+        <div class="product-info">
+          <span class="price"
+            >{{ product.price || '价格' }}元/{{ product.unit || '单位' }}</span
+          >
+          <span class="description">{{ product.description || '描述' }}</span>
+          <span class="title">{{ product.title || '标题' }}</span>
+        </div>
       </div>
-    </div>
   </div>
 </template>
 
