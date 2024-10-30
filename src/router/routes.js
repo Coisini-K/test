@@ -27,6 +27,11 @@ const routes = [
     component: () => import('@/views/SupplyView.vue'),
   },
   {
+    path: '/detail',
+    name: 'detail',
+    component: () => import('@/views/ProductDetail.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: NotFoundView,
