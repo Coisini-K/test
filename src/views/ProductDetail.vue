@@ -1,7 +1,10 @@
 <template>
   <div v-if="product" class="modal">
     <div class="modal-content">
-      <img :src="product.image || '/path/to/default-image.jpg'" :alt="product.title" />
+      <img
+        :src="product.image || '/path/to/default-image.jpg'"
+        :alt="product.title"
+      />
       <div class="details">
         <h3>{{ product.title }}</h3>
         <p>{{ product.price }}元/{{ product.unit }}</p>
@@ -13,14 +16,12 @@
 </template>
 
 <script setup>
-
-const props = defineProps({
+defineProps({
   product: {
     type: Object,
     required: true,
   },
 });
-
 </script>
 
 <style scoped>
