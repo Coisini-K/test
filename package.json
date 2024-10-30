@@ -28,7 +28,7 @@
     "git:clean": "git clean -fd",
     "git:clone": "git clone",
     "git:fetch": "git fetch",
-    "git:pull": "git pull",
+    "git:pull": "git pull origin master",
     "git:stash": "git stash",
     "git:unstash": "git stash apply",
     "git:reset-soft": "git reset --soft",
