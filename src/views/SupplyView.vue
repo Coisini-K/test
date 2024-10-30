@@ -26,15 +26,14 @@
         />
       </template>
 
-      <RouterLink v-once :to="detailPath">
-      </RouterLink>
-        <template v-if="section.type === 'product'">
-          <RecommendedProducts
-            :products="section.products"
-            :vegetables="section.vegetables"
-            :title="true"
-          />
-        </template>
+      <RouterLink v-once :to="detailPath"> </RouterLink>
+      <template v-if="section.type === 'product'">
+        <RecommendedProducts
+          :products="section.products"
+          :vegetables="section.vegetables"
+          :title="true"
+        />
+      </template>
     </div>
 
     <SectionsModule />
