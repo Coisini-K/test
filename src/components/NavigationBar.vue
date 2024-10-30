@@ -3,10 +3,10 @@
 <template>
   <div ref="navbarRef" class="navbar">
     <nav>
-      <RouterLink v-once :to="homePath" class="nav-link">Home</RouterLink>
-      <RouterLink v-once :to="aboutPath" class="nav-link">About</RouterLink>
-      <RouterLink v-once :to="otherPath" class="nav-link">Other</RouterLink>
-      <RouterLink v-once :to="supplyPath" class="nav-link">Supply</RouterLink>
+      <RouterLink v-once to="/" class="nav-link">Home</RouterLink>
+      <RouterLink v-once to="/about" class="nav-link">About</RouterLink>
+      <RouterLink v-once to="/other" class="nav-link">Other</RouterLink>
+      <RouterLink v-once to="/supply" class="nav-link">Supply</RouterLink>
     </nav>
   </div>
   <!-- <RouterView /> -->
@@ -15,18 +15,8 @@
 <script setup>
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import {
-  HOME_PATH,
-  ABOUT_PATH,
-  OTHER_PATH,
-  SUPPLY_PATH,
-} from '@/constants/routes';
 
 const navbarRef = ref(null);
-const homePath = ref(HOME_PATH);
-const aboutPath = ref(ABOUT_PATH);
-const otherPath = ref(OTHER_PATH);
-const supplyPath = ref(SUPPLY_PATH);
 </script>
 
 <style scoped>
