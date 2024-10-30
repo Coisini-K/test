@@ -19,8 +19,7 @@ import SidebarLeft from '@/components/SidebarLeft.vue';
 <style scoped>
 .container {
   /* border: 1px solid #000000; */
-  width: 1600px;
-  max-width: 100vw;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -28,6 +27,7 @@ import SidebarLeft from '@/components/SidebarLeft.vue';
   align-items: center;
   justify-content: center;
 }
+
 .box {
   /* border: 1px solid #ff0000; */
   width: 1200px;

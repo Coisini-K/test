@@ -24,8 +24,29 @@
             <img src="@/assets/images/header/DMmin.png" alt="no!" />
           </div>
         </div>
+        <div class="main_main">
+          <div class="main_main_left">
+            <div class="main_input">
+              <SearchBox />
+            </div>
+            <div class="main_main_ul" v-if="isSticky">
+              <ul>
+                <li>苹果</li>
+                <li>柑橘</li>
+                <li>鸡</li>
+                <li>牛副产品</li>
+                <li>红薯</li>
+                <li>猪副产品</li>
+                <li>鸡蛋</li>
+                <li>牛肉</li>
+              </ul>
+            </div>
+          </div>
 
-        <div class="main_main"></div>
+          <div class="main_main_right">
+            <p>免费开店卖货</p>
+          </div>
+        </div>
 
         <div class="main_right" :class="{ top_right: !isSticky }">
           <div class="main_right_img">
@@ -46,8 +67,9 @@
 </template>
 
 <script setup>
-import NavigationBar from '@/components/NavigationBar.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
+import NavigationBar from '@/components/NavigationBar.vue';
+import SearchBox from '@/components/SearchBox.vue';
 
 const isSticky = ref(true);
 
@@ -77,7 +99,6 @@ onUnmounted(() => {
 .header {
   height: 320px;
   width: 100%;
-  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,7 +150,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   /* border: 1px solid #ccc; */
 }
 
@@ -137,7 +158,7 @@ onUnmounted(() => {
   /* width: 320px; */
   /* height: 80%; */
   /* border: 1px solid #ff0000; */
-  padding:5px 0 ;
+  padding: 5px 0;
 }
 
 .main_left_img_max {
@@ -150,6 +171,77 @@ onUnmounted(() => {
   width: 120px;
   height: 60%;
   /* border: 1px solid #000000; */
+}
+
+.main_main {
+  width: 720px;
+  /* height: 200px; */
+  /* border: 1px solid #ff0000; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.main_main_left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* border: 1px solid #ff0000; */
+}
+
+.main_input {
+  width: 520px;
+  height: 52px;
+  /* border: 1px solid #000000; */
+}
+
+.main_main_ul {
+  width: 100%;
+  height: 40px;
+  font-size: 0.8rem;
+}
+
+.main_main_ul ul {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  /* 取消列表项符号 */
+  padding: 0;
+  /* 可选：移除默认的内边距 */
+  margin: 0;
+  /* 可选：移除默认的外边距 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.main_main_ul li {
+  margin: 0 5px;
+}
+
+.main_main_right {
+  width: 100px;
+  height: 52px;
+  /* padding-bottom: auto; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+  /* flex-direction: row; */
+}
+
+.main_main_right p {
+  width: 100%;
+  height: 100%;
+  font-size: 0.9rem;
+  color: white;
+  /* padding-bottom: auto; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background-color: #ff862c;
 }
 
 .main_right {
@@ -178,14 +270,19 @@ onUnmounted(() => {
 .top {
   height: 72px;
   width: 100%;
-  max-width: 100vw;
+  /* max-width: 1400px; */
   position: fixed;
   top: 0;
+  /* margin:0; */
+  /* padding:0; */
   left: 0;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 100;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .top_right {
@@ -193,7 +290,7 @@ onUnmounted(() => {
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .top_right .main_right_img {

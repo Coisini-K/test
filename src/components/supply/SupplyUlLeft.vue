@@ -7,7 +7,11 @@
           <td v-for="(category, index) in visibleCategories" :key="index">
             <h2>{{ category.name }}</h2>
             <ul>
-              <li v-for="(item, itemIndex) in category.items" :key="itemIndex" @click="navigateToPage">
+              <li
+                v-for="(item, itemIndex) in category.items"
+                :key="itemIndex"
+                @click="navigateToPage"
+              >
                 {{ item }}
               </li>
             </ul>
@@ -24,8 +28,8 @@ import { computed, toRaw } from 'vue';
 const props = defineProps({
   vegetables: {
     type: Array,
-    default: () => []
-  }
+    default: () => [],
+  },
 });
 
 const visibleCategories = computed(() => {

@@ -62,5 +62,4 @@ nav {
 .nav-link:hover {
   color: #007bff;
 }
-
 </style>

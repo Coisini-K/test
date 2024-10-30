@@ -35,7 +35,7 @@
       </template>
     </div>
 
-    <Sections />
+    <SectionsModule />
   </div>
   <!-- </div> -->
 </template>
@@ -51,7 +51,7 @@ import LatestDeals from '@/components/LatestDeals.vue';
 import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
 import SupplyUlRight from '@/components/supply/SupplyUlRight.vue';
 import RecommendedProducts from '@/components/RecommendedProducts.vue';
-import Sections from '@/components/supply/Sections.vue';
+import SectionsModule from '@/components/supply/SectionsModule.vue';
 
 // 左边电梯导航栏
 import useMainStore from '@/stores';
@@ -89,7 +89,7 @@ const images = [
 // 成交数据
 const title = ref(true);
 const info = ref('最新成交');
-  // 获取当前日期并格式化
+// 获取当前日期并格式化
 const date = ref(formatCurrentDate());
 // 格式化当前日期的函数
 function formatCurrentDate() {
@@ -1051,7 +1051,7 @@ const allSections = computed(() => {
   // 第一组：vegetables, supplies, products
   const firstGroup = vegetables
     .slice(0, 1)
-    .map((veg, index) => [
+    .map(() => [
       { vegetables: vegetables, supplies, type: 'supply' },
       { products, vegetables: vegetables, type: 'product' },
     ])
