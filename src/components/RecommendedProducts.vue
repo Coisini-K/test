@@ -55,7 +55,7 @@ defineProps({
 .recommended-products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   /* margin-top: 20px; */
   width: 100%;
   /* 高度 可通过父组件传递参数设置 */
@@ -83,6 +83,7 @@ defineProps({
   overflow: hidden;
   cursor: pointer;
   background-color: rgb(255, 255, 255);
+  /* border: 1px solid #ccc; */
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 

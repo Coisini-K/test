@@ -83,7 +83,7 @@ function handleScroll() {
   }
 
   for (let i = 0; i < targetPositions.value.length; i++) {
-    if (scrollTop > targetPositions.value[i] - 100) {
+    if (scrollTop > targetPositions.value[i] - 66) {
       activeIndex = i;
     } else {
       break;
@@ -121,7 +121,7 @@ function navigate(item) {
         const distanceToTop = rect.top;
 
         // 计算新的滚动位置
-        const newScrollPosition = currentScroll + distanceToTop - 60; // 减去 60px 作为偏移量
+        const newScrollPosition = currentScroll + distanceToTop - 66; // 减去 60px 作为偏移量
 
         // 平滑滚动到新位置
         window.scrollTo({

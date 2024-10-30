@@ -1,12 +1,17 @@
+<!--
+import SearchBox from '@/components/SearchBox.vue';
+<SearchBox />
+-->
+
 <template>
   <div class="search-box">
-    <select class="category-select">
+    <select class="category-select" v-if="title">
       <option value="supply">供应</option>
       <!-- 可以添加更多选项 -->
     </select>
     <input
       type="text"
-      placeholder="请输入您要的货品"
+      :placeholder="txt"
       class="search-input"
       v-model="queryText"
       @keyup.enter="performSearch"
@@ -18,6 +23,19 @@
 <script setup>
 import { ref } from 'vue';
 
+defineProps({
+  title: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
+  txt: {
+    type: String,
+    required: false,
+    default: '请输入您要的货品',
+  },
+});
+
 const queryText = ref('');
 
 function performSearch() {
@@ -28,11 +46,11 @@ function performSearch() {
 
 <style scoped>
 .search-box {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
   border: 1px solid #39bf3e;
   border-radius: 7px;
   overflow: hidden;
@@ -57,7 +75,7 @@ function performSearch() {
 }
 
 .search-button {
-  width: 72px;
+  width: 66px;
   height: 100%;
   background: #39bf3e;
   color: white;

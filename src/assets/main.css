@@ -52,18 +52,35 @@ body {
   background-color: #f5f5f5;
 }
 
-a,
-.green {
+a {
+  color: #333;
+  /* 默认颜色 */
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+  transition: 0.4s ease;
+  /* transition: color 0.3s ease; */
+}
+
+a:hover {
+  cursor: pointer;
+  background-color: #a9f8b5;
+  /* 悬停颜色 */
+}
+
+a.active {
+  background-color: #a9f8b5;
+  /* 激活颜色 */
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: #a9f8b5;
   }
+}
+
+.green {
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
 }
 
 @media (min-width: 1024px) {

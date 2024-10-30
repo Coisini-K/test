@@ -8,11 +8,21 @@
     <!-- 显示当前计数 -->
     <h1>计数: {{ mainStore.count }}</h1>
     <!-- 以下为一系列图标组件，用于展示主页的图标 -->
-    <i><DocumentationIcon /></i>
-    <i><ToolingIcon /></i>
-    <i><EcosystemIcon /></i>
-    <i><CommunityIcon /></i>
-    <i><SupportIcon /></i>
+    <i>
+      <DocumentationIcon />
+    </i>
+    <i>
+      <ToolingIcon />
+    </i>
+    <i>
+      <EcosystemIcon />
+    </i>
+    <i>
+      <CommunityIcon />
+    </i>
+    <i>
+      <SupportIcon />
+    </i>
 
     <!-- 引入EchartsStore组件，并传递图表配置选项 -->
     <EchartsStore :options="chartOptions" />
@@ -35,10 +45,9 @@ const mainStore = useMainStore();
 
 const initBar = () => {
   mainStore.setBar([
-    { name: '首页', isActive: true },
-    { name: '服务', isActive: false },
-    { name: '关于我们', isActive: false },
-    { name: '联系我们', isActive: false },
+    { name: '你好', target: '#hello', isActive: true },
+    { name: '信息', target: '#hell', isActive: false },
+    { name: '关于', target: '#heo', isActive: false },
   ]);
 };
 

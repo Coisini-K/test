@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="home_box"> -->
-  <div class="home_overview">
+  <div class="home_overview" id="section-0">
     <CategoryList />
     <div class="home_overview_show">
       <CarouselModule :slides="photos" :interval="3000" />
@@ -16,8 +16,27 @@
       }"
     />
   </div>
-  <div class="home_supply">
-    <NavigationBar />
+
+  <div class="home_supply" id="section-1">
+    <NavigationBar :items="items" />
+    <div class="home_supply_show">
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        width="222px"
+        height="300px"
+      />
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        :width="width"
+        :height="height"
+      />
+    </div>
+  </div>
+
+  <div class="home_supply" id="section-2">
+    <NavigationBar :items="items" />
     <div class="home_supply_show">
       <RecommendedProducts
         :products="products"
@@ -40,8 +59,8 @@
 import CategoryList from '@/components/home/CategoryList.vue';
 import CarouselModule from '@/components/CarouselModule.vue';
 import UserInformation from '@/components/home/UserInformation.vue';
-import NavigationBar from '@/components/NavigationBar.vue';
 import RecommendedProducts from '@/components/RecommendedProducts.vue';
+import NavigationBar from '@/components/NavigationBar.vue';
 
 import { onMounted } from 'vue';
 import useMainStore from '@/stores';
@@ -50,18 +69,37 @@ const width = '222px';
 const height = '300px';
 
 const mainStore = useMainStore();
+
 const initBar = () => {
-  mainStore.setBar([
-    { name: '你好', target: '#hello', isActive: true },
-    { name: '信息', target: '#hell', isActive: false },
-    { name: '关于', target: '#heo', isActive: false },
-  ]);
+  const barItems = [
+    { name: '精选', isActive: true },
+    { name: '热门', isActive: false },
+    { name: '推荐', isActive: false },
+  ];
+
+  // 遍历数组并为每个对象添加 target 属性
+  barItems.forEach((item, index) => {
+    item.target = `#section-${index}`;
+  });
+
+  // 设置到 store 中
+  mainStore.setBar(barItems);
 };
 
 onMounted(() => {
   initBar();
   // console.log("bar:", mainStore.bar);
 });
+
+const items = [
+  '热门供应推荐',
+  '苹果',
+  '柑桔',
+  '鸡',
+  '牛副产品',
+  '红薯',
+  '更多',
+];
 
 const photos = [
   '/src/assets/images/home/carousel/1.jpg',
@@ -142,6 +180,7 @@ const products = [
   align-content: center;
   justify-content: space-between;
 }
+
 .home_overview_show_imgs img {
   width: 48%;
   height: 200px;
@@ -152,18 +191,20 @@ const products = [
   width: 100%;
   height: 720px;
   /* margin: 10px 0; */
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 5px;
 }
+
 .home_supply_show {
   height: 660px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  /* background-color: #fff; */
   /* gap: 10px; */
 }
 </style>

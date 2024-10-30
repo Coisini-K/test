@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="bar">
-        <NavigationBar />
+        <NavigationRouter />
       </div>
     </div>
   </div>
@@ -68,7 +68,7 @@
 
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
-import NavigationBar from '@/components/NavigationBar.vue';
+import NavigationRouter from '@/components/NavigationRouter.vue';
 import SearchBox from '@/components/SearchBox.vue';
 
 const isSticky = ref(true);

@@ -1,55 +1,92 @@
-<!-- 路由导航栏 -->
-
 <template>
-  <div ref="navbarRef" class="navbar">
-    <nav>
-      <RouterLink v-once to="/" class="nav-link">Home</RouterLink>
-      <RouterLink v-once to="/about" class="nav-link">About</RouterLink>
-      <RouterLink v-once to="/other" class="nav-link">Other</RouterLink>
-      <RouterLink v-once to="/supply" class="nav-link">Supply</RouterLink>
-    </nav>
+  <div class="navigation">
+    <ul>
+      <li v-for="(item, index) in items" :key="index">
+        <a
+          href="#"
+          :class="{ active: isActive(index) }"
+          @click.prevent="handleClick(index)"
+        >
+          {{ item }}
+        </a>
+      </li>
+    </ul>
+    <div class="search">
+      <SearchBox :title="false" txt="搜索更多商品" />
+    </div>
   </div>
-  <!-- <RouterView /> -->
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import SearchBox from '@/components/SearchBox.vue';
 
-const navbarRef = ref(null);
+// 接收来自父组件的数据
+// const props = defineProps({
+defineProps({
+  items: {
+    type: Array,
+    required: true,
+  },
+});
+
+// 当前激活的索引
+const activeIndex = ref(0);
+
+// 处理点击事件
+const handleClick = (index) => {
+  activeIndex.value = index;
+};
+
+// 判断当前项是否激活
+const isActive = (index) => {
+  return activeIndex.value === index;
+};
 </script>
 
 <style scoped>
-.navbar {
+.navigation {
   width: 100%;
-  position: relative;
-  /* display: flex;
-	flex-direction: column;
-	align-content: center;
-	justify-content: center; */
-  /* background-color: #fff; */
-  /* z-index: 1000; */
-  transition: all 0.3s ease-out;
-}
-
-nav {
-  width: 100%;
+  height: 66px;
+  padding: 10px;
+  background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  justify-content: space-around;
 }
 
-.nav-link {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  transition: color 0.3s ease;
+.bar {
+  width: 900px;
+  height: 100%;
 }
 
-.nav-link:hover {
-  color: #007bff;
+ul {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+li {
+  height: 100%;
+  display: inline-block;
+  /* margin-right: 10px; */
+  font-size: 1.2rem;
+}
+
+a {
+  height: 100%;
+  padding: 0 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  /* width: 200px; */
+  height: 100%;
 }
 </style>
