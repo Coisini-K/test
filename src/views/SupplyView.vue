@@ -12,30 +12,29 @@
       />
     </div>
 
-    <RouterLink v-once :to="detailPath">
-      <div
-        v-for="(section, index) in allSections"
-        :key="`section-${index}`"
-        class="app-box"
-        :id="`section-${index}`"
-      >
-        <template v-if="section.type === 'supply'">
-          <SupplyUlLeft :vegetables="section.vegetables" />
-          <SupplyUlRight
-            :supplies="section.supplies"
-            :vegetables="section.vegetables"
-          />
-        </template>
+    <div
+      v-for="(section, index) in allSections"
+      :key="`section-${index}`"
+      class="app-box"
+      :id="`section-${index}`"
+    >
+      <template v-if="section.type === 'supply'">
+        <SupplyUlLeft :vegetables="section.vegetables" />
+        <SupplyUlRight
+          :supplies="section.supplies"
+          :vegetables="section.vegetables"
+        />
+      </template>
 
-        <template v-if="section.type === 'product'">
-          <RecommendedProducts
-            :products="section.products"
-            :vegetables="section.vegetables"
-            :title="true"
-          />
-        </template>
-      </div>
-    </RouterLink>
+      <RouterLink v-once :to="detailPath"> </RouterLink>
+      <template v-if="section.type === 'product'">
+        <RecommendedProducts
+          :products="section.products"
+          :vegetables="section.vegetables"
+          :title="true"
+        />
+      </template>
+    </div>
 
     <SectionsModule />
   </div>
@@ -54,10 +53,6 @@ import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
 import SupplyUlRight from '@/components/supply/SupplyUlRight.vue';
 import RecommendedProducts from '@/components/RecommendedProducts.vue';
 import SectionsModule from '@/components/supply/SectionsModule.vue';
-
-import { RouterLink } from 'vue-router';
-import { DETAIL_PATH } from '@/constants/routes';
-const detailPath = ref(DETAIL_PATH);
 
 import {
   deals,
