@@ -2,10 +2,17 @@
   <div class="new-supplies">
     <h2>新供应·{{ vegetables[6]?.name || '蔬菜分类' }}</h2>
     <ul>
-      <li v-for="(supply, index) in supplies" :key="index" class="supply-item" @click="navigateToPage(supply.url)">
+      <li
+        v-for="(supply, index) in supplies"
+        :key="index"
+        class="supply-item"
+        @click="navigateToPage(supply.url)"
+      >
         <span class="name">
           <p class="name-num1">{{ supply.name || '商品名称' }}</p>
-          <p class="name-num2">{{ supply.price || '价格' }}/{{ supply.unit || '单位' }}</p>
+          <p class="name-num2">
+            {{ supply.price || '价格' }}/{{ supply.unit || '单位' }}
+          </p>
         </span>
       </li>
     </ul>
@@ -13,16 +20,15 @@
 </template>
 
 <script setup>
-
-const props = defineProps({
+defineProps({
   supplies: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   vegetables: {
     type: Array,
-    default: () => []
-  }
+    default: () => [],
+  },
 });
 
 function navigateToPage(url) {
@@ -50,7 +56,7 @@ function navigateToPage(url) {
 .new-supplies h2 {
   font-size: 1.2em;
   font-weight: bold;
-  margin:  5px ;
+  margin: 5px;
 }
 .new-supplies ul {
   padding: 0 30px;

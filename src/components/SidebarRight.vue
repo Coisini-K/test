@@ -33,8 +33,6 @@ export default {
       this.items.forEach((i) => (i.isActive = i === item));
     },
   },
-
-  
 };
 </script>
 

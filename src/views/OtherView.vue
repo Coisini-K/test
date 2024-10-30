@@ -19,8 +19,18 @@
   <div class="home_supply">
     <NavigationBar />
     <div class="home_supply_show">
-      <RecommendedProducts :products="products" :title="false" width="222px"  height="300px"/>
-      <RecommendedProducts :products="products" :title="false" :width="width" :height="height"/>
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        width="222px"
+        height="300px"
+      />
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        :width="width"
+        :height="height"
+      />
     </div>
   </div>
   <!-- </div> -->
@@ -36,8 +46,8 @@ import RecommendedProducts from '@/components/RecommendedProducts.vue';
 import { onMounted } from 'vue';
 import useMainStore from '@/stores';
 
-const width = "222px";
-const height = "300px";
+const width = '222px';
+const height = '300px';
 
 const mainStore = useMainStore();
 const initBar = () => {
@@ -95,7 +105,6 @@ const products = [
     unit: '朵',
     description: '成交8.3万元',
   },
-
 ];
 </script>
 

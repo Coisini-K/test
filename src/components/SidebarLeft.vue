@@ -142,7 +142,7 @@ function navigate(item) {
   align-items: center;
   position: fixed;
   top: 30%;
-  left: 135px;
+  left: 5px;
   /* height: 640px; */
   /* width: 60px; */
   /* padding: 1rem; */

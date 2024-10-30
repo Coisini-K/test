@@ -151,7 +151,7 @@ function clearOrders() {
 <style scoped>
 /* 设置容器样式 */
 .container {
-  max-width: 800px;
+  width: 1005;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
