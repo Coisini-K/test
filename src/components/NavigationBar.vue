@@ -2,11 +2,7 @@
   <div class="navigation">
     <ul>
       <li v-for="(item, index) in items" :key="index">
-        <a
-          href="#"
-          :class="{ active: isActive(index) }"
-          @click.prevent="handleClick(index)"
-        >
+        <a href="#" :class="{ active: isActive(index) }" @click.prevent="handleClick(index)">
           {{ item }}
         </a>
       </li>
@@ -18,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import SearchBox from '@/components/SearchBox.vue';
 
 // 接收来自父组件的数据
@@ -42,6 +38,12 @@ const handleClick = (index) => {
 const isActive = (index) => {
   return activeIndex.value === index;
 };
+
+
+onMounted(() => {
+  isActive(0);
+
+});
 </script>
 
 <style scoped>
@@ -83,6 +85,18 @@ a {
   border-radius: 10px;
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  background-color: #a9f8b5;
+  /* 悬停颜色 */
+}
+
+a.active {
+  background-color: #a9f8b5;
+  /* 激活颜色 */
 }
 
 .search {

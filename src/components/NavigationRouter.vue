@@ -53,10 +53,17 @@ nav {
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition:0.5s ease;
 }
 
 .nav-link:hover {
-  color: #007bff;
+  cursor: pointer;
+  background-color: #a9f8b5;
+  /* 悬停颜色 */
+}
+
+.nav-link.active {
+  background-color: #a9f8b5;
+  /* 激活颜色 */
 }
 </style>

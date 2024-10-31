@@ -49,7 +49,7 @@ function navigateToPage() {
 .vegetable-categories {
   width: 60.4%;
   height: 350px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .vegetable-categories h1 {

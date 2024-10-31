@@ -37,6 +37,6 @@ import SidebarLeft from '@/components/SidebarLeft.vue';
   flex-direction: column;
   align-content: center;
   justify-content: flex-start;
-  gap: 30px;
+  gap: 20px;
 }
 </style>

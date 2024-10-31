@@ -46,7 +46,7 @@ function navigateToPage(url) {
   height: 300px;
   display: flex;
   flex-direction: column;
-  margin: 70px 0 0 1px;
+  margin: 50px 0 0 1px;
   /* align-items: center; */
   background-color: #ffffff;
   /* border: 1px solid silver ; */

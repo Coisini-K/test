@@ -76,14 +76,14 @@ function removeScrollListener() {
 function handleScroll() {
   const scrollTop = window.scrollY;
   let activeIndex = 0;
-  if (scrollTop > 320) {
+  if (scrollTop > 120) {
     isSticky.value = true;
   } else {
     isSticky.value = false;
   }
 
   for (let i = 0; i < targetPositions.value.length; i++) {
-    if (scrollTop > targetPositions.value[i] - 66) {
+    if (scrollTop > targetPositions.value[i] - 100) {
       activeIndex = i;
     } else {
       break;
@@ -121,7 +121,7 @@ function navigate(item) {
         const distanceToTop = rect.top;
 
         // 计算新的滚动位置
-        const newScrollPosition = currentScroll + distanceToTop - 66; // 减去 60px 作为偏移量
+        const newScrollPosition = currentScroll + distanceToTop - 81; // 减去 60px 作为偏移量
 
         // 平滑滚动到新位置
         window.scrollTo({

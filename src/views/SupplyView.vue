@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="home_box"> -->
-  <div class="about">
+  <!-- <div class="about"> -->
     <div class="about-box">
       <CarouselModule :slides="images" :interval="3000" class="carousel" />
       <LatestDeals
@@ -37,7 +37,7 @@
     </div>
 
     <SectionsModule />
-  </div>
+  <!-- </div> -->
   <!-- </div> -->
 </template>
 
@@ -165,9 +165,9 @@ const allSections = computed(() => {
 
 <style scoped>
 .about-box {
-  display: flex;
   width: 100%;
-  justify-content: space-between;
+  display: flex;
+  justify-content: flex-start;
   /* border: 1px solid #333; */
 }
 
@@ -187,6 +187,8 @@ const allSections = computed(() => {
 .app-box {
   width: 100%;
   display: flex;
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
   /* border: 1px solid #333; */
 }
 </style>
