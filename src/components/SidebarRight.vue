@@ -2,7 +2,6 @@
 
 <template>
   <div class="sidebar">
-    <div class="sidebar-header"></div>
     <nav class="sidebar-nav">
       <ul>
         <li v-for="(item, index) in items" :key="index" @click="navigate(item)">
@@ -20,8 +19,8 @@ export default {
       items: [
         { name: '首页', isActive: true },
         { name: '服务', isActive: false },
-        { name: '关于我们', isActive: false },
-        { name: '联系我们', isActive: false },
+        { name: '关于', isActive: false },
+        { name: '客服', isActive: false },
       ],
     };
   },
@@ -46,29 +45,30 @@ export default {
   top: 0;
   right: 0;
   height: 100%;
-  width: 120px;
-  background-color: #f8f9fa;
-  padding: 1rem;
+  width: 66px;
+  background-color: #f5f5f5;
+  /* padding: 1rem; */
   z-index: 99;
-}
-
-.sidebar-header {
-  margin-bottom: 1rem;
 }
 
 .sidebar-nav ul {
   list-style-type: none;
-  padding: 0;
+  /* padding: 0; */
+}
+
+.sidebar-nav li{
+  margin: 5px 0;
 }
 
 .sidebar-nav a {
-  display: block;
-  padding: 0.5rem;
   color: #333;
+  display: block;
+  padding: 0.4rem;
+  border-radius: 7px;
 }
 
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
-  background-color: #e9ecef;
+  background-color: #ddd;
 }
 </style>

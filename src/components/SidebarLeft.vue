@@ -167,7 +167,6 @@ function navigate(item) {
   height: 60px;
   margin: 1px 0;
   /* border-radius:15px; */
-  /* background-color: #ffffff; */
 }
 
 .sidebar-nav a {
@@ -180,13 +179,15 @@ function navigate(item) {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #fff;
+}
+
+.sidebar-nav a.active {
+  background-color: #aaf6bb;
 }
 
 .sidebar-nav a:hover {
-  cursor: pointer;
-}
-.sidebar-nav a.active {
-  background-color: #a9f8b5;
+  background-color: #d9f6dd;
+  /* 悬停颜色 */
 }
 </style>

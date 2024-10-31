@@ -166,9 +166,8 @@ const deals = areas.map((area) => ({
   align-items: center;
   gap: 10px;
   /* padding: 1rem; */
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+    box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .use-container {
@@ -271,7 +270,6 @@ const deals = areas.map((area) => ({
 
 .font-icon {
   width: 100%;
-  /* background-color: #ffffff; */
   /* 背景颜色 */
   color: #c1e4bd;
   font-size: 60px;
@@ -298,7 +296,6 @@ const deals = areas.map((area) => ({
   /* align-items: center; */
   /* justify-content: center;	 */
   /* text-align: center; */
-  /* background-color: #ffffff; */
   /* border: 1px solid #ccc;	 */
 }
 </style>

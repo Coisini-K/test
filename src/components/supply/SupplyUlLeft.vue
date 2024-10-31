@@ -54,7 +54,6 @@ function navigateToPage() {
 
 .vegetable-categories h1 {
   width: 100%;
-  /* background-color: #7e2d2d; */
   height: 50px;
   font-size: 1.6em;
   font-weight: 500;
@@ -65,8 +64,8 @@ function navigateToPage() {
   width: 100%;
   height: 300px;
   border-collapse: collapse;
-  background-color: #ffffff;
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .vegetable-categories tr {

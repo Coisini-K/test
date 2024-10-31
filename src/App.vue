@@ -1,14 +1,14 @@
 <script setup>
 import { RouterView } from 'vue-router';
 import HeaderView from '@/views/HeaderView.vue';
-// import SidebarRight from '@/components/SidebarRight.vue';
+import SidebarRight from '@/components/SidebarRight.vue';
 import SidebarLeft from '@/components/SidebarLeft.vue';
 </script>
 
 <template>
   <div class="container">
     <HeaderView />
-    <!-- <SidebarRight /> -->
+    <SidebarRight />
     <SidebarLeft />
     <div class="box">
       <RouterView />

@@ -41,7 +41,7 @@ defineProps({
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 3px 1px #ccc;
   display: flex;
   flex-direction: column;
   align-items: center;

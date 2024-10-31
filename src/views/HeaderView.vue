@@ -102,6 +102,7 @@ onUnmounted(() => {
 .header {
   height: 320px;
   width: 100%;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -274,16 +275,14 @@ onUnmounted(() => {
 .top {
   height: 72px;
   width: 100%;
-  /* max-width: 1400px; */
   /* margin:0; */
   /* padding:0; */
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
   background-color: #fff;
   /* border: 1px solid #ccc; */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 3px 1px #ccc;
   display: flex;
   align-items: center;
   justify-content: space-around;

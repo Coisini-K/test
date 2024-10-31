@@ -87,16 +87,6 @@ a {
   align-items: center;
 }
 
-a:hover {
-  background-color: #a9f8b5;
-  /* 悬停颜色 */
-}
-
-a.active {
-  background-color: #a9f8b5;
-  /* 激活颜色 */
-}
-
 .search {
   /* width: 200px; */
   height: 100%;

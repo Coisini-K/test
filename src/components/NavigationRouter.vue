@@ -77,8 +77,6 @@ watch(route, () => {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* background-color: #fff; */
-  /* z-index: 1000; */
 }
 
 nav {
@@ -87,7 +85,6 @@ nav {
   align-items: center;
   justify-content: flex-start;
   /* padding: 10px 0; */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .nav-link {
@@ -99,10 +96,4 @@ nav {
   border-radius: 7px;
 }
 
-.nav-link.active {
-  /* color: #007bff; */
-  /* 活动链接的颜色 */
-  background-color: #a9f8b5;
-  /* 活动链接的背景色 */
-}
 </style>

@@ -62,13 +62,7 @@
   </ul>
 
   <div class="info-container-ul">
-    <LatestDeals
-      :deals="deals"
-      :title="title"
-      :info="info"
-      :date="date"
-      :iterations="iterations"
-    />
+    <LatestDeals :deals="deals" :title="title" :info="info" :date="date" :iterations="iterations" />
   </div>
 </template>
 
@@ -201,5 +195,12 @@ button {
 /* 设置按钮悬停效果 */
 button:hover {
   background-color: #45a049;
+}
+
+.info-container-ul {
+  width: 100%;
+  height: 720px;
+  background-color: #fff;
+  margin-bottom: 100px;
 }
 </style>

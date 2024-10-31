@@ -71,7 +71,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   /* border: 1px solid #333; */
-  /* background-color: #ffffff; */
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .category_title {
@@ -84,7 +84,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .category_main {
@@ -95,7 +95,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .category_main ul {

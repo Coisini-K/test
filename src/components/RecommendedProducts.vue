@@ -73,7 +73,6 @@ defineProps({
   width: 100%;
   /* 高度 可通过父组件传递参数设置 */
   height: 360px;
-  /* background-color: rgb(255, 255, 255); */
 }
 
 .recommended-products h2 {
@@ -91,13 +90,12 @@ defineProps({
   /* 宽度 可通过父组件传递参数设置 */
   width: 195px;
   height: 300px;
-  /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
   /* border-radius: 4px; */
   overflow: hidden;
   cursor: pointer;
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   /* border: 1px solid #ccc; */
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .product img {

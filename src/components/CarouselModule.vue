@@ -120,6 +120,7 @@ onUnmounted(() => {
   width: 100%;
   /* margin: 10px; */
   height: 340px;
+  box-shadow: 0px 0px 3px 2px #ccc;
 }
 
 /* 轮播图轨道 */
@@ -155,7 +156,6 @@ onUnmounted(() => {
   border: none;
   padding: 10px;
   cursor: pointer;
-  z-index: 1;
 }
 
 /* 左箭头按钮 */
@@ -189,14 +189,14 @@ onUnmounted(() => {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #bbb;
+  background-color: #ccc;
   margin: 0 5px;
   cursor: pointer;
 }
 
 /* 当前激活的指示点样式 */
 .carousel-dots .dot-active {
-  background-color: #777;
+  background-color: #666;
 }
 
 .carousel-dots span:hover {
