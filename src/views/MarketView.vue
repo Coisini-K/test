@@ -8,6 +8,12 @@
                 <div class="echarts">
                     <EchartsStore :options="chartOptions" height="300px" />
                     <div>吉林通化东昌区 元蘑</div>
+                    <div>
+                        <HandoffDAte />
+                    </div>
+                    <div>
+                        开会员了解更多元蘑行情，看最佳买卖时机，找热门买卖地，定最赚买卖价格&#32;&#10095;
+                    </div>
                 </div>
                 <div class="info">
                     <div class="section">查看该产地全部行情 &gt;</div>
@@ -57,14 +63,18 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-
+// 引入计算日期的方法
+import { getDates } from '@/utils/dateUtils';
 // 导入EchartsStore组件
 import EchartsStore from '@/components/EchartsStore.vue';
+import HandoffDAte from '@/components/HandoffDAte.vue';
 
-// 定义数据
+// 定义曲线图Y轴数据 日期
+const dates = getDates(null, 'MM-DD');
+// console.log(dates);
 const seriesData = [29.5, 29, 24.5, 32, 19.5, 22.5, 27.5];
 
-// 计算最值和平均值
+// 计算曲线图Y轴最值和平均值
 const maxVal = computed(() => Math.max(...seriesData));
 const minVal = computed(() => Math.min(...seriesData));
 const avgVal = computed(
@@ -155,7 +165,7 @@ const chartOptions = ref({
     ],
     xAxis: {
         type: 'category',
-        data: ['10-21', '10-22', '10-23', '10-24', '10-25', '10-26', '10-27'],
+        data: dates.datesOfWeek,
     },
     yAxis: {
         type: 'value',
