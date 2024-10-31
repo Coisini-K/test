@@ -96,6 +96,9 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+*{
+  transition: none;
+}
 .header {
   height: 320px;
   width: 100%;
@@ -103,7 +106,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  /* border: 1px solid #ccc; */
+  /* border: 1px solid #fff; */
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .header_box {
@@ -271,15 +275,15 @@ onUnmounted(() => {
   height: 72px;
   width: 100%;
   /* max-width: 1400px; */
-  position: fixed;
-  top: 0;
   /* margin:0; */
   /* padding:0; */
+  position: fixed;
+  top: 0;
   left: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 100;
+  background-color: #fff;
   /* border: 1px solid #ccc; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: space-around;

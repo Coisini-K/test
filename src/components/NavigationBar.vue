@@ -85,11 +85,9 @@ a {
   border-radius: 10px;
   display: flex;
   align-items: center;
-  text-decoration: none;
 }
 
 a:hover {
-  cursor: pointer;
   background-color: #a9f8b5;
   /* 悬停颜色 */
 }

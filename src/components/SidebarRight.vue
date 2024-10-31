@@ -64,9 +64,7 @@ export default {
 .sidebar-nav a {
   display: block;
   padding: 0.5rem;
-  text-decoration: none;
   color: #333;
-  transition: background-color 0.3s ease;
 }
 
 .sidebar-nav a:hover,

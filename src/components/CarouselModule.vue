@@ -125,7 +125,7 @@ onUnmounted(() => {
 /* 轮播图轨道 */
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 1s ease-in-out;
   width: 100%;
   height: 100%;
 }
@@ -148,9 +148,9 @@ onUnmounted(() => {
 /* 导航箭头按钮 */
 .carousel-arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  top: 45%;
+  /* transform: translateY(-50%); */
+  background-color:transparent;
   color: #fff;
   border: none;
   padding: 10px;

@@ -9,19 +9,6 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('@/views/AboutView.vue'),
-  },
-  {
-    path: '/other',
-    name: 'other',
-    component: () => import('@/views/OtherView.vue'),
-  },
-  {
     path: '/supply',
     name: 'supply',
     component: () => import('@/views/SupplyView.vue'),
@@ -29,7 +16,21 @@ const routes = [
   {
     path: '/detail',
     name: 'detail',
-    component: () => import('@/views/ProductDetail.vue'),
+    component: () => import('@/views/DetailView.vue'),
+  },
+  // test
+  {
+    path: '/test1',
+    name: 'test1',
+    component: () => import('@/views/TestView1.vue'),
+  },
+  {
+    path: '/test2',
+    name: 'test2',
+    // route level code-splitting
+    // this generates a separate chunk (About.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/TestView2.vue'),
   },
   {
     path: '/:pathMatch(.*)*',

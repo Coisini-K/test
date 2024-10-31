@@ -173,7 +173,6 @@ function navigate(item) {
 .sidebar-nav a {
   width: 100%;
   height: 100%;
-  display: block;
   color: #333;
   font-size: 1rem;
   border-radius: 10px;
@@ -181,10 +180,7 @@ function navigate(item) {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   background-color: #ffffff;
-
-  transition: background-color 0.3s ease;
 }
 
 .sidebar-nav a:hover {

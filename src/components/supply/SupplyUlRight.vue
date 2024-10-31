@@ -67,8 +67,6 @@ function navigateToPage(url) {
   margin-bottom: 10px;
   cursor: pointer;
   /* 改变鼠标指针形状 */
-  transition: color 0.3s ease;
-  /* 平滑过渡 */
 }
 
 .supply-item .name {

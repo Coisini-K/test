@@ -101,7 +101,6 @@ function navigateToPage() {
   margin-bottom: 1.5px;
   cursor: pointer;
   /* 改变鼠标指针形状 */
-  transition: color 0.3s ease;
   /* 平滑过渡 */
   padding: 0 5px 0px;
 }

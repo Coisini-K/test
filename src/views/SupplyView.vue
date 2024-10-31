@@ -1,42 +1,24 @@
 <template>
   <!-- <div class="home_box"> -->
   <!-- <div class="about"> -->
-    <div class="about-box">
-      <CarouselModule :slides="images" :interval="3000" class="carousel" />
-      <LatestDeals
-        :deals="deals"
-        :title="title"
-        :info="info"
-        :date="date"
-        class="latestDeals"
-      />
-    </div>
+  <div class="about-box">
+    <CarouselModule :slides="images" :interval="3000" class="carousel" />
+    <LatestDeals :deals="deals" :title="title" :info="info" :date="date" class="latestDeals" />
+  </div>
 
-    <div
-      v-for="(section, index) in allSections"
-      :key="`section-${index}`"
-      class="app-box"
-      :id="`section-${index}`"
-    >
-      <template v-if="section.type === 'supply'">
-        <SupplyUlLeft :vegetables="section.vegetables" />
-        <SupplyUlRight
-          :supplies="section.supplies"
-          :vegetables="section.vegetables"
-        />
-      </template>
+  <div v-for="(section, index) in allSections" :key="`section-${index}`" class="app-box" :id="`section-${index}`">
+    <template v-if="section.type === 'supply'">
+      <SupplyUlLeft :vegetables="section.vegetables" />
+      <SupplyUlRight :supplies="section.supplies" :vegetables="section.vegetables" />
+    </template>
 
-      <RouterLink v-once :to="detailPath"> </RouterLink>
-      <template v-if="section.type === 'product'">
-        <RecommendedProducts
-          :products="section.products"
-          :vegetables="section.vegetables"
-          :title="true"
-        />
-      </template>
-    </div>
+    <RouterLink v-once :to="detailPath"> </RouterLink>
+    <template v-if="section.type === 'product'">
+      <RecommendedProducts :products="section.products" :vegetables="section.vegetables" :title="true" />
+    </template>
+  </div>
 
-    <SectionsModule />
+  <SectionsModule />
   <!-- </div> -->
   <!-- </div> -->
 </template>
@@ -128,8 +110,7 @@ const allSections = computed(() => {
     .map(() => [
       { vegetables: vegetables, supplies, type: 'supply' },
       { products, vegetables: vegetables, type: 'product' },
-    ])
-    .flat();
+    ]).flat();
 
   // 第二组：agriculture, machinery, equipment
   const secondGroup = [
@@ -167,7 +148,7 @@ const allSections = computed(() => {
 .about-box {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   /* border: 1px solid #333; */
 }
 

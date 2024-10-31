@@ -253,8 +253,7 @@ td {
 .scrolling-table-body {
   position: relative;
   will-change: transform;
-  transition: transform 0.5s ease-in-out;
-  animation: scrollUp 2000s linear infinite; /* 30 秒完成一次循环 */
+  animation: scrollUp 2000s linear infinite; /* 20 秒完成一次循环 */
 }
 
 /* 添加 CSS 动画 */

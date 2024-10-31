@@ -5,7 +5,7 @@
         :src="product.image || '/path/to/default-image.jpg'"
         :alt="product.title"
       />
-      <div class="details">
+      <div class="detail">
         <h3>{{ product.title }}</h3>
         <p>{{ product.price }}元/{{ product.unit }}</p>
         <p>{{ product.description }}</p>
@@ -47,7 +47,7 @@ defineProps({
   align-items: center;
 }
 
-.details {
+.detail {
   margin-top: 10px;
   text-align: center;
 }
