@@ -179,7 +179,6 @@ function navigateToDeal() {
   /* box-shadow: 1px 1px 3px 1px #ccc; */
 }
 
-
 .box-header {
   width: 100%;
   height: 60px;
@@ -269,5 +268,4 @@ td {
 tr.magnify td {
   position: relative;
 }
-
 </style>

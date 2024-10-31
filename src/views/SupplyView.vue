@@ -3,18 +3,36 @@
   <!-- <div class="about"> -->
   <div class="about-box">
     <CarouselModule :slides="images" :interval="3000" class="carousel" />
-    <LatestDeals :deals="deals" :title="title" :info="info" :date="date" class="latestDeals" />
+    <LatestDeals
+      :deals="deals"
+      :title="title"
+      :info="info"
+      :date="date"
+      class="latestDeals"
+    />
   </div>
 
-  <div v-for="(section, index) in allSections" :key="`section-${index}`" class="app-box" :id="`section-${index}`">
+  <div
+    v-for="(section, index) in allSections"
+    :key="`section-${index}`"
+    class="app-box"
+    :id="`section-${index}`"
+  >
     <template v-if="section.type === 'supply'">
       <SupplyUlLeft :vegetables="section.vegetables" />
-      <SupplyUlRight :supplies="section.supplies" :vegetables="section.vegetables" />
+      <SupplyUlRight
+        :supplies="section.supplies"
+        :vegetables="section.vegetables"
+      />
     </template>
 
     <RouterLink v-once :to="detailPath"> </RouterLink>
     <template v-if="section.type === 'product'">
-      <RecommendedProducts :products="section.products" :vegetables="section.vegetables" :title="true" />
+      <RecommendedProducts
+        :products="section.products"
+        :vegetables="section.vegetables"
+        :title="true"
+      />
     </template>
   </div>
 
@@ -110,7 +128,8 @@ const allSections = computed(() => {
     .map(() => [
       { vegetables: vegetables, supplies, type: 'supply' },
       { products, vegetables: vegetables, type: 'product' },
-    ]).flat();
+    ])
+    .flat();
 
   // 第二组：agriculture, machinery, equipment
   const secondGroup = [

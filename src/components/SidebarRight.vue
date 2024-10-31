@@ -56,7 +56,7 @@ export default {
   /* padding: 0; */
 }
 
-.sidebar-nav li{
+.sidebar-nav li {
   margin: 5px 0;
 }
 

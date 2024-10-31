@@ -95,7 +95,7 @@ defineProps({
   cursor: pointer;
   background-color: #fff;
   /* border: 1px solid #ccc; */
-    box-shadow: 1px 1px 3px 1px #ccc;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .product img {

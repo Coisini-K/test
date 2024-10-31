@@ -2,7 +2,11 @@
   <div class="navigation">
     <ul>
       <li v-for="(item, index) in items" :key="index">
-        <a href="#" :class="{ active: isActive(index) }" @click.prevent="handleClick(index)">
+        <a
+          href="#"
+          :class="{ active: isActive(index) }"
+          @click.prevent="handleClick(index)"
+        >
           {{ item }}
         </a>
       </li>
@@ -39,10 +43,8 @@ const isActive = (index) => {
   return activeIndex.value === index;
 };
 
-
 onMounted(() => {
   isActive(0);
-
 });
 </script>
 

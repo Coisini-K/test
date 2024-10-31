@@ -9,17 +9,29 @@
         <img src="@/assets/images/home/carousel/2.jpg" alt="no!" />
       </div>
     </div>
-    <UserInformation :userInfo="{
-      avatar: '/src/assets/images/home/doge.jpg',
-      name: 'oh my rain',
-    }" />
+    <UserInformation
+      :userInfo="{
+        avatar: '/src/assets/images/home/doge.jpg',
+        name: 'oh my rain',
+      }"
+    />
   </div>
 
   <div class="home_supply" id="section-1">
     <NavigationBar :items="items" />
     <div class="home_supply_show">
-      <RecommendedProducts :products="products" :title="false" width="222px" height="300px" />
-      <RecommendedProducts :products="products" :title="false" :width="width" :height="height" />
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        width="222px"
+        height="300px"
+      />
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        :width="width"
+        :height="height"
+      />
     </div>
   </div>
 
@@ -30,8 +42,18 @@
   <div class="home_supply" id="section-2">
     <NavigationBar :items="items" />
     <div class="home_supply_show">
-      <RecommendedProducts :products="products" :title="false" width="222px" height="300px" />
-      <RecommendedProducts :products="products" :title="false" :width="width" :height="height" />
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        width="222px"
+        height="300px"
+      />
+      <RecommendedProducts
+        :products="products"
+        :title="false"
+        :width="width"
+        :height="height"
+      />
     </div>
   </div>
   <!-- </div> -->
@@ -186,13 +208,12 @@ const products = [
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  /* background-color: #fff; */
   /* gap: 10px; */
 }
 
-.shop_list{
+.shop_list {
   width: 100%;
   height: 21px;
-  text-align:center;
+  text-align: center;
 }
 </style>

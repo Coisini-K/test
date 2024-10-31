@@ -64,16 +64,22 @@ a {
 a:hover {
   cursor: pointer;
   /* 改变鼠标指针形状 */
-    background-color: #d9f6dd;
+  background-color: #cff6d6;
   /* 悬停颜色 */
 }
 
 a.active {
-  background-color: #aaf6bb;
+  background-color: #8ff6a6;
   /* 激活颜色 */
 }
 
-@media (hover: hover) {}
+/* 设置按钮悬停效果 */
+button:hover {
+  background-color: #cff6d6;
+}
+
+@media (hover: hover) {
+}
 
 .green {
   color: hsla(160, 100%, 37%, 1);

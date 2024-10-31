@@ -167,7 +167,7 @@ const deals = areas.map((area) => ({
   gap: 10px;
   /* padding: 1rem; */
   background-color: #fff;
-    box-shadow: 1px 1px 3px 1px #ccc;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .use-container {

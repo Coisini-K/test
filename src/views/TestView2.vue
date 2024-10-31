@@ -62,7 +62,13 @@
   </ul>
 
   <div class="info-container-ul">
-    <LatestDeals :deals="deals" :title="title" :info="info" :date="date" :iterations="iterations" />
+    <LatestDeals
+      :deals="deals"
+      :title="title"
+      :info="info"
+      :date="date"
+      :iterations="iterations"
+    />
   </div>
 </template>
 
@@ -180,21 +186,20 @@ li {
 
 /* 设置按钮样式 */
 button {
-  background-color: #4caf50;
+  color: #fff;
+  background-color: #a0d997;
   border: none;
-  color: white;
   padding: 10px 20px;
   text-align: center;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 12px;
 }
 
-/* 设置按钮悬停效果 */
 button:hover {
-  background-color: #45a049;
+  background-color: #cff6d6;
 }
 
 .info-container-ul {

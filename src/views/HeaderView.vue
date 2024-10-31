@@ -96,7 +96,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-*{
+* {
   transition: none;
 }
 .header {
@@ -282,7 +282,7 @@ onUnmounted(() => {
   left: 0;
   background-color: #fff;
   /* border: 1px solid #ccc; */
-    box-shadow: 1px 1px 3px 1px #ccc;
+  box-shadow: 1px 1px 3px 1px #ccc;
   display: flex;
   align-items: center;
   justify-content: space-around;

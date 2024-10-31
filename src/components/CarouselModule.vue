@@ -151,7 +151,7 @@ onUnmounted(() => {
   position: absolute;
   top: 45%;
   /* transform: translateY(-50%); */
-  background-color:transparent;
+  background-color: transparent;
   color: #fff;
   border: none;
   padding: 10px;
