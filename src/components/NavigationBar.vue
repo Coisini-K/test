@@ -84,7 +84,7 @@ li {
 
 .link {
   height: 100%;
-  padding: 0 10px;
+  padding: 10px ;
   /* border-radius: 10px; */
   display: flex;
   align-items: center;
@@ -92,6 +92,7 @@ li {
 
 .link:hover {
   color: #8ff6a6;
+  padding-bottom: 8px;
   background-color: transparent;
   border-bottom: 2px solid #8ff6a6;
 }
