@@ -137,7 +137,7 @@ const handleMouseLeave = () => {
 }
 
 .category_li {
-  margin: 10px;
+  padding: 10px;
   font-size: 1.2rem;
 }
 
@@ -148,7 +148,7 @@ const handleMouseLeave = () => {
 }
 
 .box {
-  position: fixed;
+  position: absolute;
   margin-left: 275px;
   z-index: 100;
   width: 620px;
