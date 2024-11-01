@@ -4,6 +4,7 @@
       <li v-for="(item, index) in items" :key="index">
         <a
           href="#"
+          class="link"
           :class="{ active: isActive(index) }"
           @click.prevent="handleClick(index)"
         >
@@ -81,14 +82,24 @@ li {
   font-size: 1.2rem;
 }
 
-a {
+.link {
   height: 100%;
   padding: 0 10px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   display: flex;
   align-items: center;
 }
 
+.link:hover {
+  color: #8ff6a6;
+  background-color: transparent;
+  border-bottom: 2px solid #8ff6a6;
+}
+.link.active {
+  color: #8ff6a6;
+  background-color: transparent;
+  border-bottom: 2px solid #8ff6a6;
+}
 .search {
   /* width: 200px; */
   height: 100%;

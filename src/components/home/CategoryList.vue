@@ -145,6 +145,7 @@ const handleMouseLeave = () => {
   /* font-size: 1.6rem; */
   cursor: pointer;
   color: #8ff6a6;
+  border-bottom:1px solid #8ff6a6 ;
 }
 
 .box {
