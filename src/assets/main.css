@@ -64,6 +64,7 @@ a {
 a:hover {
   cursor: pointer;
   /* 改变鼠标指针形状 */
+  /* color: #cff6d6; */
   background-color: #cff6d6;
   /* 悬停颜色 */
 }
@@ -75,7 +76,8 @@ a.active {
 
 /* 设置按钮悬停效果 */
 button:hover {
-  background-color: #cff6d6;
+  color: #cff6d6;
+  /* background-color: #cff6d6; */
 }
 
 @media (hover: hover) {
