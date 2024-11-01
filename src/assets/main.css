@@ -3,13 +3,15 @@
 * {
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease;
+  /* 平滑过渡 */
 }
 
 html,
 body {
   width: 100%;
   /* 确保填充整个视口 */
-  /* height: 100%; */
+  min-height: 100%;
   /* 确保高度也填充整个视口 */
   overflow-x: hidden;
   /* 禁止水平滚动 */
@@ -33,11 +35,11 @@ body {
   /* 水平居中对齐 */
   justify-content: flex-start;
   /* 垂直居中对齐 */
-  width: 1400px;
+  width: 1600px;
   /* 固定宽度 */
-  min-width: 1400px;
+  min-width: 1600px;
   /* 最小宽度 */
-  max-width: 1400px;
+  max-width: 1600px;
   /* 最大宽度 */
   margin: 0 auto;
   /* 水平居中 */
@@ -56,30 +58,31 @@ a {
   color: #333;
   /* 默认颜色 */
   text-decoration: none;
-  transition: 0.4s ease;
-  /* transition: color 0.3s ease; */
+  align-items: center;
 }
 
 a:hover {
   cursor: pointer;
-  background-color: #a9f8b5;
+  /* 改变鼠标指针形状 */
+  background-color: #cff6d6;
   /* 悬停颜色 */
 }
 
 a.active {
-  background-color: #a9f8b5;
+  background-color: #8ff6a6;
   /* 激活颜色 */
 }
 
+/* 设置按钮悬停效果 */
+button:hover {
+  background-color: #cff6d6;
+}
+
 @media (hover: hover) {
-  a:hover {
-    background-color: #a9f8b5;
-  }
 }
 
 .green {
   color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
   padding: 3px;
 }
 

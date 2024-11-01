@@ -5,7 +5,7 @@
         :src="product.image || '/path/to/default-image.jpg'"
         :alt="product.title"
       />
-      <div class="details">
+      <div class="detail">
         <h3>{{ product.title }}</h3>
         <p>{{ product.price }}元/{{ product.unit }}</p>
         <p>{{ product.description }}</p>
@@ -37,23 +37,23 @@ const product = mainStore.items;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal-content {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 3px 1px #ccc;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.details {
+.detail {
   margin-top: 10px;
   text-align: center;
 }

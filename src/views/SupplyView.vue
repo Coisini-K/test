@@ -1,43 +1,43 @@
 <template>
   <!-- <div class="home_box"> -->
-  <div class="about">
-    <div class="about-box">
-      <CarouselModule :slides="images" :interval="3000" class="carousel" />
-      <LatestDeals
-        :deals="deals"
-        :title="title"
-        :info="info"
-        :date="date"
-        class="latestDeals"
-      />
-    </div>
-
-    <div
-      v-for="(section, index) in allSections"
-      :key="`section-${index}`"
-      class="app-box"
-      :id="`section-${index}`"
-    >
-      <template v-if="section.type === 'supply'">
-        <SupplyUlLeft :vegetables="section.vegetables" />
-        <SupplyUlRight
-          :supplies="section.supplies"
-          :vegetables="section.vegetables"
-        />
-      </template>
-
-      <RouterLink v-once :to="detailPath"> </RouterLink>
-      <template v-if="section.type === 'product'">
-        <RecommendedProducts
-          :products="section.products"
-          :vegetables="section.vegetables"
-          :title="true"
-        />
-      </template>
-    </div>
-
-    <SectionsModule />
+  <!-- <div class="about"> -->
+  <div class="about-box">
+    <CarouselModule :slides="images" :interval="3000" class="carousel" />
+    <LatestDeals
+      :deals="deals"
+      :title="title"
+      :info="info"
+      :date="date"
+      class="latestDeals"
+    />
   </div>
+
+  <div
+    v-for="(section, index) in allSections"
+    :key="`section-${index}`"
+    class="app-box"
+    :id="`section-${index}`"
+  >
+    <template v-if="section.type === 'supply'">
+      <SupplyUlLeft :vegetables="section.vegetables" />
+      <SupplyUlRight
+        :supplies="section.supplies"
+        :vegetables="section.vegetables"
+      />
+    </template>
+
+    <RouterLink v-once :to="detailPath"> </RouterLink>
+    <template v-if="section.type === 'product'">
+      <RecommendedProducts
+        :products="section.products"
+        :vegetables="section.vegetables"
+        :title="true"
+      />
+    </template>
+  </div>
+
+  <SectionsModule />
+  <!-- </div> -->
   <!-- </div> -->
 </template>
 
@@ -165,10 +165,11 @@ const allSections = computed(() => {
 
 <style scoped>
 .about-box {
-  display: flex;
   width: 100%;
+  display: flex;
   justify-content: space-between;
-  /* border: 1px solid #333; */
+  background-color: #fff;
+  box-shadow: 0px 0px 3px 2px #ccc;
 }
 
 .section {
@@ -187,6 +188,8 @@ const allSections = computed(() => {
 .app-box {
   width: 100%;
   display: flex;
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
   /* border: 1px solid #333; */
 }
 </style>

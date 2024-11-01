@@ -49,12 +49,11 @@ function navigateToPage() {
 .vegetable-categories {
   width: 60.4%;
   height: 350px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .vegetable-categories h1 {
   width: 100%;
-  /* background-color: #7e2d2d; */
   height: 50px;
   font-size: 1.6em;
   font-weight: 500;
@@ -65,8 +64,8 @@ function navigateToPage() {
   width: 100%;
   height: 300px;
   border-collapse: collapse;
-  background-color: #ffffff;
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .vegetable-categories tr {
@@ -101,7 +100,6 @@ function navigateToPage() {
   margin-bottom: 1.5px;
   cursor: pointer;
   /* 改变鼠标指针形状 */
-  transition: color 0.3s ease;
   /* 平滑过渡 */
   padding: 0 5px 0px;
 }

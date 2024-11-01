@@ -46,11 +46,11 @@ function navigateToPage(url) {
   height: 300px;
   display: flex;
   flex-direction: column;
-  margin: 70px 0 0 1px;
+  margin: 50px 0 0 1px;
   /* align-items: center; */
-  background-color: #ffffff;
+  background-color: #fff;
   /* border: 1px solid silver ; */
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .new-supplies h2 {
@@ -67,8 +67,6 @@ function navigateToPage(url) {
   margin-bottom: 10px;
   cursor: pointer;
   /* 改变鼠标指针形状 */
-  transition: color 0.3s ease;
-  /* 平滑过渡 */
 }
 
 .supply-item .name {

@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import SearchBox from '@/components/SearchBox.vue';
 
 // 接收来自父组件的数据
@@ -42,6 +42,10 @@ const handleClick = (index) => {
 const isActive = (index) => {
   return activeIndex.value === index;
 };
+
+onMounted(() => {
+  isActive(0);
+});
 </script>
 
 <style scoped>

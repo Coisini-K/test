@@ -76,14 +76,14 @@ function removeScrollListener() {
 function handleScroll() {
   const scrollTop = window.scrollY;
   let activeIndex = 0;
-  if (scrollTop > 320) {
+  if (scrollTop > 120) {
     isSticky.value = true;
   } else {
     isSticky.value = false;
   }
 
   for (let i = 0; i < targetPositions.value.length; i++) {
-    if (scrollTop > targetPositions.value[i] - 66) {
+    if (scrollTop > targetPositions.value[i] - 100) {
       activeIndex = i;
     } else {
       break;
@@ -121,7 +121,7 @@ function navigate(item) {
         const distanceToTop = rect.top;
 
         // 计算新的滚动位置
-        const newScrollPosition = currentScroll + distanceToTop - 66; // 减去 60px 作为偏移量
+        const newScrollPosition = currentScroll + distanceToTop - 81; // 减去 60px 作为偏移量
 
         // 平滑滚动到新位置
         window.scrollTo({
@@ -167,13 +167,11 @@ function navigate(item) {
   height: 60px;
   margin: 1px 0;
   /* border-radius:15px; */
-  /* background-color: #ffffff; */
 }
 
 .sidebar-nav a {
   width: 100%;
   height: 100%;
-  display: block;
   color: #333;
   font-size: 1rem;
   border-radius: 10px;
@@ -181,16 +179,15 @@ function navigate(item) {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  background-color: #ffffff;
+  background-color: #fff;
+}
 
-  transition: background-color 0.3s ease;
+.sidebar-nav a.active {
+  background-color: #aaf6bb;
 }
 
 .sidebar-nav a:hover {
-  cursor: pointer;
-}
-.sidebar-nav a.active {
-  background-color: #a9f8b5;
+  background-color: #d9f6dd;
+  /* 悬停颜色 */
 }
 </style>
