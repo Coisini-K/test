@@ -120,7 +120,7 @@ onUnmounted(() => {
   width: 100%;
   /* margin: 10px; */
   height: 340px;
-  box-shadow: 0px 0px 3px 2px #ccc;
+  /* box-shadow: 1px 1px 3px 2px #ccc; */
 }
 
 /* 轮播图轨道 */

@@ -1,7 +1,7 @@
 <template>
   <div class="vegetable-categories">
-    <h1>{{ vegetables[6]?.name || '蔬菜' }}</h1>
     <table>
+      <h1>{{ vegetables[6]?.name || '蔬菜' }}</h1>
       <tbody>
         <tr>
           <td v-for="(category, index) in visibleCategories" :key="index">
@@ -47,36 +47,53 @@ function navigateToPage() {
 
 <style scoped>
 .vegetable-categories {
-  width: 60.4%;
-  height: 350px;
+  width: 100%;
+  /* width: 60.4%; */
+  height: 100%;
+  /* height: 350px; */
   /* margin-top: 20px; */
 }
 
 .vegetable-categories h1 {
+  padding-left: 10px;
   width: 100%;
   height: 50px;
   font-size: 1.6em;
+  line-height: 50px;
   font-weight: 500;
+  background-color: transparent;
   /* margin-left: 5px; */
 }
 
 .vegetable-categories table {
   width: 100%;
-  height: 300px;
+  height: 100%;
+  gap: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 1px 1px 3px 1px #ccc;
+  /* background-color: #fff; */
 }
 
+.vegetable-categories tbody {
+  width: 100%;
+  height: 100%;
+}
 .vegetable-categories tr {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
+  background-color: #fff;
+  /* box-shadow: 1px 1px 3px 1px #ccc; */
 }
 
 .vegetable-categories td {
   vertical-align: top;
   padding: 15px;
   width: 50%;
+  background-color: #fff;
 }
 
 .vegetable-categories h2 {

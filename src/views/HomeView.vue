@@ -38,24 +38,6 @@
   <div class="shop_list">
     <a href="#">点击查看更多商品信息&#32;&#187;</a>
   </div>
-
-  <div class="home_supply" id="section-2">
-    <NavigationBar :items="items" />
-    <div class="home_supply_show">
-      <RecommendedProducts
-        :products="products"
-        :title="false"
-        width="222px"
-        height="300px"
-      />
-      <RecommendedProducts
-        :products="products"
-        :title="false"
-        :width="width"
-        :height="height"
-      />
-    </div>
-  </div>
   <!-- </div> -->
 </template>
 

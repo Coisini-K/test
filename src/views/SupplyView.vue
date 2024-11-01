@@ -26,7 +26,6 @@
       />
     </template>
 
-    <RouterLink v-once :to="detailPath"> </RouterLink>
     <template v-if="section.type === 'product'">
       <RecommendedProducts
         :products="section.products"
@@ -187,6 +186,7 @@ const allSections = computed(() => {
 
 .app-box {
   width: 100%;
+  height: 350px;
   display: flex;
   /* align-items: flex-start; */
   /* justify-content: flex-start; */

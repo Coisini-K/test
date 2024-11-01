@@ -34,7 +34,7 @@
       <td rowspan="2" class="tr_one">数量</td>
       <!-- <td class="tr_two">155/78</td> -->
       <td class="tr_tr_there">
-        <input type="number" v-model="price" disabled  />元
+        <input type="number" v-model="price" disabled />元
       </td>
       <td class="td">
         <a href="javascript:;" class="decrement" @click="decrement('1')">-</a>
@@ -57,7 +57,7 @@
     </tr>
     <tr>
       <td class="td">
-        <button class="left_button" @click="prevImage">&lt</button>
+        <button class="left_button" @click="prevImage">&lt;</button>
         <div class="div">
           <img
             v-for="(image, index) in images"
@@ -67,7 +67,7 @@
             @click="selectImage(index)"
           />
         </div>
-        <button class="right_button" @click="nextImage">&gt</button>
+        <button class="right_button" @click="nextImage">&gt;</button>
       </td>
       <td colspan="4">
         <div class="button_one">
@@ -81,7 +81,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import useCounterStore from '@/stores/detail';
 
