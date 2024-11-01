@@ -8,6 +8,18 @@
 cd .\Desktop\rain\code\vueShop\
 ```
 
+网络出问题时，尝试切换仓库连接方式
+
+```sh
+# SSH
+git remote set-url origin git@github.com:Coisini-K/test.git
+```
+
+```sh
+# HTTPS
+git remote set-url origin https://github.com/Coisini-K/test.git
+```
+
 推荐的 IDE 设置：
 
 - VSCode + Volar （并禁用 Vetur）

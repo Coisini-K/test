@@ -20,6 +20,8 @@ const useMainStore = defineStore('main', () => {
     bar.value = [];
   };
 
+
+
   const increment = () => {
     count.value++;
   };

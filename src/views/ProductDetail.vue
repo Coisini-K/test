@@ -10,18 +10,24 @@
         <p>{{ product.price }}元/{{ product.unit }}</p>
         <p>{{ product.description }}</p>
       </div>
-      <button @click="closeModal">关闭</button>
+      <!-- <button @click="closeModal">关闭</button> -->
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  product: {
-    type: Object,
-    required: true,
-  },
-});
+// defineProps({
+//   product: {
+//     type: Object,
+//     required: false,
+//   },
+// });
+
+import useCounterStore from '@/stores/detail';
+const mainStore = useCounterStore();
+  // console.log(mainStore.items);
+const product = mainStore.items;
+// console.log(product);
 </script>
 
 <style scoped>

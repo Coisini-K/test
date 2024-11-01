@@ -6,7 +6,7 @@
       v-for="(product, index) in products"
       :key="index"
       :style="{ width: width }"
-      @click="navigateToHome"
+      @click="navigateToHome(product)"
     >
       <img
         :src="product.image || '/path/to/default-image.jpg'"
@@ -27,13 +27,26 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { DETAIL_PATH } from '@/constants/routes';
+import useCounterStore from '@/stores/detail';
+const mainStore = useCounterStore();
 const detailPath = ref(DETAIL_PATH);
 const router = useRouter();
+
 // @click="navigateToHome"
-const navigateToHome = () => {
+const navigateToHome = (product) => {
+  initItems(product);
+  // console.log(detailPath);
   // router.push({ name: 'Home' }); // 假设 'Home' 是路由的名字
   // 或者使用路径字符串
-  router.push(detailPath);
+  router.push(detailPath.value);
+};
+
+// 把商品信息数组设置到 store 中
+const initItems = (arr) => {
+  const Items = arr;
+  mainStore.clearItems();
+  mainStore.setItems(Items);
+  // console.log(mainStore.items);
 };
 
 defineProps({

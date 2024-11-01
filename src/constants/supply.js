@@ -726,6 +726,7 @@ export const sideline = [
 
 // 好物推荐
 export const products = [
+  // 第一组 索引 0
   {
     image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
     title: '广西/云南黄金水果玉米新鲜发货3/5/9斤一件代发包邮批发',

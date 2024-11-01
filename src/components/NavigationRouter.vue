@@ -43,7 +43,7 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content : flex-start;
+  justify-content: flex-start;
   padding: 10px 0;
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
