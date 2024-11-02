@@ -1,13 +1,8 @@
 <template>
     <div class="navigation">
-        <ul>
+        <ul class="bar">
             <li v-for="(item, index) in items" :key="index">
-                <a
-                    href="#"
-                    class="link"
-                    :class="{ active: isActive(index) }"
-                    @click.prevent="handleClick(index)"
-                >
+                <a href="#" class="link" :class="{ active: isActive(index) }" @click.prevent="handleClick(index)">
                     {{ item }}
                 </a>
             </li>
@@ -61,21 +56,18 @@ onMounted(() => {
 }
 
 .bar {
-    width: 900px;
-    height: 100%;
-}
-
-ul {
-    width: 100%;
+    flex: 1;
+    /* width: 900px; */
     height: 100%;
     padding: 0;
     list-style-type: none;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 li {
+    flex-grow: 1;
     height: 100%;
     display: inline-block;
     /* margin-right: 10px; */
@@ -84,25 +76,30 @@ li {
 
 .link {
     height: 100%;
-    padding: 10px;
+    padding: 10px 0;
     /* border-radius: 10px; */
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .link:hover {
-    color: #8ff6a6;
+    color: #39bf3e;
     padding-bottom: 8px;
     background-color: transparent;
     border-bottom: 2px solid #8ff6a6;
 }
+
 .link.active {
-    color: #8ff6a6;
+    color: #39bf3e;
+    padding-bottom: 8px;
     background-color: transparent;
     border-bottom: 2px solid #8ff6a6;
 }
+
 .search {
-    /* width: 200px; */
+    width: 300px;
     height: 100%;
+    padding: 0 30px;
 }
 </style>
