@@ -1,100 +1,100 @@
 @import './base.css';
 
 * {
-  margin: 0;
-  padding: 0;
-  /* transition: all 0.3s ease; */
-  /* 平滑过渡 */
+    margin: 0;
+    padding: 0;
+    /* transition: all 0.3s ease; */
+    /* 平滑过渡 */
 }
 
 html,
 body {
-  width: 100%;
-  /* 确保填充整个视口 */
-  min-height: 100%;
-  /* 确保高度也填充整个视口 */
-  overflow-x: hidden;
-  /* 禁止水平滚动 */
+    width: 100%;
+    /* 确保填充整个视口 */
+    min-height: 100%;
+    /* 确保高度也填充整个视口 */
+    overflow-x: hidden;
+    /* 禁止水平滚动 */
 }
 
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  /* 水平居中 */
-  align-items: center;
-  /* 垂直居中 */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
 }
 
 #app {
-  display: flex;
-  /* 启用 Flex 布局 */
-  flex-direction: column;
-  /* 子元素垂直排列 */
-  align-items: center;
-  /* 水平居中对齐 */
-  justify-content: flex-start;
-  /* 垂直居中对齐 */
-  width: 1600px;
-  /* 固定宽度 */
-  min-width: 1600px;
-  /* 最小宽度 */
-  max-width: 1600px;
-  /* 最大宽度 */
-  margin: 0 auto;
-  /* 水平居中 */
-  box-sizing: border-box;
-  /* 确保内边距和边框不会增加宽度 */
-  /* 容器高度 */
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
-  /* font-weight: normal; */
-  /* border: 1px solid #aaa; */
-  /* 边框用于视觉区分容器 */
-  background-color: #f5f5f5;
+    display: flex;
+    /* 启用 Flex 布局 */
+    flex-direction: column;
+    /* 子元素垂直排列 */
+    align-items: center;
+    /* 水平居中对齐 */
+    justify-content: flex-start;
+    /* 垂直居中对齐 */
+    width: 1600px;
+    /* 固定宽度 */
+    min-width: 1600px;
+    /* 最小宽度 */
+    max-width: 1600px;
+    /* 最大宽度 */
+    margin: 0 auto;
+    /* 水平居中 */
+    box-sizing: border-box;
+    /* 确保内边距和边框不会增加宽度 */
+    /* 容器高度 */
+    /* margin: 0 auto; */
+    /* padding: 2rem; */
+    /* font-weight: normal; */
+    /* border: 1px solid #aaa; */
+    /* 边框用于视觉区分容器 */
+    background-color: #f5f5f5;
 }
 
 a {
-  color: #333;
-  /* 默认颜色 */
-  text-decoration: none;
-  align-items: center;
+    color: #333;
+    /* 默认颜色 */
+    text-decoration: none;
+    align-items: center;
 }
 
 a:hover {
-  cursor: pointer;
-  /* 改变鼠标指针形状 */
-  /* color: #cff6d6; */
-  background-color: #cff6d6;
-  /* 悬停颜色 */
+    cursor: pointer;
+    /* 改变鼠标指针形状 */
+    /* color: #cff6d6; */
+    background-color: #cff6d6;
+    /* 悬停颜色 */
 }
 
 a.active {
-  background-color: #8ff6a6;
-  /* 激活颜色 */
+    background-color: #8ff6a6;
+    /* 激活颜色 */
 }
 
 /* 设置按钮悬停效果 */
 button:hover {
-  color: #cff6d6;
-  /* background-color: #cff6d6; */
+    color: #cff6d6;
+    /* background-color: #cff6d6; */
 }
 
 @media (hover: hover) {
 }
 
 .green {
-  color: hsla(160, 100%, 37%, 1);
-  padding: 3px;
+    color: hsla(160, 100%, 37%, 1);
+    padding: 3px;
 }
 
 @media (min-width: 1024px) {
-  /* body {
+    /* body {
 		display: flex;
 		place-items: center;
 	} */
 
-  /* #app {
+    /* #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;

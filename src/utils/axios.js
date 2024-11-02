@@ -14,38 +14,38 @@ import axios from 'axios';
 
 // 如果不想使用环境变量，可以直接定义一个常量：
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/api',
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+    baseURL: 'http://localhost:3000/api',
+    timeout: 10000,
+    headers: {
+        'Content-Type': 'application/json',
+    },
 });
 
 // 请求拦截器
 instance.interceptors.request.use(
-  (config) => {
-    // 在这里可以添加请求头等
-    // 例如：添加 token 到请求头
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    (config) => {
+        // 在这里可以添加请求头等
+        // 例如：添加 token 到请求头
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
     }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
 );
 
 // 响应拦截器
 instance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    // 在这里处理错误响应，例如重新登录等
-    return Promise.reject(error);
-  }
+    (response) => {
+        return response;
+    },
+    (error) => {
+        // 在这里处理错误响应，例如重新登录等
+        return Promise.reject(error);
+    }
 );
 
 export default instance;

@@ -48,46 +48,48 @@ const date = '2024-10-19';
 const iterations = 100;
 -->
 <template>
-  <!-- 外层容器 -->
-  <div class="div-box">
-    <!-- 条件性显示的头部信息 -->
-    <div class="box-header" v-if="info || date">
-      <p v-if="info">{{ info }}</p>
-      <p v-if="date">{{ date }}</p>
+    <!-- 外层容器 -->
+    <div class="div-box">
+        <!-- 条件性显示的头部信息 -->
+        <div class="box-header" v-if="info || date">
+            <p v-if="info">{{ info }}</p>
+            <p v-if="date">{{ date }}</p>
+        </div>
+        <!-- 表格容器 -->
+        <div class="table-box">
+            <table>
+                <!-- 条件性显示的表头 -->
+                <thead class="thead-header" v-if="title">
+                    <tr>
+                        <th>地区</th>
+                        <th>卖家名称</th>
+                        <th>出售品类</th>
+                    </tr>
+                </thead>
+                <!-- 可滚动的表格主体 -->
+                <tbody class="scrolling-table-body" ref="tableBody">
+                    <tr
+                        v-for="(deal, index) in visibleDeals"
+                        :key="index"
+                        :class="{ magnify: highlightedIndex === index }"
+                        @mouseover="highlightRow(index)"
+                        @mouseleave="unhighlightRow()"
+                        @click="navigateToDeal(deal)"
+                    >
+                        <td class="magnify-main" v-if="deal.area">
+                            {{ deal.area }}
+                        </td>
+                        <td class="magnify-main" v-if="deal.sellerName">
+                            {{ deal.sellerName }}
+                        </td>
+                        <td class="magnify-main" v-if="deal.productType">
+                            {{ deal.productType }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <!-- 表格容器 -->
-    <div class="table-box">
-      <table>
-        <!-- 条件性显示的表头 -->
-        <thead class="thead-header" v-if="title">
-          <tr>
-            <th>地区</th>
-            <th>卖家名称</th>
-            <th>出售品类</th>
-          </tr>
-        </thead>
-        <!-- 可滚动的表格主体 -->
-        <tbody class="scrolling-table-body" ref="tableBody">
-          <tr
-            v-for="(deal, index) in visibleDeals"
-            :key="index"
-            :class="{ magnify: highlightedIndex === index }"
-            @mouseover="highlightRow(index)"
-            @mouseleave="unhighlightRow()"
-            @click="navigateToDeal(deal)"
-          >
-            <td class="magnify-main" v-if="deal.area">{{ deal.area }}</td>
-            <td class="magnify-main" v-if="deal.sellerName">
-              {{ deal.sellerName }}
-            </td>
-            <td class="magnify-main" v-if="deal.productType">
-              {{ deal.productType }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 </template>
 
 <script setup>
@@ -95,11 +97,11 @@ import { ref, onMounted } from 'vue';
 
 // 定义组件接收的属性
 const props = defineProps({
-  deals: { type: Array, required: true },
-  title: { type: Boolean, default: false },
-  info: { type: String, default: '' },
-  date: { type: String, default: '' },
-  iterations: { type: Number, default: 50 },
+    deals: { type: Array, required: true },
+    title: { type: Boolean, default: false },
+    info: { type: String, default: '' },
+    date: { type: String, default: '' },
+    iterations: { type: Number, default: 50 },
 });
 
 // 可见的交易数据
@@ -113,8 +115,8 @@ const tableBody = ref(null);
 
 // 组件挂载时执行数据的存储和重复
 onMounted(() => {
-  // console.log(props);
-  storeAndRepeatData(props.deals, props.iterations);
+    // console.log(props);
+    storeAndRepeatData(props.deals, props.iterations);
 });
 
 /**
@@ -123,11 +125,11 @@ onMounted(() => {
  * @param {Number} iterations - 重复次数
  */
 function storeAndRepeatData(data, iterations) {
-  let repeatedData = [];
-  for (let i = 0; i < iterations; i++) {
-    repeatedData = [...repeatedData, ...data];
-  }
-  visibleDeals.value = repeatedData;
+    let repeatedData = [];
+    for (let i = 0; i < iterations; i++) {
+        repeatedData = [...repeatedData, ...data];
+    }
+    visibleDeals.value = repeatedData;
 }
 
 /**
@@ -135,137 +137,137 @@ function storeAndRepeatData(data, iterations) {
  * @param {Number} index - 行索引
  */
 function highlightRow(index) {
-  highlightedIndex.value = index;
-  pauseScrolling();
+    highlightedIndex.value = index;
+    pauseScrolling();
 }
 
 // 取消高亮行
 function unhighlightRow() {
-  highlightedIndex.value = -1;
-  resumeScrolling();
+    highlightedIndex.value = -1;
+    resumeScrolling();
 }
 
 // 暂停表格滚动
 function pauseScrolling() {
-  isScrollingPaused.value = true;
-  if (tableBody.value) {
-    tableBody.value.style.animationPlayState = 'paused';
-  }
+    isScrollingPaused.value = true;
+    if (tableBody.value) {
+        tableBody.value.style.animationPlayState = 'paused';
+    }
 }
 
 // 恢复表格滚动
 function resumeScrolling() {
-  isScrollingPaused.value = false;
-  if (tableBody.value) {
-    tableBody.value.style.animationPlayState = 'running';
-  }
+    isScrollingPaused.value = false;
+    if (tableBody.value) {
+        tableBody.value.style.animationPlayState = 'running';
+    }
 }
 
 // 导航到交易详情页面
 function navigateToDeal() {
-  window.location.href = `https://www.cnhnb.com/supply/`;
+    window.location.href = `https://www.cnhnb.com/supply/`;
 }
 </script>
 
 <style scoped>
 .div-box {
-  /* border: 3px solid #000000; */
-  width: 100%;
-  height: 100%;
-  display: flex;
-  /* flex-wrap: wrap; */
-  flex-direction: column;
-  justify-content: center;
-  /* box-shadow: 1px 1px 3px 1px #ccc; */
+    /* border: 3px solid #000000; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    /* box-shadow: 1px 1px 3px 1px #ccc; */
 }
 
 .box-header {
-  width: 100%;
-  height: 60px;
-  /* color: #999; */
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 0 20px;
+    width: 100%;
+    height: 60px;
+    /* color: #999; */
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0 20px;
 }
 
 .table-box {
-  min-height: 50px;
-  max-height: 100%;
-  width: 100%;
-  overflow-y: hidden; /* 启用垂直滚动条 */
-  position: relative; /* 确保内部的position: sticky可以正常工作 */
-  border: none;
-  /* display: flex; */
-  /* flex-direction: column; */
+    min-height: 50px;
+    max-height: 100%;
+    width: 100%;
+    overflow-y: hidden; /* 启用垂直滚动条 */
+    position: relative; /* 确保内部的position: sticky可以正常工作 */
+    border: none;
+    /* display: flex; */
+    /* flex-direction: column; */
 }
 
 .latest-deals {
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  max-width: 40%;
-  /* margin: 0 auto; */
-  display: flex;
-  flex-wrap: wrap;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    max-width: 40%;
+    /* margin: 0 auto; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: none;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
 }
 
 .thead-header {
-  /* display:flex ; */
-  height: 50px;
-  width: 100%;
-  z-index: 1;
-  /* padding: 0 20px; */
-  position: sticky; /* 固定表头 */
-  top: 0; /* 表头与顶部的距离 */
-  background-color: #fff;
+    /* display:flex ; */
+    height: 50px;
+    width: 100%;
+    z-index: 1;
+    /* padding: 0 20px; */
+    position: sticky; /* 固定表头 */
+    top: 0; /* 表头与顶部的距离 */
+    background-color: #fff;
 }
 
 th,
 td {
-  padding: 7px;
-  text-align: left;
+    padding: 7px;
+    text-align: left;
 }
 
 th {
-  font-weight: bold;
-  text-align: center;
+    font-weight: bold;
+    text-align: center;
 }
 
 td {
-  text-align: center;
+    text-align: center;
 }
 
 .scrolling-table-body {
-  position: relative;
-  will-change: transform;
-  animation: scrollUp 2000s linear infinite; /* 20 秒完成一次循环 */
+    position: relative;
+    will-change: transform;
+    animation: scrollUp 2000s linear infinite; /* 20 秒完成一次循环 */
 }
 
 /* 添加 CSS 动画 */
 @keyframes scrollUp {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
 }
 
 .magnify {
-  color: #63b555;
+    color: #63b555;
 }
 
 /* 确保放大后的行不会覆盖其他行 */
 tr.magnify td {
-  position: relative;
+    position: relative;
 }
 </style>
