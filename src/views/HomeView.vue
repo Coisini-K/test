@@ -9,28 +9,16 @@
                 <img src="@/assets/images/home/carousel/2.jpg" alt="no!" />
             </div>
         </div>
-        <UserInformation
-            :userInfo="{
-                avatar: '/src/assets/images/home/doge.jpg',
-                name: 'oh my rain',
-            }"
-        />
+        <UserInformation :userInfo="{
+            avatar: '/src/assets/images/home/doge.jpg',
+            name: 'oh my rain',
+        }" />
     </div>
     <div class="home_supply section" id="section-1">
         <NavigationBar :items="items" />
         <div class="home_supply_show">
-            <RecommendedProducts
-                :products="products_1"
-                :title="false"
-                width="230px"
-                height="300px"
-            />
-            <RecommendedProducts
-                :products="products_2"
-                :title="false"
-                :width="width"
-                :height="height"
-            />
+            <RecommendedProducts :products="products_1" :title="false" width="230px" height="300px" />
+            <RecommendedProducts :products="products_2" :title="false" :width="width" :height="height" />
         </div>
     </div>
 
@@ -40,8 +28,10 @@
 
     <div class="section">
         <NavigationBar :items="items" />
-        <PurchaseTable />
-        <NewLatest />
+        <div class="purchase_box">
+            <PurchaseTable />
+            <NewLatest />
+        </div>
     </div>
     <!-- </div> -->
 </template>

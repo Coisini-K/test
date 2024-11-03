@@ -124,6 +124,8 @@ defineProps({
 .product .product-info {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 
     padding: 0 10px 10px 10px;
     width: 100%;
