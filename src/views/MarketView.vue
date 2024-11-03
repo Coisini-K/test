@@ -290,7 +290,8 @@ onMounted(() => {
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
-    /* border: 1px solid #ddd; */
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
 
 .title {
