@@ -22,7 +22,7 @@
                             :src="`${iconHref}${index + 1}.png`"
                             alt="icon"
                             class="icon"
-                        />
+                        >
                         {{ item.productType }}
                     </td>
                     <td>{{ item.purchaseAmount }}</td>
