@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>邮箱@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="首页登录_忘记密码" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="行情大厅" transform="translate(-1157.000000, -721.000000)">
+            <g id="编组" transform="translate(1147.000000, 645.000000)" stroke="#EAEAEA">
+                <rect id="矩形-copy-6" x="0.5" y="0.5" width="292" height="134"></rect>
+            </g>
+            <path d="M1171,726.636364 L1171,731.447894 C1171,732.301552 1170.3,733 1169.44444,733 L1169.44444,733 L1158.55556,733 C1157.7,733 1157,732.301552 1157,731.447894 L1157,731.447894 L1157,726.636364 L1163.61111,728.654102 L1164,728.77051 L1164.35,728.654102 L1171,726.636364 Z M1169.44444,723 C1170.3,723 1171,723.687548 1171,724.527884 L1171,724.527884 L1171,725.444614 L1164,727.545455 L1157,725.444614 L1157,724.527884 C1157,723.687548 1157.7,723 1158.55556,723 L1158.55556,723 Z" id="邮箱" fill="#646464" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

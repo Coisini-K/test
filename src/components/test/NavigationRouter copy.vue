@@ -3,7 +3,12 @@
 <template>
     <div class="navbar">
         <nav>
-            <RouterLink v-for="link in links" :key="link.href" :to="link.href" class="nav-link">
+            <RouterLink
+                v-for="link in links"
+                :key="link.href"
+                :to="link.href"
+                class="nav-link"
+            >
                 {{ link.text }}
             </RouterLink>
         </nav>
@@ -25,7 +30,7 @@ const links = [
     { href: '/news', text: '行业资讯' },
     { href: '/mall', text: '严选商城' },
     { href: '/npt', text: '农批通' },
-    { href: '/tuliu', text: '土流网' }
+    { href: '/tuliu', text: '土流网' },
 ];
 
 // import { ref, onMounted, watch, nextTick } from 'vue';

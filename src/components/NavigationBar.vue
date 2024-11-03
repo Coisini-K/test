@@ -2,7 +2,12 @@
     <div class="navigation">
         <ul class="bar">
             <li v-for="(item, index) in items" :key="index">
-                <a href="#" class="link" :class="{ active: isActive(index) }" @click.prevent="handleClick(index)">
+                <a
+                    href="#"
+                    class="link"
+                    :class="{ active: isActive(index) }"
+                    @click.prevent="handleClick(index)"
+                >
                     {{ item }}
                 </a>
             </li>
