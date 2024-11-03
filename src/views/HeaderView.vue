@@ -68,8 +68,8 @@
 
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
-import NavigationRouter from '@/components/NavigationRouter.vue';
-import SearchBox from '@/components/SearchBox.vue';
+import NavigationRouter from '@/components/public/NavigationRouter.vue';
+import SearchBox from '@/components/public/SearchBox.vue';
 
 const isSticky = ref(true);
 
@@ -99,6 +99,7 @@ onUnmounted(() => {
 * {
     transition: none;
 }
+
 .header {
     height: 320px;
     width: 100%;

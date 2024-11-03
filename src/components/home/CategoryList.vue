@@ -17,6 +17,11 @@
                         @mouseover="handleMouseEnter"
                         @mouseleave="handleMouseLeave"
                     >
+                        <img
+                            :src="getIconPath(index * 2 + 1)"
+                            alt="icon"
+                            class="category_icon"
+                        />
                         {{ item.name }}
                     </li>
                 </ul>
@@ -28,6 +33,11 @@
                         @mouseover="handleMouseEnter"
                         @mouseleave="handleMouseLeave"
                     >
+                        <img
+                            :src="getIconPath(index * 2 + 2)"
+                            alt="icon"
+                            class="category_icon"
+                        />
                         {{ item.name }}
                     </li>
                 </ul>
@@ -43,6 +53,8 @@
 import { ref } from 'vue';
 import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
 import { vegetables } from '@/constants/supply';
+
+const iconHref = 'src/assets/images/home/icon/';
 
 const categories_1 = ref([
     { name: '水果' },
@@ -70,6 +82,10 @@ const categories_2 = ref([
 
 const status = ref(false);
 
+const getIconPath = (index) => {
+    return `${iconHref}${index}.png`;
+};
+
 const handleMouseEnter = () => {
     status.value = true;
 };
@@ -88,6 +104,7 @@ const handleMouseLeave = () => {
     justify-content: flex-start;
     align-items: center;
 }
+
 .category_list {
     width: 270px;
     height: 100%;
@@ -139,6 +156,11 @@ const handleMouseLeave = () => {
 .category_li {
     padding: 10px;
     font-size: 1.2rem;
+}
+
+.category_icon {
+    width: 20px;
+    height: 20px;
 }
 
 .category_li:hover {

@@ -44,13 +44,13 @@
 import { ref, computed, onMounted } from 'vue';
 
 // 轮播图
-import CarouselModule from '@/components/CarouselModule.vue';
+import CarouselModule from '@/components/public/CarouselModule.vue';
 // 文字列表滚动
-import LatestDeals from '@/components/LatestDeals.vue';
+import LatestDeals from '@/components/public/LatestDeals.vue';
 // 供应页面文字左右列表及图片列表
 import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
 import SupplyUlRight from '@/components/supply/SupplyUlRight.vue';
-import RecommendedProducts from '@/components/RecommendedProducts.vue';
+import RecommendedProducts from '@/components/public/RecommendedProducts.vue';
 import SectionsModule from '@/components/supply/SectionsModule.vue';
 
 import {

@@ -57,7 +57,7 @@ onMounted(() => {
 });
 
 // 导入EchartsStore组件
-import EchartsStore from '@/components/EchartsStore.vue';
+import EchartsStore from '@/components/public/EchartsStore.vue';
 
 // 定义图表配置选项
 const chartOptions = ref({

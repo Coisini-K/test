@@ -101,8 +101,8 @@ import ProductNews from '@/components/market/ProductNews.vue';
 // 引入计算日期的方法
 import { getDates } from '@/utils/dateUtils';
 // 导入EchartsStore组件
-import EchartsStore from '@/components/EchartsStore.vue';
-import HandoffDAte from '@/components/HandoffDAte.vue';
+import EchartsStore from '@/components/public/EchartsStore.vue';
+import HandoffDAte from '@/components/public/HandoffDAte.vue';
 
 // 定义曲线图Y轴数据 日期
 const dates = getDates(null, 'MM-DD');
@@ -372,7 +372,7 @@ onMounted(() => {
 .content td {
     padding: 8px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
 }
 
 .content tr:nth-child(even) {

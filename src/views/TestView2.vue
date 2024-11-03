@@ -77,7 +77,7 @@ import { onMounted } from 'vue';
 import useMainStore from '@/stores';
 const mainStore = useMainStore();
 
-import LatestDeals from '@/components/LatestDeals.vue';
+import LatestDeals from '@/components/public/LatestDeals.vue';
 
 const title = true;
 const info = '最新成交';

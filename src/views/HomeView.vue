@@ -16,18 +16,17 @@
             }"
         />
     </div>
-
-    <div class="home_supply" id="section-1">
+    <div class="home_supply section" id="section-1">
         <NavigationBar :items="items" />
         <div class="home_supply_show">
             <RecommendedProducts
-                :products="products"
+                :products="products_1"
                 :title="false"
-                width="222px"
+                width="230px"
                 height="300px"
             />
             <RecommendedProducts
-                :products="products"
+                :products="products_2"
                 :title="false"
                 :width="width"
                 :height="height"
@@ -38,20 +37,29 @@
     <div class="shop_list">
         <a href="#">点击查看更多商品信息&#32;&#187;</a>
     </div>
+
+    <div class="section">
+        <NavigationBar :items="items" />
+        <PurchaseTable />
+        <NewLatest />
+    </div>
     <!-- </div> -->
 </template>
 
 <script setup>
+import NavigationBar from '@/components/public/NavigationBar.vue';
+import CarouselModule from '@/components/public/CarouselModule.vue';
+import RecommendedProducts from '@/components/public/RecommendedProducts.vue';
 import CategoryList from '@/components/home/CategoryList.vue';
-import CarouselModule from '@/components/CarouselModule.vue';
 import UserInformation from '@/components/home/UserInformation.vue';
-import RecommendedProducts from '@/components/RecommendedProducts.vue';
-import NavigationBar from '@/components/NavigationBar.vue';
+import PurchaseTable from '@/components/home/PurchaseTable.vue';
+import NewLatest from '@/components/home/NewLatest.vue';
 
 import { onMounted } from 'vue';
 import useMainStore from '@/stores';
+import { products_1, products_2 } from '@/constants/home';
 
-const width = '222px';
+const width = '230px';
 const height = '300px';
 
 const mainStore = useMainStore();
@@ -88,47 +96,12 @@ const items = [
 ];
 
 const photos = [
-    '/src/assets/images/home/carousel/1.jpg',
-    '/src/assets/images/home/carousel/3.jpg',
-    '/src/assets/images/home/carousel/6.jpg',
-];
-
-const products = [
-    {
-        image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
-        title: '广西/云南黄金水果玉米新鲜发货3/5/9斤一件代发包邮批发',
-        price: '16.80',
-        unit: '箱',
-        description: '成交8.3万元',
-    },
-    {
-        image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
-        title: '北虫草 【500g大孢子头】虫草虫草花金虫草蛹虫草干货泡茶',
-        price: '4.60',
-        unit: '包',
-        description: '成交45元',
-    },
-    {
-        image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
-        title: '古田丑耳3朵试吃装',
-        price: '11.90',
-        unit: '包',
-        description: '成交8.3万元',
-    },
-    {
-        image: new URL('@/assets/images/aos/2.webp', import.meta.url).href,
-        title: '黑木耳 富贵干货大礼包B款，年货送礼高档礼盒装',
-        price: '59.00',
-        unit: '袋',
-        description: '成交45元',
-    },
-    {
-        image: new URL('@/assets/images/aos/1.webp', import.meta.url).href,
-        title: '福建古田银耳现摘现发古田白木耳易糯多胶，1朵100G左右',
-        price: '3.00',
-        unit: '朵',
-        description: '成交8.3万元',
-    },
+    '/src/assets/images/home/carousel/01.jpg',
+    '/src/assets/images/home/carousel/02.jpg',
+    '/src/assets/images/home/carousel/03.jpg',
+    '/src/assets/images/home/carousel/04.jpg',
+    '/src/assets/images/home/carousel/05.jpg',
+    '/src/assets/images/home/carousel/06.jpg',
 ];
 </script>
 
@@ -173,7 +146,7 @@ const products = [
     /* margin: auto; */
 }
 
-.home_supply {
+.section {
     width: 100%;
     height: 720px;
     /* margin: 10px 0; */
@@ -181,7 +154,7 @@ const products = [
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 5px;
+    gap: 10px;
 }
 
 .home_supply_show {

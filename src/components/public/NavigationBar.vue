@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import SearchBox from '@/components/SearchBox.vue';
+import SearchBox from '@/components/public/SearchBox.vue';
 
 // 接收来自父组件的数据
 // const props = defineProps({
