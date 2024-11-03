@@ -188,11 +188,7 @@ const goBack = () => {
 </script>
 
 <style scoped>
-input {
-    width: 40px;
-    border: none;
-    background-color: transparent;
-}
+
 .back_bt {
     width: 100%;
     text-align: left;
@@ -244,7 +240,7 @@ td {
 .div img:focus,
 .div .selected {
     outline: none;
-    border: 3px solid #000;
+    border: 3px solid #38bf3e;
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
 }
@@ -295,6 +291,7 @@ td {
 }
 
 .tr_two {
+    font-size: 1.2rem;
     width: 120px;
     height: 50px;
     /* text-align: center; */
@@ -304,6 +301,14 @@ td {
     height: 50px;
 }
 
+.tr_tr_there input {
+    width: 60px;
+    height: 40px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: transparent;
+}
 .button_group {
     display: flex;
     justify-content: space-around;
