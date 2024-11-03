@@ -99,11 +99,27 @@ onMounted(() => {
 });
 
 // 轮播图
-const images = [
-    new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
-    new URL('@/assets/images/supply/carousel/2.jpg', import.meta.url).href,
-    new URL('@/assets/images/supply/carousel/3.jpg', import.meta.url).href,
-];
+// const images = [
+//     new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
+//     new URL('@/assets/images/supply/carousel/2.jpg', import.meta.url).href,
+//     new URL('@/assets/images/supply/carousel/3.jpg', import.meta.url).href,
+//     new URL('@/assets/images/supply/carousel/4.jpg', import.meta.url).href,
+// ];
+
+//轮播图 遍历所有照片
+const images = ref([]);
+
+onMounted(async () => {
+    // 使用 import.meta.glob 动态导入所有图片
+    const modules = import.meta.glob(
+        '@/assets/images/supply/carousel/*.{jpg,jpeg,png,gif}'
+    );
+
+    for (const path in modules) {
+        const imagePath = await modules[path]();
+        images.value.push(imagePath.default);
+    }
+});
 
 // 成交数据
 const title = ref(true);

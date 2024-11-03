@@ -49,6 +49,9 @@ function navigateToPage() {
 </script>
 
 <style scoped>
+tbody {
+    box-shadow: 0px 3px 3px 0px #ccc;
+}
 .vegetable-categories {
     width: 100%;
     /* width: 60.4%; */
