@@ -145,7 +145,7 @@ defineProps({
 }
 
 .product-info .price {
-    width: 95px;
+    width: 45%;
     height: 50px;
     font-size: 1.2em;
     color: red;
@@ -156,7 +156,7 @@ defineProps({
 }
 
 .product-info .description {
-    width: 80px;
+    width: 45%;
     height: 50px;
     display: flex;
     align-items: center;

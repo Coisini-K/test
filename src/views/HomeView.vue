@@ -42,8 +42,13 @@
         <NavigationBar :items="items" />
         <div class="purchase_box">
             <PurchaseTable />
-            <NewLatest />
+            <div class="purchase_right">
+                <NewLatest />
+            </div>
         </div>
+    </div>
+    <div class="hot_supply">
+        <HotSupply />
     </div>
     <!-- </div> -->
 </template>
@@ -56,6 +61,7 @@ import CategoryList from '@/components/home/CategoryList.vue';
 import UserInformation from '@/components/home/UserInformation.vue';
 import PurchaseTable from '@/components/home/PurchaseTable.vue';
 import NewLatest from '@/components/home/NewLatest.vue';
+import HotSupply from '@/components/home/HotSupply.vue';
 
 import { onMounted } from 'vue';
 import useMainStore from '@/stores';
@@ -155,6 +161,17 @@ const photos = [
     /* border: 1px solid #ccc; */
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.hot_supply {
+    width: 100%;
+    /* height: 1400px; */
+    /* margin: 10px 0; */
+    /* border: 1px solid #ccc; */
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     gap: 10px;
 }
@@ -176,8 +193,14 @@ const photos = [
 
 .purchase_box {
     width: 100%;
+    height: 600px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.purchase_right {
+    width: 280px;
+    height: 100%;
 }
 </style>

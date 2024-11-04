@@ -18,9 +18,9 @@
 
 <style scoped>
 .latest_box {
-    width: 280px;
+    width: 100%;
     height: 100%;
-    padding: 24px 30px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -30,18 +30,20 @@
 
 .latest_title {
     width: 100%;
+    height: 24px;
     padding-left: 10px;
     border-left: 5px solid #cff6d6;
 }
 
 .latest_list {
-    margin: 10px 0;
+    flex: 1;
+    margin: 20px 0;
     list-style-type: none;
 }
 
 .latest_list li {
     font-size: 0.8rem;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 
 .latest_btn {

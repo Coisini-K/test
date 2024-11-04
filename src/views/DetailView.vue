@@ -188,7 +188,6 @@ const goBack = () => {
 </script>
 
 <style scoped>
-
 .back_bt {
     width: 100%;
     text-align: left;

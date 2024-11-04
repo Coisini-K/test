@@ -1,7 +1,7 @@
 <template>
     <div class="vegetable-categories">
         <table>
-            <h1>{{ vegetables[6]?.name || '蔬菜' }}</h1>
+            <h1 v-if="title">{{ vegetables[6]?.name || '蔬菜' }}</h1>
             <tbody>
                 <tr>
                     <td
@@ -33,6 +33,10 @@ const props = defineProps({
         type: Array,
         default: () => [],
     },
+    title: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const visibleCategories = computed(() => {
@@ -56,6 +60,7 @@ tbody {
     width: 100%;
     /* width: 60.4%; */
     height: 100%;
+    /* max-height: 100%; */
     /* height: 350px; */
     /* margin-top: 20px; */
 }
@@ -97,7 +102,7 @@ tbody {
 
 .vegetable-categories td {
     vertical-align: top;
-    padding: 15px;
+    padding: 8px 15px;
     width: 50%;
     background-color: #fff;
 }

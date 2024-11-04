@@ -73,3 +73,20 @@ export const products_2 = [
         description: '成交4.8万元',
     },
 ];
+
+export const products_3 = [
+    {
+        image: new URL('@/assets/images/home/hot/6.jpg', import.meta.url).href,
+        title: '东宁市【无增重】东北黑木耳干木耳肉厚无根长白山秋木耳精品碗耳小木耳',
+        price: '29.80',
+        unit: '斤',
+        description: '成交57.8万元',
+    },
+    {
+        image: new URL('@/assets/images/home/hot/7.jpg', import.meta.url).href,
+        title: '汕头特大种巨型纯种狮头鹅苗幼苗潮汕狮头鹅活体发货正超大型狮头鹅',
+        price: '65.00',
+        unit: '只',
+        description: ' 成交20.4万元',
+    },
+];
