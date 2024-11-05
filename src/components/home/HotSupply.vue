@@ -255,6 +255,6 @@ const iconHref = 'src/assets/images/home/icon/';
     width: 175px;
     height: 100%;
     /* border: 1px solid #ccc; */
-    box-shadow: 0px 0px 3px 0px #ccc;
+    /* box-shadow: 0px 0px 3px 0px #ccc; */
 }
 </style>

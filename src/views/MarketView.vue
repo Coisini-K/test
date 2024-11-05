@@ -89,7 +89,8 @@
                 <p><span class="icon phone-icon"></span>电话: 400-008-8888</p>
                 <p><span class="icon email-icon"></span>邮箱: hkq@hh.com</p>
             </div>
-            <ProductNews />
+            <ProductNews :news="news_1" />
+            <ProductNews :news="news_2" />
         </div>
     </div>
 </template>
@@ -97,9 +98,10 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 // 左侧资讯组件
+import { getDates } from '@/utils/dateUtils';
+import { news_1, news_2 } from '@/constants/home';
 import ProductNews from '@/components/market/ProductNews.vue';
 // 引入计算日期的方法
-import { getDates } from '@/utils/dateUtils';
 // 导入EchartsStore组件
 import EchartsStore from '@/components/public/EchartsStore.vue';
 import HandoffDAte from '@/components/public/HandoffDAte.vue';
@@ -383,7 +385,6 @@ onMounted(() => {
     padding: 6px 12px;
     /* border-radius: 15px; */
     color: #45b035;
-    /* background-color: #45b035; */
 }
 
 .right {
@@ -394,14 +395,14 @@ onMounted(() => {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
 }
 
 .contact {
     width: 100%;
     /* margin: 20px; */
     /* padding: 20px; */
-    background-color: #f5f5f5;
+    background-color: #fff;
     border-radius: 5px;
     /* display: flex;
     align-items: center;
@@ -416,7 +417,7 @@ onMounted(() => {
     padding: 6px 12px;
     /* text-align: center; */
     color: #333;
-    background-color: #ccc;
+    background-color: #eee;
 }
 
 .contact p {

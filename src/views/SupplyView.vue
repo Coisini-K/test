@@ -19,7 +19,7 @@
         :id="`section-${index}`"
     >
         <template v-if="section.type === 'supply'">
-            <SupplyUlLeft :vegetables="section.vegetables" />
+            <SupplyUlLeft :vegetables="section.vegetables" :shadow="true" />
             <SupplyUlRight
                 :supplies="section.supplies"
                 :vegetables="section.vegetables"

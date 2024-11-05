@@ -8,7 +8,7 @@ import SidebarLeft from '@/components/public/SidebarLeft.vue';
 <template>
     <div class="container">
         <HeaderView />
-        <SidebarRight />
+        <!-- <SidebarRight /> -->
         <SidebarLeft />
         <div class="box">
             <RouterView />

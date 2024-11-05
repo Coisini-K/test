@@ -22,7 +22,7 @@
 .latest_box {
     width: 100%;
     height: 100%;
-    padding: 10px 5px;
+    padding: 0 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -33,7 +33,7 @@
 .latest_title {
     width: 100%;
     height: 24px;
-    margin: 5px 0;
+    margin: 10px 0;
     padding-left: 10px;
     border-left: 7px solid #cff6d6;
 }

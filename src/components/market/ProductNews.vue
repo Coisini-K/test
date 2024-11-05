@@ -1,23 +1,22 @@
 <template>
     <div class="news-container">
-        <button @click="toggleContent('latest')">最新资讯</button>
-        <button @click="toggleContent('hot')">热门资讯</button>
-        <a href="#"> 更多&#32;&#10095; </a>
-
-        <div v-if="activeTab === 'latest'" class="news-list">
-            <!-- <h2>最新资讯</h2> -->
-            <ul>
-                <li v-for="(news, index) in latestNews" :key="index">
-                    {{ news.title }}
+        <div class="title">
+            <ul class="tabs">
+                <li
+                    v-for="(item, index) in news"
+                    :key="index"
+                    @mouseover="toggleContent(item.name)"
+                    :class="{ active: item.name === activeTab }"
+                >
+                    {{ item.name }}
                 </li>
             </ul>
+            <a href="#"> 更多&#32;&#10095; </a>
         </div>
-
-        <div v-if="activeTab === 'hot'" class="news-list">
-            <!-- <h2>热门资讯</h2> -->
+        <div class="news-list">
             <ul>
-                <li v-for="(news, index) in hotNews" :key="index">
-                    {{ news.title }}
+                <li v-for="(item, index) in currentNewsItems" :key="index">
+                    {{ item }}
                 </li>
             </ul>
         </div>
@@ -25,85 +24,117 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
-// 定义响应式变量
-const activeTab = ref('latest'); // 默认显示最新资讯
+// 接受参数数组对象 news
+const props = defineProps({
+    news: {
+        type: Array,
+        required: true,
+        default: () => [],
+    },
+});
 
-// 最新资讯数据
-const latestNews = ref([
-    { title: '橙子几月成熟季节？' },
-    { title: '种一亩丝瓜能赚多少钱？' },
-    { title: '蔬菜种植技术分享' },
-]);
+// 初始化 activeTab 为 news 数组中第一个对象的 name 属性
+const activeTab = ref(props.news.length > 0 ? props.news[0].name : '');
 
-// 热门资讯数据
-const hotNews = ref([
-    { title: '全国大闸蟹排名前10' },
-    { title: '生姜的产量一亩地多少斤？' },
-    { title: '农产品市场行情分析' },
-]);
+// 计算当前显示的新闻列表
+const currentNewsItems = computed(() => {
+    const currentNews = props.news.find(
+        (item) => item.name === activeTab.value
+    );
+    return currentNews ? currentNews.items : [];
+});
 
 // 切换内容的方法
 const toggleContent = (tabName) => {
     activeTab.value = tabName;
 };
+
+// 确保在组件挂载时 activeTab 已经初始化，并为第一个 li 添加 active 类名
+onMounted(() => {
+    if (props.news.length > 0) {
+        activeTab.value = props.news[0].name;
+    }
+});
 </script>
 
 <style scoped>
 .news-container {
     width: 100%;
-    /* margin: 20px; */
-    /* padding: 20px; */
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* height: 360px; */
+    /* max-width: 800px; */
+    /* margin: 0 auto; */
+    background-color: #fff;
+    /* padding-bottom: 20px; */
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 3px 1px #ccc;
 }
 
-a {
+.title {
+    width: 100%;
+    height: 45px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eee;
+}
+
+.tabs {
+    width: auto;
+    height: 100%;
+    display: flex;
+    list-style-type: none;
+    /* padding: 0; */
+    /* margin: 0; */
+}
+
+.tabs li {
+    width: 100px;
+    height: 100%;
+    padding: 10px;
     font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    /* border: 1px solid #ccc; */
+    /* margin-right: 5px; */
 }
 
-a:hover {
-    color: #8ff6a6;
-    background-color: transparent;
-    /* 悬停颜色 */
+.tabs li.active {
+    /* font-size: 1rem; */
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 3px solid #39bf3e;
+    padding-top: 7.3px;
 }
 
-button {
-    font-size: 1rem;
-    margin-right: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.more {
+    background-color: #ddd;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
 .news-list {
-    width: 100%;
-    padding: 10px;
-}
-
-h2 {
-    font-size: 20px;
-    color: #333;
     margin-top: 20px;
 }
 
-ul {
-    list-style-type: none;
+.news-list ul {
+    list-style-type: disc;
     padding: 0;
 }
 
-li {
-    font-size: 18px;
-    color: #555;
-    margin: 10px 0;
+.news-list li {
+    padding: 5px 0;
+    margin-left: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+.news-list li::marker {
+    color: #39bf3e;
+    /* 修改圆点颜色 */
 }
 </style>

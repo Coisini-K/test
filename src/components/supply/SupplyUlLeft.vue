@@ -2,7 +2,7 @@
     <div class="vegetable-categories">
         <table>
             <h1 v-if="title">{{ vegetables[6]?.name || '蔬菜' }}</h1>
-            <tbody>
+            <tbody :class="{ supply: shadow }">
                 <tr>
                     <td
                         v-for="(category, index) in visibleCategories"
@@ -37,6 +37,10 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    shadow: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const visibleCategories = computed(() => {
@@ -53,9 +57,6 @@ function navigateToPage() {
 </script>
 
 <style scoped>
-tbody {
-    box-shadow: 0px 3px 3px 0px #ccc;
-}
 .vegetable-categories {
     width: 100%;
     /* width: 60.4%; */
@@ -135,5 +136,9 @@ tbody {
 .vegetable-categories li:hover {
     color: #63b555;
     /* 鼠标悬停时改变字体颜色 */
+}
+
+.supply {
+    box-shadow: 0px 3px 3px 0px #ccc;
 }
 </style>

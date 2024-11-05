@@ -17,7 +17,7 @@
         />
     </div>
     <div class="home_supply section" id="section-1">
-        <NavigationBar :items="items" />
+        <NavigationBar :items="items_1" />
         <div class="home_supply_show">
             <RecommendedProducts
                 :products="products_1"
@@ -38,8 +38,8 @@
         <a href="#">点击查看更多商品信息&#32;&#187;</a>
     </div>
 
-    <div class="section">
-        <NavigationBar :items="items" />
+    <div class="section" id="section-2">
+        <NavigationBar :items="items_2" />
         <div class="purchase_box">
             <PurchaseTable />
             <div class="purchase_right">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="hot_supply">
+    <div class="hot_supply" id="section-3">
         <HotSupply />
     </div>
     <!-- </div> -->
@@ -76,7 +76,8 @@ const initBar = () => {
     const barItems = [
         { name: '精选', isActive: true },
         { name: '热门', isActive: false },
-        { name: '推荐', isActive: false },
+        { name: '采购', isActive: false },
+        { name: '供应', isActive: false },
     ];
 
     // 遍历数组并为每个对象添加 target 属性
@@ -93,7 +94,7 @@ onMounted(() => {
     // console.log("bar:", mainStore.bar);
 });
 
-const items = [
+const items_1 = [
     '热门供应推荐',
     '苹果',
     '柑桔',
@@ -102,6 +103,7 @@ const items = [
     '红薯',
     '更多',
 ];
+const items_2 = ['大量采购需求', '苹果', '柑桔', '鸡蛋', '红薯', '鸡', '更多'];
 
 const photos = [
     '/src/assets/images/home/carousel/01.jpg',
@@ -156,12 +158,12 @@ const photos = [
 
 .section {
     width: 100%;
-    height: 720px;
+    height: 680px;
     /* margin: 10px 0; */
     /* border: 1px solid #ccc; */
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 10px;
 }
 
