@@ -164,7 +164,7 @@ button {
 }
 
 .shop_list {
-    margin-top: 10px;
+    margin-top: 30px;
     width: 100%;
     height: 21px;
     text-align: center;
