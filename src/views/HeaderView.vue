@@ -109,7 +109,7 @@ onUnmounted(() => {
     justify-content: center;
     background-color: #fff;
     /* border: 1px solid #fff; */
-    box-shadow: 1px 1px 3px 1px #ccc;
+    box-shadow: 0 1px 3px -1px #ccc;
 }
 
 .header_box {

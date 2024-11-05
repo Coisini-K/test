@@ -19,12 +19,12 @@
 import { RouterLink } from 'vue-router';
 
 const links = [
-    { href: '/test1', text: '测试1' },
-    { href: '/test2', text: '测试2' },
+    // { href: '/test1', text: '测试1' },
+    // { href: '/test2', text: '测试2' },
     { href: '/', text: '首页' },
     { href: '/supply', text: '供应大厅' },
-    { href: '/procurement', text: '采购大厅' },
     { href: '/market', text: '行情大厅' },
+    { href: '/procurement', text: '采购大厅' },
     { href: '/bigdata', text: '惠农大数据' },
     { href: '/news', text: '行业资讯' },
     { href: '/mall', text: '严选商城' },
