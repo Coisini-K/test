@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/test/',  // 注意这里的斜杠
   plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {
