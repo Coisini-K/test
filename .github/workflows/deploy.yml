@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master  # 触发构建和部署的分支
 
 jobs:
   build-and-deploy:
