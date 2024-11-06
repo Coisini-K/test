@@ -6,7 +6,8 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/test/',
+  // base: '/test/',
+  base: './',
   plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {

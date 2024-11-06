@@ -87,7 +87,8 @@ const status = ref(false);
 // };
 
 const getImageSrc = (index) => {
-    return new URL(`/src/assets/images/home/icon/${index}.png`, import.meta.url).href;
+    return new URL(`/src/assets/images/home/icon/${index}.png`, import.meta.url)
+        .href;
 };
 
 const handleMouseEnter = () => {

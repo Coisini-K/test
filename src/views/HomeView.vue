@@ -9,12 +9,7 @@
                 <img src="@/assets/images/home/carousel/2.jpg" alt="no!" />
             </div>
         </div>
-        <UserInformation
-            :userInfo="{
-                avatar: '/src/assets/images/home/doge.jpg',
-                name: 'oh my rain',
-            }"
-        />
+        <UserInformation />
     </div>
     <div class="home_supply section" id="section-1">
         <NavigationBar :items="items_1" />
@@ -51,9 +46,12 @@
         <HotSupply />
     </div>
     <!-- </div> -->
+
+    <SectionsModule />
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
 import NavigationBar from '@/components/public/NavigationBar.vue';
 import CarouselModule from '@/components/public/CarouselModule.vue';
 import RecommendedProducts from '@/components/public/RecommendedProducts.vue';
@@ -62,8 +60,8 @@ import UserInformation from '@/components/home/UserInformation.vue';
 import PurchaseTable from '@/components/home/PurchaseTable.vue';
 import NewLatest from '@/components/home/NewLatest.vue';
 import HotSupply from '@/components/home/HotSupply.vue';
+import SectionsModule from '@/components/supply/SectionsModule.vue';
 
-import { onMounted } from 'vue';
 import useMainStore from '@/stores';
 import { products_1, products_2 } from '@/constants/home';
 
@@ -71,6 +69,11 @@ const width = '230px';
 const height = '300px';
 
 const mainStore = useMainStore();
+
+// const useInfo = ref({
+//     avatar: new URL('@/assets/images/home/doge.jpg', import.meta.url).href,
+//     name: 'oh my rain',
+// });
 
 const initBar = () => {
     const barItems = [
@@ -105,23 +108,37 @@ const items_1 = [
 ];
 const items_2 = ['大量采购需求', '苹果', '柑桔', '鸡蛋', '红薯', '鸡', '更多'];
 
-const photos = [
-    '/src/assets/images/home/carousel/01.jpg',
-    '/src/assets/images/home/carousel/02.jpg',
-    '/src/assets/images/home/carousel/03.jpg',
-    '/src/assets/images/home/carousel/04.jpg',
-    '/src/assets/images/home/carousel/05.jpg',
-    '/src/assets/images/home/carousel/06.jpg',
-];
+// const photos = [
+//     '/src/assets/images/home/carousel/01.jpg',
+//     '/src/assets/images/home/carousel/02.jpg',
+//     '/src/assets/images/home/carousel/03.jpg',
+//     '/src/assets/images/home/carousel/04.jpg',
+//     '/src/assets/images/home/carousel/05.jpg',
+//     '/src/assets/images/home/carousel/06.jpg',
+// ];
+
+const photos = ref([]);
+onMounted(async () => {
+    // 使用 import.meta.glob 动态导入所有图片
+    const modules = import.meta.glob(
+        '@/assets/images/home/carousel/0*.{jpg,png}'
+        // '@/assets/images/supply/carousel/*.{jpg,png}',
+    );
+
+    for (const path in modules) {
+        const imagePath = await modules[path]();
+        photos.value.push(imagePath.default);
+    }
+});
 </script>
 
 <style scoped>
 /* .home_box {
-  width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
 } */
 .home_overview {
     /* margin: 10px; */

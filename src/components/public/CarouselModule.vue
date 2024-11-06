@@ -18,13 +18,13 @@ const photos = [
             :style="{ transform: `translateX(${currentSlide * -100}%)` }"
         >
             <!-- 循环渲染每张幻灯片 -->
-                <div
-                    v-for="(slide, index) in slides"
-                    :key="index"
-                    class="carousel-slide"
-                >
-                    <img :src="slide" alt="" />
-                </div>
+            <div
+                v-for="(slide, index) in slides"
+                :key="index"
+                class="carousel-slide"
+            >
+                <img :src="slide" alt="" />
+            </div>
         </div>
 
         <!-- 左箭头按钮 -->

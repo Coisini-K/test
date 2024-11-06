@@ -42,7 +42,6 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-
 // 轮播图
 import CarouselModule from '@/components/public/CarouselModule.vue';
 // 文字列表滚动

@@ -123,6 +123,30 @@ const images = ref([
     'src/assets/images/aos/6.webp',
 ]);
 
+// 定义图片数组
+// const images = ref([]);
+// onMounted(async () => {
+//     try {
+//         // 使用 import.meta.glob 动态导入所有图片
+//         const modules = import.meta.glob('/src/assets/images/aos/*.webp');
+
+//         let count = 0;
+//         const maxImages = 6; // 设置最大导入图片数量
+
+//         for (const path in modules) {
+//             if (count >= maxImages) {
+//                 break; // 达到最大数量，停止导入
+//             }
+
+//             const imagePath = await modules[path]();
+//             images.value.push(imagePath.default);
+//             count++;
+//         }
+//     } catch (error) {
+//         console.error('Failed to load images:', error);
+//     }
+// });
+
 const currentIndex = ref(0);
 
 const increment = (size) => {

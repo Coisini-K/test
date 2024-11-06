@@ -2,7 +2,7 @@
     <div class="box" v-for="(product, index) in products" :key="index">
         <div
             class="title"
-            :style="{ backgroundImage: `url(${imgHref}${index + 1}.png)` }"
+            :style="{ backgroundImage: `url(${getImgHref(index)})` }"
         >
             <div class="name">
                 {{ product[6].name }}
@@ -19,13 +19,9 @@
                     class="product"
                     v-for="(product, index) in products_3"
                     :key="index"
-                    :style="{ width: width }"
                     @click="navigateToHome(product)"
                 >
-                    <img
-                        :src="product.image || '/path/to/default-image.jpg'"
-                        alt="Product Image"
-                    />
+                    <img :src="product.image" alt="Product Image" />
                     <div class="product_box">
                         <div class="product_info">
                             <div class="product_price">
@@ -45,8 +41,9 @@
                             <div>掺假包赔</div>
                         </div>
                         <div class="product_icon">
-                            <img :src="`${iconHref}year1.png`" alt="icon" />
-                            <img :src="`${iconHref}b.png`" alt="icon" />
+                            <img :src="getIconHref('year1')" alt="icon" />
+                            <!-- <img :src="`${iconHref}b.png`" alt="icon" /> -->
+                            <img :src="getIconHref('b')" alt="icon" />
                         </div>
                     </div>
                 </div>
@@ -73,8 +70,20 @@ import NewSupply from '@/components/home/NewSupply.vue';
 const products = ref([vegetables, agriculture, grain, seeds, Agricultural]);
 
 const title = '品种丰富 以质论价';
-const imgHref = 'src/assets/images/home/supply/';
-const iconHref = 'src/assets/images/home/icon/';
+// :style="{ backgroundImage: `url(${imgHref}${index + 1}.png)` }"
+// const imgHref = 'src/assets/images/home/supply/';
+// const iconHref = 'src/assets/images/home/icon/';
+
+const getImgHref = (index) => {
+    return new URL(
+        `/src/assets/images/home/supply/${index + 1}.png`,
+        import.meta.url
+    ).href;
+};
+const getIconHref = (index) => {
+    return new URL(`/src/assets/images/home/icon/${index}.png`, import.meta.url)
+        .href;
+};
 
 // defineProps({
 //     products: {

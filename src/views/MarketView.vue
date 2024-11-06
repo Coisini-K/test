@@ -87,7 +87,7 @@
             <div class="contact">
                 <div>获取更多数据服务，请联系</div>
                 <p><span class="icon phone-icon"></span>电话: 400-008-8888</p>
-                <p><span class="icon email-icon"></span>邮箱: hkq@hh.com</p>
+                <p><span class="icon email-icon"></span>邮箱: hkq@qzh.cn</p>
             </div>
             <ProductNews :news="news_1" />
             <ProductNews :news="news_2" />

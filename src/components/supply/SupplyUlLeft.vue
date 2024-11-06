@@ -92,6 +92,7 @@ function navigateToPage() {
     width: 100%;
     height: 100%;
 }
+
 .vegetable-categories tr {
     width: 100%;
     height: 100%;
@@ -103,14 +104,17 @@ function navigateToPage() {
 
 .vegetable-categories td {
     vertical-align: top;
-    padding: 8px 15px;
+    padding: 8px;
     width: 50%;
     background-color: #fff;
 }
 
 .vegetable-categories h2 {
     font-size: 1em;
+    color: #444;
     font-weight: bold;
+    padding-left: 12px;
+    border-left: 5px solid #cff6d6;
     /* margin-bottom: 10px; */
 }
 
@@ -131,6 +135,7 @@ function navigateToPage() {
     /* 改变鼠标指针形状 */
     /* 平滑过渡 */
     padding: 0 5px 0px;
+    color: #555;
 }
 
 .vegetable-categories li:hover {
