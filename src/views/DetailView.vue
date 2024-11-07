@@ -31,31 +31,32 @@
         </tr>
         <tr>
             <td class="tr_one">物流</td>
-            <td colspan="3" class="tr_two">浙江金华</td>
+            <td colspan="3" class="tr_two">农民物流</td>
         </tr>
         <tr>
             <td rowspan="2" class="tr_one">数量</td>
             <!-- <td class="tr_two">155/78</td> -->
             <td class="tr_tr_there">
-                <input type="number" v-model="price" disabled />元
+                <input type="text" :value="totalPrice" disabled />
             </td>
             <td class="td">
-                <a href="javascript:;" class="decrement" @click="decrement('1')"
+                <a href="javascript:;" class="decrement" @click="decrement()"
                     >-</a
                 >
                 <input
-                    type="text"
+                    type="number"
                     class="itxt"
-                    v-model.number="quantities['1']"
+                    v-model="quantity"
+                    @blur="onInput"
                 />
-                <a href="javascript:;" class="increment" @click="increment('1')"
+                <a href="javascript:;" class="increment" @click="increment()"
                     >+</a
                 >
             </td>
         </tr>
         <tr>
             <!-- <td class="tr_two">155/80</td> -->
-            <td class="tr_there">938件可售</td>
+            <td class="tr_there">{{ Random }}件可售</td>
             <!-- <td class="td">
         <a href="javascript:;" class="decrement" @click="decrement('2')"
           >-</a
@@ -98,21 +99,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import useCounterStore from '@/stores/detail';
 
 const router = useRouter();
 const mainStore = useCounterStore();
 const product = mainStore.items;
+
 // const image = product.image;
 // 将 image 改为 ref
 const image = ref(product.image || '@/assets/images/aos/1.webp');
-let price = product.price;
-const quantities = ref({
-    1: 1,
-    2: 1,
-});
 
 const images = ref([
     'src/assets/images/aos/1.webp',
@@ -147,23 +144,43 @@ const images = ref([
 //     }
 // });
 
-const currentIndex = ref(0);
+// 初始化数量
+const quantity = ref(1);
 
-const increment = (size) => {
-    if (quantities.value[size] < 999) {
-        quantities.value[size]++;
-        price = quantities.value[size] * product.price;
-    }
-};
+// 返回计算总价格
+const totalPrice = computed(() => {
+    return parseFloat(quantity.value * product.price).toFixed(2) + '元';
+});
 
-const decrement = (size) => {
-    if (quantities.value[size] > 1) {
-        quantities.value[size]--;
-        price = quantities.value[size] * product.price;
+// 减少数量
+const decrement = () => {
+    if (quantity.value > 1) {
+        quantity.value--;
     } else {
         alert('必须选择一件');
     }
 };
+
+// 增加数量
+const increment = () => {
+    if (quantity.value <= Random.value) {
+        quantity.value++;
+    }
+};
+
+// 输入框变化时的处理
+const onInput = (event) => {
+    const inputValue = parseInt(event.target.value, 10);
+    if (isNaN(inputValue) || inputValue < 0 || inputValue > Random.value) {
+        event.target.value = 1;
+        quantity.value = 1;
+        alert('购买数大于可售或输入错误');
+    } else {
+        quantity.value = inputValue;
+    }
+};
+
+const currentIndex = ref(0);
 
 const selectImage = (index) => {
     currentIndex.value = index;
@@ -192,6 +209,19 @@ const updateMockupImage = () => {
     // product.image = currentImage;
     // 如果需要更新其他内容，可以在这里添加代码
 };
+
+// 定义一个响应式变量来存储随机库存数量
+const Random = ref(0);
+
+// 生成随机数的函数
+const RandomNumbers = () => {
+    return Math.floor(Math.random() * 1000) + 1; // 生成1到1000之间的随机数
+};
+
+// 在组件挂载时生成随机数
+onMounted(() => {
+    Random.value = RandomNumbers();
+});
 
 const addToCollection = () => {
     alert('收藏成功');
@@ -325,12 +355,12 @@ td {
 }
 
 .tr_tr_there input {
-    width: 60px;
-    height: 40px;
-    padding-top: 10px;
+    width: 120px;
+    height: 100%;
+    /* padding-bottom: 10px; */
     font-size: 1.2rem;
     border: none;
-    background-color: transparent;
+    /* background-color: wheat; */
 }
 .button_group {
     display: flex;
@@ -356,6 +386,15 @@ td {
     appearance: none;
     background-color: #fff;
     border: 1px solid #ccc;
+    /* 隐藏输入框两侧的增加和减少按钮 */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 .button_one {
     display: flex;
