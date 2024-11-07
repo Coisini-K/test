@@ -13,16 +13,9 @@ const photos = [
 <template>
     <div class="carousel">
         <!-- 轮播图轨道，使用 transform 属性来平滑地移动幻灯片 -->
-        <div
-            class="carousel-track"
-            :style="{ transform: `translateX(${currentSlide * -100}%)` }"
-        >
+        <div class="carousel-track" :style="{ transform: `translateX(${currentSlide * -100}%)` }">
             <!-- 循环渲染每张幻灯片 -->
-            <div
-                v-for="(slide, index) in slides"
-                :key="index"
-                class="carousel-slide"
-            >
+            <div v-for="(slide, index) in slides" :key="index" class="carousel-slide">
                 <img :src="slide" alt="" />
             </div>
         </div>
@@ -41,12 +34,8 @@ const photos = [
 
         <!-- 指示点，显示当前幻灯片的位置，并允许用户点击跳转到特定的幻灯片 -->
         <div class="carousel-dots">
-            <span
-                v-for="(slide, index) in slides"
-                :key="index"
-                :class="{ 'dot-active': currentSlide === index }"
-                @click="goToSlide(index)"
-            >
+            <span v-for="(slide, index) in slides" :key="index" :class="{ 'dot-active': currentSlide === index }"
+                @click="goToSlide(index)">
             </span>
         </div>
     </div>
@@ -106,7 +95,19 @@ const stopAutoplay = () => {
 };
 
 // 组件挂载时启动自动播放
-onMounted(() => {
+const photos = ref([]);
+// onMounted(() => {
+//     photos.value = props.slides.map(
+//         (path) => new URL(path, import.meta.url).href
+//     );
+//     startAutoplay();
+// });
+onMounted(async () => {
+    photos.value = await Promise.all(props.slides.map(async (path) => {
+        // const imagePath = await import(`/src/assets/images/home/carousel/${path.split('/').pop()}`);
+        const imagePath = await import(path);
+        return imagePath.default;
+    }));
     startAutoplay();
 });
 

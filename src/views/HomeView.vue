@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import NavigationBar from '@/components/public/NavigationBar.vue';
 import CarouselModule from '@/components/public/CarouselModule.vue';
 import RecommendedProducts from '@/components/public/RecommendedProducts.vue';
@@ -108,28 +108,37 @@ const items_1 = [
 ];
 const items_2 = ['大量采购需求', '苹果', '柑桔', '鸡蛋', '红薯', '鸡', '更多'];
 
-// const photos = [
-//     '/src/assets/images/home/carousel/01.jpg',
-//     '/src/assets/images/home/carousel/02.jpg',
-//     '/src/assets/images/home/carousel/03.jpg',
-//     '/src/assets/images/home/carousel/04.jpg',
-//     '/src/assets/images/home/carousel/05.jpg',
-//     '/src/assets/images/home/carousel/06.jpg',
-// ];
+const photos = [
+    new URL("/src/assets/images/home/carousel/01.jpg", import.meta.url).href,
+    new URL("/src/assets/images/home/carousel/02.jpg", import.meta.url).href,
+    new URL("/src/assets/images/home/carousel/03.jpg", import.meta.url).href,
+    new URL("/src/assets/images/home/carousel/04.jpg", import.meta.url).href,
+    new URL("/src/assets/images/home/carousel/05.jpg", import.meta.url).href,
+    new URL("/src/assets/images/home/carousel/06.jpg", import.meta.url).href,
+];
 
-const photos = ref([]);
-onMounted(async () => {
-    // 使用 import.meta.glob 动态导入所有图片
-    const modules = import.meta.glob(
-        '@/assets/images/home/carousel/0*.{jpg,png}'
-        // '@/assets/images/supply/carousel/*.{jpg,png}',
-    );
+// const photos = ref([
+//     new URL(`/src/assets/images/home/carousel/01.jpg`, import.meta.url).href,
+//     new URL(`/src/assets/images/home/carousel/02.jpg`, import.meta.url).href,
+//     new URL(`/src/assets/images/home/carousel/03.jpg`, import.meta.url).href,
+//     new URL(`/src/assets/images/home/carousel/04.jpg`, import.meta.url).href,
+//     new URL(`/src/assets/images/home/carousel/05.jpg`, import.meta.url).href,
+//     new URL(`/src/assets/images/home/carousel/06.jpg`, import.meta.url).href,
+// ]);
 
-    for (const path in modules) {
-        const imagePath = await modules[path]();
-        photos.value.push(imagePath.default);
-    }
-});
+// const photos = ref([]);
+// onMounted(async () => {
+//     // 使用 import.meta.glob 动态导入所有图片
+//     const modules = import.meta.glob(
+//         '@/assets/images/home/carousel/0*.{jpg,png}'
+//         // '@/assets/images/supply/carousel/*.{jpg,png}',
+//     );
+
+//     for (const path in modules) {
+//         const imagePath = await modules[path]();
+//         photos.value.push(imagePath.default);
+//     }
+// });
 </script>
 
 <style scoped>

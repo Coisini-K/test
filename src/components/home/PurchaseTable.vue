@@ -19,7 +19,7 @@
                 >
                     <td class="icon_box">
                         <img
-                            :src="`${iconHref}${index + 1}.png`"
+                            :src="getImageSrc(index + 1)"
                             alt="icon"
                             class="icon"
                         />
@@ -43,8 +43,12 @@
 
 <script setup>
 import { ref } from 'vue';
-const iconHref = 'src/assets/images/home/need/';
-
+// const iconHref = '/src/assets/images/home/need/';
+// const iconHref = new URL(`/src/assets/images/home/need/`, import.meta.url).href;
+const getImageSrc = (index) => {
+    return new URL(`/src/assets/images/home/need/${index}.png`, import.meta.url)
+        .href;
+};
 const data = ref([
     {
         id: 1,

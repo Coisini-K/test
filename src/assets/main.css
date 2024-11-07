@@ -9,11 +9,13 @@
 
 html,
 body {
-    width: 100%;
+    /* width: 100vw; */
+    min-width: 100%;
+    /* max-width: 1600px; */
     /* 确保填充整个视口 */
     min-height: 100%;
     /* 确保高度也填充整个视口 */
-    overflow-x: hidden;
+    overflow-x:hidden;
     /* 禁止水平滚动 */
 }
 

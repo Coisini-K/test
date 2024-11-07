@@ -5,7 +5,7 @@
             <div class="title">
                 <div class="title_left">
                     <div>手机版</div>
-                    <div>欢迎来到惠农网！</div>
+                    <div>欢迎来到农民伯伯！</div>
                     <button
                         type="button"
                         class="edit_button"
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="main_right_txt">
-                        <div>下载惠农网APP</div>
+                        <div>下载农民伯伯APP</div>
                         <div>手机询价，沟通更方便</div>
                     </div>
                 </div>
@@ -99,9 +99,15 @@ const router = useRouter();
 const isSticky = ref(true);
 
 const isLoggedIn = computed(() => {
-    const barItems = mainStore.isLoggedIn;
-    // console.log('Computed bar value:', barItems);
-    return barItems;
+    return mainStore.isLoggedIn;
+});
+
+const user = computed(() => {
+    if (isLoggedIn.value) {
+        return { name: mainStore.user.name };
+    } else {
+        return { name: '请登录!' };
+    }
 });
 
 // 跳转到登录页面的方法
@@ -109,17 +115,10 @@ const goToLogin = () => {
     router.push('/login');
 };
 
-const user = ref([]);
-function logout() {
+const logout = () => {
     mainStore.logout();
     console.log('is: ', mainStore.isLoggedIn);
-}
-
-if (isLoggedIn.value) {
-    user.value.name = mainStore.user.name;
-} else {
-    user.value.name = '请登录!';
-}
+};
 
 const handleScroll = () => {
     if (window.scrollY > 320) {
@@ -196,7 +195,7 @@ onUnmounted(() => {
 
 .edit_button,
 .settings_button {
-    padding: 0.5rem;
+    /* padding: 5px; */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -205,12 +204,13 @@ onUnmounted(() => {
 
 .edit_button {
     /* background-color: #007bff; */
+    font-size: 1rem;
     color: #28a745;
 }
 
 .settings_button {
     /* background-color: #28a745; */
-    color: #ccc;
+    color: #aaa;
 }
 
 .title_right {
