@@ -18,7 +18,7 @@
                         @mouseleave="handleMouseLeave"
                     >
                         <img
-                            :src="getIconPath(index * 2 + 1)"
+                            :src="getImageSrc(index * 2 + 1)"
                             alt="icon"
                             class="category_icon"
                         />
@@ -34,7 +34,7 @@
                         @mouseleave="handleMouseLeave"
                     >
                         <img
-                            :src="getIconPath(index * 2 + 2)"
+                            :src="getImageSrc(index * 2 + 2)"
                             alt="icon"
                             class="category_icon"
                         />
@@ -53,8 +53,6 @@
 import { ref } from 'vue';
 import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
 import { vegetables } from '@/constants/supply';
-
-const iconHref = 'src/assets/images/home/icon/';
 
 const categories_1 = ref([
     { name: '水果' },
@@ -82,8 +80,15 @@ const categories_2 = ref([
 
 const status = ref(false);
 
-const getIconPath = (index) => {
-    return `${iconHref}${index}.png`;
+// const iconHref = "/src/assets/images/home/icon/";
+// :src="getIconPath(index * 2 + 1)"
+// const getIconPath = (index) => {
+//     return `${iconHref}${index}.png`;
+// };
+
+const getImageSrc = (index) => {
+    return new URL(`/src/assets/images/home/icon/${index}.png`, import.meta.url)
+        .href;
 };
 
 const handleMouseEnter = () => {

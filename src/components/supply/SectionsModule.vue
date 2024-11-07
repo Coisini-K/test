@@ -18,46 +18,46 @@ const sections = ref([
     {
         title: '新手指南',
         links: [
-            { text: '注册账户', to: '/register' },
-            { text: '平台功能', to: '/features' },
-            { text: '在线交易', to: '/transactions' },
-            { text: '买家保障', to: '/buyer-protection' },
+            { text: '注册账户', to: '/' },
+            { text: '平台功能', to: '/' },
+            { text: '在线交易', to: '/' },
+            { text: '买家保障', to: '/' },
         ],
     },
     {
         title: '产品服务',
         links: [
-            { text: '找供应', to: '/find-supply' },
-            { text: '找采购', to: '/find-purchase' },
-            { text: '看行情', to: '/market-trends' },
-            { text: '发布供应', to: '/post-supply' },
-            { text: '一件代发', to: '/dropshipping' },
+            { text: '找供应', to: '/' },
+            { text: '找采购', to: '/' },
+            { text: '看行情', to: '/' },
+            { text: '发布供应', to: '/' },
+            { text: '一件代发', to: '/' },
         ],
     },
     {
         title: '合作联系',
         links: [
-            { text: '客户服务 400-008-6888', to: '/customer-service' },
-            { text: '商务洽谈 0731-88189999', to: '/business-talks' },
-            { text: '媒体合作 0731-88189999', to: '/media-cooperation' },
+            { text: '客户服务 400-008-6888', to: '/' },
+            { text: '商务洽谈 0731-88189999', to: '/' },
+            { text: '媒体合作 0731-88189999', to: '/' },
             {
                 text: '惠农网知识产权综合服务平台',
-                to: '/intellectual-property-platform',
+                to: '/',
             },
             {
                 text: '惠农网乡村振兴合作专区',
-                to: '/rural-revitalization-zone',
+                to: '/',
             },
         ],
     },
     {
         title: '关于我们',
         links: [
-            { text: '关于我们', to: '/about-us' },
-            { text: '惠农大事件', to: '/major-events' },
-            { text: '服务协议', to: '/service-agreement' },
-            { text: '隐私政策', to: '/privacy-policy' },
-            { text: '规则说明', to: '/rules-explanation' },
+            { text: '关于我们', to: '/' },
+            { text: '惠农大事件', to: '/' },
+            { text: '服务协议', to: '/' },
+            { text: '隐私政策', to: '/' },
+            { text: '规则说明', to: '/' },
         ],
     },
 ]);
@@ -67,7 +67,7 @@ const sections = ref([
 .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     height: 30vh;
 }
 

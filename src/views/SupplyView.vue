@@ -19,7 +19,7 @@
         :id="`section-${index}`"
     >
         <template v-if="section.type === 'supply'">
-            <SupplyUlLeft :vegetables="section.vegetables" />
+            <SupplyUlLeft :vegetables="section.vegetables" :shadow="true" />
             <SupplyUlRight
                 :supplies="section.supplies"
                 :vegetables="section.vegetables"
@@ -42,7 +42,6 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-
 // 轮播图
 import CarouselModule from '@/components/public/CarouselModule.vue';
 // 文字列表滚动

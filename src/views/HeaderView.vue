@@ -6,8 +6,29 @@
                 <div class="title_left">
                     <div>手机版</div>
                     <div>欢迎来到惠农网！</div>
-                    <div>请登录</div>
-                    <div>免费注册</div>
+                    <button
+                        type="button"
+                        class="edit_button"
+                        @click="goToLogin"
+                    >
+                        {{ user.name }}
+                    </button>
+                    <button
+                        type="button"
+                        class="settings_button"
+                        @click="logout"
+                        v-if="isLoggedIn"
+                    >
+                        退出
+                    </button>
+                    <button
+                        type="button"
+                        class="settings_button"
+                        @click="goToLogin"
+                        v-else
+                    >
+                        免费注册
+                    </button>
                 </div>
                 <div class="title_right">
                     <div>买家中心</div>
@@ -67,11 +88,38 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+import useMainStore from '@/stores';
 import NavigationRouter from '@/components/public/NavigationRouter.vue';
 import SearchBox from '@/components/public/SearchBox.vue';
 
+const mainStore = useMainStore();
+const router = useRouter();
 const isSticky = ref(true);
+
+const isLoggedIn = computed(() => {
+    const barItems = mainStore.isLoggedIn;
+    // console.log('Computed bar value:', barItems);
+    return barItems;
+});
+
+// 跳转到登录页面的方法
+const goToLogin = () => {
+    router.push('/login');
+};
+
+const user = ref([]);
+function logout() {
+    mainStore.logout();
+    console.log('is: ', mainStore.isLoggedIn);
+}
+
+if (isLoggedIn.value) {
+    user.value.name = mainStore.user.name;
+} else {
+    user.value.name = '请登录!';
+}
 
 const handleScroll = () => {
     if (window.scrollY > 320) {
@@ -109,7 +157,7 @@ onUnmounted(() => {
     justify-content: center;
     background-color: #fff;
     /* border: 1px solid #fff; */
-    box-shadow: 1px 1px 3px 1px #ccc;
+    box-shadow: 0 1px 3px -1px #ccc;
 }
 
 .header_box {
@@ -146,6 +194,25 @@ onUnmounted(() => {
     width: 320px;
 }
 
+.edit_button,
+.settings_button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.edit_button {
+    /* background-color: #007bff; */
+    color: #28a745;
+}
+
+.settings_button {
+    /* background-color: #28a745; */
+    color: #ccc;
+}
+
 .title_right {
     width: 140px;
 }
@@ -175,7 +242,7 @@ onUnmounted(() => {
 
 .main_left_img_min {
     width: 120px;
-    height: 60%;
+    height: 48px;
     /* border: 1px solid #000000; */
 }
 

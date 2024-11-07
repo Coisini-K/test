@@ -156,7 +156,9 @@ export const vegetables = [
             '蔬菜2R',
         ],
     },
-    { name: '蔬菜' },
+    {
+        name: '蔬菜',
+    },
 ];
 
 export const agriculture = [
@@ -263,6 +265,7 @@ export const agriculture = [
     },
     {
         name: '农资农具',
+        title: '产地直发 海量供应',
     },
 ];
 

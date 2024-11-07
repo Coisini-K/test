@@ -123,6 +123,30 @@ const images = ref([
     'src/assets/images/aos/6.webp',
 ]);
 
+// 定义图片数组
+// const images = ref([]);
+// onMounted(async () => {
+//     try {
+//         // 使用 import.meta.glob 动态导入所有图片
+//         const modules = import.meta.glob('/src/assets/images/aos/*.webp');
+
+//         let count = 0;
+//         const maxImages = 6; // 设置最大导入图片数量
+
+//         for (const path in modules) {
+//             if (count >= maxImages) {
+//                 break; // 达到最大数量，停止导入
+//             }
+
+//             const imagePath = await modules[path]();
+//             images.value.push(imagePath.default);
+//             count++;
+//         }
+//     } catch (error) {
+//         console.error('Failed to load images:', error);
+//     }
+// });
+
 const currentIndex = ref(0);
 
 const increment = (size) => {
@@ -188,11 +212,6 @@ const goBack = () => {
 </script>
 
 <style scoped>
-input {
-    width: 40px;
-    border: none;
-    background-color: transparent;
-}
 .back_bt {
     width: 100%;
     text-align: left;
@@ -244,7 +263,7 @@ td {
 .div img:focus,
 .div .selected {
     outline: none;
-    border: 3px solid #000;
+    border: 3px solid #38bf3e;
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
 }
@@ -295,6 +314,7 @@ td {
 }
 
 .tr_two {
+    font-size: 1.2rem;
     width: 120px;
     height: 50px;
     /* text-align: center; */
@@ -304,6 +324,14 @@ td {
     height: 50px;
 }
 
+.tr_tr_there input {
+    width: 60px;
+    height: 40px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: transparent;
+}
 .button_group {
     display: flex;
     justify-content: space-around;

@@ -1,8 +1,8 @@
 <template>
     <div class="vegetable-categories">
         <table>
-            <h1>{{ vegetables[6]?.name || '蔬菜' }}</h1>
-            <tbody>
+            <h1 v-if="title">{{ vegetables[6]?.name || '蔬菜' }}</h1>
+            <tbody :class="{ supply: shadow }">
                 <tr>
                     <td
                         v-for="(category, index) in visibleCategories"
@@ -33,6 +33,14 @@ const props = defineProps({
         type: Array,
         default: () => [],
     },
+    title: {
+        type: Boolean,
+        default: true,
+    },
+    shadow: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const visibleCategories = computed(() => {
@@ -49,13 +57,11 @@ function navigateToPage() {
 </script>
 
 <style scoped>
-tbody {
-    box-shadow: 0px 3px 3px 0px #ccc;
-}
 .vegetable-categories {
     width: 100%;
     /* width: 60.4%; */
     height: 100%;
+    /* max-height: 100%; */
     /* height: 350px; */
     /* margin-top: 20px; */
 }
@@ -86,6 +92,7 @@ tbody {
     width: 100%;
     height: 100%;
 }
+
 .vegetable-categories tr {
     width: 100%;
     height: 100%;
@@ -97,14 +104,17 @@ tbody {
 
 .vegetable-categories td {
     vertical-align: top;
-    padding: 15px;
+    padding: 8px;
     width: 50%;
     background-color: #fff;
 }
 
 .vegetable-categories h2 {
     font-size: 1em;
+    color: #444;
     font-weight: bold;
+    padding-left: 12px;
+    border-left: 5px solid #cff6d6;
     /* margin-bottom: 10px; */
 }
 
@@ -125,10 +135,15 @@ tbody {
     /* 改变鼠标指针形状 */
     /* 平滑过渡 */
     padding: 0 5px 0px;
+    color: #555;
 }
 
 .vegetable-categories li:hover {
     color: #63b555;
     /* 鼠标悬停时改变字体颜色 */
+}
+
+.supply {
+    box-shadow: 0px 3px 3px 0px #ccc;
 }
 </style>

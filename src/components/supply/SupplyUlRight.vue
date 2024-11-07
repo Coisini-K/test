@@ -56,7 +56,9 @@ function navigateToPage(url) {
 .new-supplies h2 {
     font-size: 1.2em;
     font-weight: bold;
-    margin: 5px;
+    margin: 5px 0;
+    padding-left: 10px;
+    border-left: 5px solid #7df181;
 }
 .new-supplies ul {
     padding: 0 30px;
@@ -66,6 +68,7 @@ function navigateToPage(url) {
     width: 100%;
     margin-bottom: 10px;
     cursor: pointer;
+    color: #444;
     /* 改变鼠标指针形状 */
 }
 

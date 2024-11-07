@@ -1,3 +1,39 @@
+export const news_1 = [
+    {
+        name: '最新资讯',
+        items: [
+            '橙子几月成熟季节？',
+            '种一亩丝瓜能赚多少钱？',
+            '蔬菜种植技术分享',
+        ],
+    },
+    {
+        name: '热门资讯',
+        items: [
+            '全国大闸蟹排名前10',
+            '生姜的产量一亩地多少斤？',
+            '农产品市场行情分析',
+        ],
+    },
+];
+export const news_2 = [
+    {
+        name: '精品课程',
+        items: [
+            '芍药花冬季怎么管理？',
+            '孔雀草的种植方法和时间',
+            '绣球花过冬怎么管理？',
+            '三角梅的修剪时间和方法',
+            '柿子树什么时候栽种最好？',
+            '养草鱼每亩放多少鱼苗？',
+            '冬季鹅的饲养管理',
+            '牡丹花越冬管理',
+            '韭菜越冬管理方法',
+            '茉莉花越冬管理方法',
+        ],
+    },
+];
+
 export const products_1 = [
     {
         image: new URL('@/assets/images/home/hot/1.jpg', import.meta.url).href,
@@ -71,5 +107,22 @@ export const products_2 = [
         price: '1.40',
         unit: '斤',
         description: '成交4.8万元',
+    },
+];
+
+export const products_3 = [
+    {
+        image: new URL('@/assets/images/home/hot/6.jpg', import.meta.url).href,
+        title: '东宁市【无增重】东北黑木耳干木耳肉厚无根长白山秋木耳精品碗耳小木耳',
+        price: '29.80',
+        unit: '斤',
+        description: '成交57.8万元',
+    },
+    {
+        image: new URL('@/assets/images/home/hot/7.jpg', import.meta.url).href,
+        title: '汕头特大种巨型纯种狮头鹅苗幼苗潮汕狮头鹅活体发货正超大型狮头鹅',
+        price: '65.00',
+        unit: '只',
+        description: ' 成交20.4万元',
     },
 ];

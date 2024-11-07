@@ -3,7 +3,7 @@
 <!--
 <UserInformation
 	:userInfo="{
-		avatar: '/src/assets/images/mine/doge.jpg',
+		icon: '/src/assets/images/mine/doge.jpg',
 		name: 'oh my rain',
 		}"
 	/>
@@ -12,16 +12,28 @@
 <template>
     <div class="user-card">
         <div class="use-container">
-            <div class="avatar-container">
-                <img :src="user.avatar" :alt="user.name" class="avatar-img" />
-                <h2 class="avatar-name">{{ user.name }}</h2>
+            <div class="icon-container">
+                <img :src="iconHref" :alt="user.name" class="icon-img" />
+                <h2 class="login-name">{{ user.name }}</h2>
             </div>
-            <!-- <div class="info-container-false">
-				<button class="edit-button">Edit Profile</button>
-				<button class="settings-button">Settings</button>
-			</div> -->
-            <div class="info-container-true">
+
+            <!-- 已登录 -->
+            <div class="info-container-true" v-if="isLoggedIn">
                 <ServiceText text="服务" />
+            </div>
+
+            <!-- 未登录 -->
+            <div class="info-container-false" v-else>
+                <button type="button" class="edit-button" @click="goToLogin">
+                    请登录!
+                </button>
+                <button
+                    type="button"
+                    class="settings-button"
+                    @click="goToLogin"
+                >
+                    免费注册
+                </button>
             </div>
         </div>
         <div class="info-icon-item">
@@ -56,42 +68,47 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+import useMainStore from '@/stores';
 // 文本分割
 import ServiceText from '@/components/public/ServiceText.vue';
 // 列表滚动
 import LatestDeals from '@/components/public/LatestDeals.vue';
 
-// 如果需要从外部接收用户信息，可以通过 props 传递
-const props = defineProps({
-    userInfo: {
-        type: Object,
-        required: false,
-        default() {
-            return {
-                avatar: '/src/assets/images/mine/doge.jpg',
-                name: '・ࡇ・',
-                // email: 'john.doe@example.com',
-                // bio: 'A software engineer with a passion for technology and innovation.',
-            };
-        },
-    },
+const router = useRouter();
+const mainStore = useMainStore();
+
+const isLoggedIn = computed(() => {
+    const barItems = mainStore.isLoggedIn;
+    // console.log('Computed bar value:', barItems);
+    return barItems;
 });
 
+const iconHref = 'src/assets/images/home/doge.jpg';
+// const name = '・ࡇ・';
+
 // 示例用户信息
-const user = props.userInfo;
+const user = ref([]);
 // const user = {
 // name: 'QAQ',
-// avatar: '/src/assets/images/mine/doge.jpg',
+// icon: '/src/assets/images/mine/doge.jpg',
 // bio: 'A software engineer with a passion for technology and innovation.',
 // email: 'john.doe@example.com',
 // }
 
-if (props.userInfo) {
-    user.avatar = props.userInfo.avatar;
-    user.name = props.userInfo.name;
-    // user.email = props.userInfo.email
-    // user.bio = props.userInfo.bio
+if (isLoggedIn.value) {
+    user.value.icon = iconHref;
+    user.value.name = mainStore.user.name;
+} else {
+    user.value.icon = iconHref;
+    user.value.name = 'Hi，农民伯伯欢迎您';
 }
+
+// 跳转到登录页面的方法
+const goToLogin = () => {
+    router.push('/login');
+};
 
 // 定义滚动列表内容
 const areas = [
@@ -186,7 +203,7 @@ const deals = areas.map((area) => ({
     align-items: center;
 }
 
-.avatar-container {
+.icon-container {
     padding: 0 30px;
     margin-bottom: 10px;
     width: 100%;
@@ -197,17 +214,18 @@ const deals = areas.map((area) => ({
     align-items: center;
 }
 
-.avatar-img {
+.icon-img {
     width: 72px;
     height: 72px;
     object-fit: cover;
-    border-radius: 32%; /* 设置为圆形 */
+    border-radius: 32%;
+    /* 设置为圆形 */
     margin-right: 20px;
 }
 
-.avatar-name {
+.login-name {
     flex: 1;
-    font-size: 1.2rem;
+    font-size: 1rem;
     /* margin-bottom: 0.5rem; */
 }
 
@@ -244,8 +262,10 @@ const deals = areas.map((area) => ({
 .info-icon-item {
     width: 90%;
     height: 240px;
-    display: flex; /* 使用 Flexbox 布局 */
-    flex-wrap: wrap; /* 允许子元素换行 */
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    flex-wrap: wrap;
+    /* 允许子元素换行 */
     justify-content: center;
     /* 水平居中对齐子元素 */
     align-items: center;
@@ -281,6 +301,7 @@ const deals = areas.map((area) => ({
     font-size: 60px;
     margin-bottom: 5px;
 }
+
 .icon-item p {
     height: 20px;
     /* font-size: 16px; */
@@ -289,8 +310,10 @@ const deals = areas.map((area) => ({
 /* 适应小屏幕设备 */
 @media (max-width: 600px) {
     .font-icon {
-        flex: 1 0 calc(100% - 10px); /* 在小屏幕上每个子元素占据整行 */
-        min-width: calc(100% - 10px); /* 最小宽度也是占据整行 */
+        flex: 1 0 calc(100% - 10px);
+        /* 在小屏幕上每个子元素占据整行 */
+        min-width: calc(100% - 10px);
+        /* 最小宽度也是占据整行 */
     }
 }
 

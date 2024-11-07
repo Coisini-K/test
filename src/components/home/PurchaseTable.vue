@@ -100,7 +100,8 @@ function onQuoteClick(item) {
     height: 100%;
     padding: 10px 0;
     background-color: #fff;
-    box-shadow: 1px 1px 3px 1px #ccc;
+    /* border: 1px solid #ccc; */
+    /* box-shadow: 1px 1px 3px 1px #ccc; */
     /* display: flex; */
     /* gap: 10px; */
 }
@@ -146,7 +147,7 @@ td {
 }
 
 .back {
-    background-color: #f6f6f6;
+    background-color: #f8f8f8;
 }
 
 .icon {
@@ -163,7 +164,7 @@ button {
 }
 
 .shop_list {
-    margin-top: 10px;
+    margin-top: 30px;
     width: 100%;
     height: 21px;
     text-align: center;
