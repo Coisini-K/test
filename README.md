@@ -8,6 +8,12 @@
 cd .\Desktop\rain\code\vueShop\
 ```
 
+检查当前仓库的远程仓库设置
+
+```sh
+git remote -v
+```
+
 网络出问题时，尝试切换仓库连接方式
 
 ```sh
