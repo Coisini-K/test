@@ -16,10 +16,10 @@ coverage
 *.local
 
 # 编译输出
-# dist
-# dist-ssr
-# dist/
-# build/
+dist
+dist-ssr
+dist/
+build/
 
 /cypress/videos/
 /cypress/screenshots/
