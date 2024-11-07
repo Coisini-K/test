@@ -149,7 +149,11 @@ const quantity = ref(1);
 
 // 返回计算总价格
 const totalPrice = computed(() => {
-    return parseFloat(quantity.value * product.price).toFixed(2) + '元';
+    let price = parseFloat(quantity.value * product.price).toFixed(2);
+    if (price <= 0) {
+        price = 0;
+    }
+    return price + '元';
 });
 
 // 减少数量
@@ -163,7 +167,7 @@ const decrement = () => {
 
 // 增加数量
 const increment = () => {
-    if (quantity.value <= Random.value) {
+    if (quantity.value < Random.value) {
         quantity.value++;
     }
 };
@@ -174,7 +178,7 @@ const onInput = (event) => {
     if (isNaN(inputValue) || inputValue < 0 || inputValue > Random.value) {
         event.target.value = 1;
         quantity.value = 1;
-        alert('购买数大于可售或输入错误');
+        // alert('购买数大于可售或输入错误');
     } else {
         quantity.value = inputValue;
     }
