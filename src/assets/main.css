@@ -15,7 +15,7 @@ body {
     /* 确保填充整个视口 */
     min-height: 100%;
     /* 确保高度也填充整个视口 */
-    overflow-x:hidden;
+    overflow-x: hidden;
     /* 禁止水平滚动 */
 }
 

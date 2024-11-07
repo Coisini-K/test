@@ -108,7 +108,6 @@ import EchartsStore from '@/components/public/EchartsStore.vue';
 import HandoffDAte from '@/components/public/HandoffDAte.vue';
 import SectionsModule from '@/components/supply/SectionsModule.vue';
 
-
 // 定义曲线图Y轴数据 日期
 const dates = getDates(null, 'MM-DD');
 // console.log(dates);

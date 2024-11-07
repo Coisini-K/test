@@ -109,12 +109,12 @@ const items_1 = [
 const items_2 = ['大量采购需求', '苹果', '柑桔', '鸡蛋', '红薯', '鸡', '更多'];
 
 const photos = [
-    new URL("/src/assets/images/home/carousel/01.jpg", import.meta.url).href,
-    new URL("/src/assets/images/home/carousel/02.jpg", import.meta.url).href,
-    new URL("/src/assets/images/home/carousel/03.jpg", import.meta.url).href,
-    new URL("/src/assets/images/home/carousel/04.jpg", import.meta.url).href,
-    new URL("/src/assets/images/home/carousel/05.jpg", import.meta.url).href,
-    new URL("/src/assets/images/home/carousel/06.jpg", import.meta.url).href,
+    new URL('/src/assets/images/home/carousel/01.jpg', import.meta.url).href,
+    new URL('/src/assets/images/home/carousel/02.jpg', import.meta.url).href,
+    new URL('/src/assets/images/home/carousel/03.jpg', import.meta.url).href,
+    new URL('/src/assets/images/home/carousel/04.jpg', import.meta.url).href,
+    new URL('/src/assets/images/home/carousel/05.jpg', import.meta.url).href,
+    new URL('/src/assets/images/home/carousel/06.jpg', import.meta.url).href,
 ];
 
 // const photos = ref([
