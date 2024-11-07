@@ -112,12 +112,12 @@ const product = mainStore.items;
 const image = ref(product.image || '@/assets/images/aos/1.webp');
 
 const images = ref([
-    'src/assets/images/aos/1.webp',
-    'src/assets/images/aos/2.webp',
-    'src/assets/images/aos/3.webp',
-    'src/assets/images/aos/4.webp',
-    'src/assets/images/aos/5.webp',
-    'src/assets/images/aos/6.webp',
+    new URL('/src/assets/images/aos/1.webp', import.meta.url).href,
+    new URL('/src/assets/images/aos/2.webp', import.meta.url).href,
+    new URL('/src/assets/images/aos/3.webp', import.meta.url).href,
+    new URL('/src/assets/images/aos/4.webp', import.meta.url).href,
+    new URL('/src/assets/images/aos/5.webp', import.meta.url).href,
+    new URL('/src/assets/images/aos/6.webp', import.meta.url).href,
 ]);
 
 // 定义图片数组
