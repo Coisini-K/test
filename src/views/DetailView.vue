@@ -6,71 +6,80 @@
     </div>
 
     <table cellspacing="0" class="mockup_table">
-        <tr class="mockup_tr">
-            <td rowspan="8">
-                <img
-                    :src="image || '@/assets/images/aos/1.webp'"
-                    class="mockup_img"
-                />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4" class="tr_one tr_head">
-                <span class="head_span">{{ product.title }}</span>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="1" class="tr_one">单价</td>
-            <td colspan="3" class="tr_two Price">
-                {{ product.price }}元/{{ product.unit }}
-            </td>
-        </tr>
-        <tr>
-            <td class="tr_one">服务</td>
-            <td colspan="3" class="tr_two">七天无理由退货·晚发必赔·极速退款</td>
-        </tr>
-        <tr>
-            <td class="tr_one">采购热度</td>
-            <td colspan="3" class="tr_two">
-                <img
-                    v-for="n in repeatCount"
-                    :key="n"
-                    src="@/assets/images/supply/fire-icon.png"
-                    alt="Fire Icon"
-                />&nbsp; <span style="color: red;">{{ num1 }}</span> 询价
-        <span style="color: red;">{{ num2 }}</span> 成交
-        <span style="color: red;">{{ num3 }}</span> 评价
-            </td>
-        </tr>
-        <tr>
-            <td class="tr_one">物流</td>
-            <td colspan="3" class="tr_two">农民物流</td>
-        </tr>
-        <tr>
-            <td rowspan="2" class="tr_one">数量</td>
-            <!-- <td class="tr_two">155/78</td> -->
-            <td class="tr_tr_there">
-                <input type="text" :value="totalPrice" disabled />
-            </td>
-            <td class="td">
-                <a href="javascript:;" class="decrement" @click="decrement()"
-                    >-</a
-                >
-                <input
-                    type="number"
-                    class="itxt"
-                    v-model="quantity"
-                    @blur="onInput"
-                />
-                <a href="javascript:;" class="increment" @click="increment()"
-                    >+</a
-                >
-            </td>
-        </tr>
-        <tr>
-            <!-- <td class="tr_two">155/80</td> -->
-            <td class="tr_there">{{ Random }}件可售</td>
-            <!-- <td class="td">
+        <tbody>
+            <tr class="mockup_tr">
+                <td rowspan="8">
+                    <img
+                        :src="image || '@/assets/images/supply/1.jpg'"
+                        class="mockup_img"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="tr_one tr_head">
+                    <span class="head_span">{{ product.title }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" class="tr_one">单价</td>
+                <td colspan="3" class="tr_two Price">
+                    {{ product.price }}元/{{ product.unit }}
+                </td>
+            </tr>
+            <tr>
+                <td class="tr_one">服务</td>
+                <td colspan="3" class="tr_two">
+                    七天无理由退货·晚发必赔·极速退款
+                </td>
+            </tr>
+            <tr>
+                <td class="tr_one">采购热度</td>
+                <td colspan="3" class="tr_two">
+                    <img
+                        v-for="n in repeatCount"
+                        :key="n"
+                        src="@/assets/images/supply/fire-icon.png"
+                        alt="Fire Icon"
+                    />&nbsp; <span style="color: red">{{ num1 }}</span> 询价
+                    <span style="color: red">{{ num2 }}</span> 成交
+                    <span style="color: red">{{ num3 }}</span> 评价
+                </td>
+            </tr>
+            <tr>
+                <td class="tr_one">物流</td>
+                <td colspan="3" class="tr_two">农民物流</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="tr_one">数量</td>
+                <!-- <td class="tr_two">155/78</td> -->
+                <td class="tr_tr_there">
+                    <input type="text" :value="totalPrice" disabled />
+                </td>
+                <td class="td">
+                    <a
+                        href="javascript:;"
+                        class="decrement"
+                        @click="decrement()"
+                        >-</a
+                    >
+                    <input
+                        type="number"
+                        class="itxt"
+                        v-model="quantity"
+                        @blur="onInput"
+                    />
+                    <a
+                        href="javascript:;"
+                        class="increment"
+                        @click="increment()"
+                        >+</a
+                    >
+                </td>
+            </tr>
+            <tr>
+                <!-- <td class="tr_two">155/80</td> -->
+                <td class="tr_there">{{ Random }}件可售</td>
+                <!-- <td class="td">
         <a href="javascript:;" class="decrement" @click="decrement('2')"
           >-</a
         >
@@ -79,35 +88,45 @@
           >+</a
         >
       </td> -->
-        </tr>
-        <tr>
-            <td class="td">
-                <button class="left_button" @click="prevImage">&lt;</button>
-                <div class="div">
-                    <img
-                        v-for="(image, index) in images"
-                        :key="index"
-                        :src="image"
-                        :class="{ selected: currentIndex === index }"
-                        @click="selectImage(index)"
-                    />
-                </div>
-                <button class="right_button" @click="nextImage">&gt;</button>
-            </td>
-            <td colspan="4">
-                <div class="button_one">
-                    <button class="collection" @click="addToCollection">
-                        ⭐收藏
+            </tr>
+            <tr>
+                <td class="td">
+                    <button class="left_button" @click="prevImage">&lt;</button>
+                    <div class="div">
+                        <!-- <img
+                            v-for="(image, index) in images"
+                            :key="index"
+                            :src="image"
+                            :class="{ selected: currentIndex === index }"
+                            @click="selectImage(index)"
+                        /> -->
+                        <img
+                            v-for="(image, index) in displayedImages"
+                            :key="index"
+                            :src="image"
+                            class="mockup_img"
+                            @click="selectImage(index)"
+                        />
+                    </div>
+                    <button class="right_button" @click="nextImage">
+                        &gt;
                     </button>
-                    <button class="purchase" @click="makePurchase">
-                        🕹️立即购买
-                    </button>
-                    <button class="cart" @click="addToCart">
-                        🛒加入购物车
-                    </button>
-                </div>
-            </td>
-        </tr>
+                </td>
+                <td colspan="4">
+                    <div class="button_one">
+                        <button class="collection" @click="addToCollection">
+                            ⭐收藏
+                        </button>
+                        <button class="purchase" @click="makePurchase">
+                            🕹️立即购买
+                        </button>
+                        <button class="cart" @click="addToCart">
+                            🛒加入购物车
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
     </table>
 </template>
 
@@ -119,29 +138,29 @@ import useCounterStore from '@/stores/detail';
 const router = useRouter();
 const mainStore = useCounterStore();
 const product = mainStore.items;
-
+// console.log(product.image)
 // 定义重复显示的次数
 const repeatCount = 5;
 
 // const image = product.image;
 // 将 image 改为 ref
-const image = ref(product.image || '@/assets/images/aos/1.webp');
+const image = ref(product.image || '@/assets/images/supply/1.jpg');
 
-const images = ref([
-    new URL(product.image, import.meta.url).href,
-    new URL('/src/assets/images/aos/2.webp', import.meta.url).href,
-    new URL('/src/assets/images/aos/3.webp', import.meta.url).href,
-    new URL('/src/assets/images/aos/4.webp', import.meta.url).href,
-    new URL('/src/assets/images/aos/5.webp', import.meta.url).href,
-    new URL('/src/assets/images/aos/6.webp', import.meta.url).href,
-]);
+// const images = ref([
+//     new URL(product.image, import.meta.url).href,
+//     new URL('/src/assets/images/supply/2.jpg', import.meta.url).href,
+//     new URL('/src/assets/images/supply/3.jpg', import.meta.url).href,
+//     new URL('/src/assets/images/supply/4.jpg', import.meta.url).href,
+//     new URL('/src/assets/images/supply/5.jpg', import.meta.url).href,
+//     new URL('/src/assets/images/supply/6.jpg', import.meta.url).href,
+// ]);
 
 // 定义图片数组
 // const images = ref([]);
 // onMounted(async () => {
 //     try {
 //         // 使用 import.meta.glob 动态导入所有图片
-//         const modules = import.meta.glob('/src/assets/images/aos/*.webp');
+//         const modules = import.meta.glob('/src/assets/images/supply/*.jpg');
 
 //         let count = 0;
 //         const maxImages = 6; // 设置最大导入图片数量
@@ -210,21 +229,21 @@ const selectImage = (index) => {
 const prevImage = () => {
     currentIndex.value--;
     if (currentIndex.value < 0) {
-        currentIndex.value = images.value.length - 1;
+        currentIndex.value = displayedImages.value.length - 1;
     }
     updateMockupImage();
 };
 
 const nextImage = () => {
     currentIndex.value++;
-    if (currentIndex.value >= images.value.length) {
+    if (currentIndex.value >= displayedImages.value.length) {
         currentIndex.value = 0;
     }
     updateMockupImage();
 };
 
 const updateMockupImage = () => {
-    const currentImage = images.value[currentIndex.value];
+    const currentImage = displayedImages.value[currentIndex.value];
     image.value = currentImage;
     // product.image = currentImage;
     // 如果需要更新其他内容，可以在这里添加代码
@@ -247,7 +266,33 @@ onMounted(() => {
     num1.value = RandomNumbers();
     num2.value = RandomNumbers();
     num3.value = RandomNumbers();
+
+    // 确保 product.image 是第一张照片
+    const productImage = new URL(product.image, import.meta.url).href;
+
+    // 过滤掉与 product.image 相同的图片
+    const filteredImages = allImages.filter((img) => img !== productImage);
+
+    // 随机排序过滤后的图片
+    const shuffledImages = [...filteredImages].sort(() => 0.5 - Math.random());
+
+    // 取前五张随机图片
+    const randomImages = shuffledImages.slice(0, 5);
+
+    // 构建最终的显示图片数组
+    displayedImages.value = [productImage, ...randomImages];
 });
+
+// 定义所有图片的路径
+const allImages = Array.from({ length: 30 }, (_, index) => {
+    return new URL(
+        `/src/assets/images/supply/${index + 1}.jpg`,
+        import.meta.url
+    ).href;
+});
+
+// 定义显示的图片数组
+const displayedImages = ref([]);
 
 const addToCollection = () => {
     alert('收藏成功');

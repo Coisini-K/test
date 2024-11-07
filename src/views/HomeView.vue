@@ -117,14 +117,14 @@ const photos = [
     new URL('/src/assets/images/home/carousel/06.jpg', import.meta.url).href,
 ];
 
-// const photos = ref([
-//     new URL(`/src/assets/images/home/carousel/01.jpg`, import.meta.url).href,
-//     new URL(`/src/assets/images/home/carousel/02.jpg`, import.meta.url).href,
-//     new URL(`/src/assets/images/home/carousel/03.jpg`, import.meta.url).href,
-//     new URL(`/src/assets/images/home/carousel/04.jpg`, import.meta.url).href,
-//     new URL(`/src/assets/images/home/carousel/05.jpg`, import.meta.url).href,
-//     new URL(`/src/assets/images/home/carousel/06.jpg`, import.meta.url).href,
-// ]);
+// const photos = [
+//     '@/assets/images/home/carousel/01.jpg',
+//     'src/assets/images/home/carousel/02.jpg',
+//     '/assets/images/home/carousel/03.jpg',
+//     './assets/images/home/carousel/04.jpg',
+//     '/@c/assets/images/home/carousel/05.jpg',
+//     '/src/assets/images/home/carousel/06.jpg',
+// ];
 
 // const photos = ref([]);
 // onMounted(async () => {
