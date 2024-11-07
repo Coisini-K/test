@@ -12,7 +12,7 @@ export default defineConfig({
   server: {
     port: 5173  , // 服务器端口号
     host: '0.0.0.0', // 服务器主机名，允许外部访问
-    open: true, // 启动时自动打开浏览器
+    open: false, // 启动时自动打开浏览器
     proxy: {
       '/api': 'http://localhost:5000', // 代理 API 请求，解决跨域问题
     },

@@ -19,7 +19,7 @@ const photos = [
         >
             <!-- 循环渲染每张幻灯片 -->
             <div
-                v-for="(slide, index) in slides"
+                v-for="(slide, index) in photos"
                 :key="index"
                 class="carousel-slide"
             >
@@ -106,7 +106,11 @@ const stopAutoplay = () => {
 };
 
 // 组件挂载时启动自动播放
+const photos = ref([]);
 onMounted(() => {
+    photos.value = props.slides.map(
+        (path) => new URL(path, import.meta.url).href
+    );
     startAutoplay();
 });
 

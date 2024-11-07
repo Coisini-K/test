@@ -1,10 +1,3 @@
-<script setup>
-import { RouterView } from 'vue-router';
-import HeaderView from '@/views/HeaderView.vue';
-import SidebarRight from '@/components/public/SidebarRight.vue';
-import SidebarLeft from '@/components/public/SidebarLeft.vue';
-</script>
-
 <template>
     <div class="container">
         <HeaderView />
@@ -15,6 +8,13 @@ import SidebarLeft from '@/components/public/SidebarLeft.vue';
         </div>
     </div>
 </template>
+
+<script setup>
+import { RouterView } from 'vue-router';
+import HeaderView from '@/views/HeaderView.vue';
+import SidebarRight from '@/components/public/SidebarRight.vue';
+import SidebarLeft from '@/components/public/SidebarLeft.vue';
+</script>
 
 <style scoped>
 .container {
@@ -32,6 +32,7 @@ import SidebarLeft from '@/components/public/SidebarLeft.vue';
     /* border: 1px solid #ff0000; */
     width: 1200px;
     height: 100%;
+    min-height: calc(100vh - 340px);
     margin: 10px;
     display: flex;
     flex-direction: column;

@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar" v-if="isSticky">
+    <div class="sidebar" v-show="isSticky" v-if="isActive">
         <!-- <div class="sidebar-header"></div> -->
         <nav class="sidebar-nav">
             <ul>
@@ -25,6 +25,11 @@ const items = computed(() => {
     const barItems = mainStore.bar;
     // console.log('Computed bar value:', barItems);
     return barItems;
+});
+
+const isActive = computed(() => {
+    console.log('items:', items);
+    return items.value.length > 0 ? true : false;
 });
 
 // 存储目标元素的位置
@@ -58,6 +63,8 @@ function updateTargetPositions() {
         const element = document.querySelector(item.target);
         return element ? element.offsetTop : null;
     });
+    // console.log("targetPositions:", targetPositions);
+    // console.log("targetPositions.value.length:", targetPositions.value.length);
 }
 
 // 添加滚动监听器
@@ -80,7 +87,7 @@ function removeScrollListener() {
 function handleScroll() {
     const scrollTop = window.scrollY;
     let activeIndex = 0;
-    if (scrollTop > 120) {
+    if (scrollTop > 120 && targetPositions.value.length > 0) {
         isSticky.value = true;
     } else {
         isSticky.value = false;

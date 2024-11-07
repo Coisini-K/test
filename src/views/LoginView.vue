@@ -66,10 +66,10 @@ function setUser() {
     console.log('is: ', mainStore.isLoggedIn);
     // console.log("bar:", mainStore.bar);
 }
-// function logout() {
-//     mainStore.logout();
-//     console.log("is: ", mainStore.isLoggedIn);
-// }
+function logout() {
+    mainStore.logout();
+    console.log('is: ', mainStore.isLoggedIn);
+}
 
 onMounted(() => {
     console.log('is: ', mainStore.isLoggedIn);

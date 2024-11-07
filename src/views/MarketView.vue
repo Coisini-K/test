@@ -113,23 +113,22 @@ const seriesData = [29.5, 29, 24.5, 32, 19.5, 22.5, 27.5];
 
 // 计算曲线图Y轴最值和平均值
 const maxVal = computed(() => Math.round(Math.max(...seriesData) * 100) / 100);
-console.log(maxVal);
-const minVal = computed(() => Math.min(...seriesData));
-minVal.value = Math.round(minVal.value * 100) / 100;
-console.log(minVal.value);
+// console.log(maxVal);
+const minVal = computed(() => Math.round(Math.min(...seriesData) * 100) / 100);
+// console.log(minVal.value);
 const avgVal = computed(
     () => seriesData.reduce((sum, val) => sum + val, 0) / seriesData.length
 );
 
 const dailyAveragePrice = ref(seriesData[6]);
-const highestWeeklyPrice = ref(maxVal);
-const lowestWeeklyPrice = ref(minVal);
+const highestWeeklyPrice = ref(maxVal.value);
+const lowestWeeklyPrice = ref(minVal.value);
 const averageWeeklyPrice = Math.round(avgVal.value * 100) / 100;
 let priceTrend = ref('价格平稳');
 if (seriesData[6] > seriesData[5]) {
-    priceTrend = ref('价格上涨');
+    priceTrend.value = '价格上涨';
 } else if (seriesData[6] < seriesData[5]) {
-    priceTrend = ref('价格下跌');
+    priceTrend.value = '价格下跌';
 }
 
 // 曲线图Y轴范围
@@ -139,6 +138,19 @@ const echartsYMax = Math.round(maxVal.value + echartsYDifference.value);
 const echartsYMin = Math.round(minVal.value - echartsYDifference.value);
 const echartsYInterval = Math.round((echartsYMax - echartsYMin) / 4);
 
+// 打印调试信息
+// console.log('最高值:', maxVal.value);
+// console.log('最低值:', minVal.value);
+// console.log('平均值:', avgVal.value);
+// console.log('每日均价:', dailyAveragePrice.value);
+// console.log('最高周价:', highestWeeklyPrice.value);
+// console.log('最低周价:', lowestWeeklyPrice.value);
+// console.log('平均周价:', averageWeeklyPrice);
+// console.log('价格趋势:', priceTrend.value);
+// console.log('Y轴差异:', echartsYDifference.value);
+// console.log('Y轴最大值:', echartsYMax);
+// console.log('Y轴最小值:', echartsYMin);
+// console.log('Y轴间隔:', echartsYInterval);
 // 定义一个响应式数组 products
 const products = ref([
     {
