@@ -13,7 +13,7 @@
     <div class="user-card">
         <div class="use-container">
             <div class="icon-container">
-                <img :src="iconHref" :alt="user.name" class="icon-img" />
+                <img :src="iconHref" alt="no" class="icon-img" />
                 <h2 class="login-name">{{ user.name }}</h2>
             </div>
 
@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import useMainStore from '@/stores';
 // 文本分割
@@ -85,11 +85,12 @@ const isLoggedIn = computed(() => {
     return barItems;
 });
 
-const iconHref = 'src/assets/images/home/doge.jpg';
+const iconHref = new URL(`/src/assets/images/home/doge.jpg`, import.meta.url)
+    .href;
 // const name = '・ࡇ・';
 
 // 示例用户信息
-const user = ref([]);
+// const user = ref([]);
 // const user = {
 // name: 'QAQ',
 // icon: '/src/assets/images/mine/doge.jpg',
@@ -97,13 +98,14 @@ const user = ref([]);
 // email: 'john.doe@example.com',
 // }
 
-if (isLoggedIn.value) {
-    user.value.icon = iconHref;
-    user.value.name = mainStore.user.name;
-} else {
-    user.value.icon = iconHref;
-    user.value.name = 'Hi，农民伯伯欢迎您';
-}
+const user = computed(() => {
+    if (isLoggedIn.value) {
+        return { name: mainStore.user.name };
+    } else {
+        return { name: 'Hi,农民伯伯欢迎您!' };
+        // return { name: '农民伯伯' };
+    }
+});
 
 // 跳转到登录页面的方法
 const goToLogin = () => {
@@ -194,7 +196,7 @@ const deals = areas.map((area) => ({
 }
 
 .use-container {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     width: 100%;
     height: 120px;
     display: flex;
@@ -204,13 +206,13 @@ const deals = areas.map((area) => ({
 }
 
 .icon-container {
-    padding: 0 30px;
-    margin-bottom: 10px;
+    padding: 10px;
+    /* margin: 10px 0; */
     width: 100%;
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -220,12 +222,12 @@ const deals = areas.map((area) => ({
     object-fit: cover;
     border-radius: 32%;
     /* 设置为圆形 */
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .login-name {
-    flex: 1;
-    font-size: 1rem;
+    /* flex: 1; */
+    font-size: 1.2rem;
     /* margin-bottom: 0.5rem; */
 }
 

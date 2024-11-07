@@ -38,6 +38,7 @@ export default [
     ],
     languageOptions: {
       globals: {
+        process: 'readonly',
         describe: 'readonly',
         it: 'readonly',
         cy: 'readonly',

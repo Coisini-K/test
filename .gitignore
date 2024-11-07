@@ -16,9 +16,9 @@ coverage
 *.local
 
 # 编译输出
-# dist
-# dist-ssr
-# dist/
+dist
+dist-ssr
+dist/
 build/
 
 /cypress/videos/

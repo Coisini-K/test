@@ -1,8 +1,8 @@
 <template>
     <div class="login-container">
         <h2>Login</h2>
-        <h3>{{ mainStore.user?.name || '未登录' }}</h3>
-        <h3>{{ mainStore.isLoggedIn ? '已登录' : '未登录' }}</h3>
+        <!-- <h3>{{ mainStore.user?.name || '未登录' }}</h3> -->
+        <!-- <h3>{{ mainStore.isLoggedIn ? '已登录' : '未登录' }}</h3> -->
         <form @submit.prevent="handleLogin">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <button type="submit">Login</button>
-                <!-- <button type="button" @click="logout">Logout</button> -->
+                <button type="button" @click="logout">Logout</button>
             </div>
             <div v-if="errorMessage" class="error-message">
                 {{ errorMessage }}
@@ -104,6 +104,7 @@ input {
 
 button {
     width: 100%;
+    margin: 10px 0;
     padding: 10px;
     background-color: #007bff;
     color: white;
