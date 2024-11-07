@@ -7,7 +7,7 @@
 
     <table cellspacing="0" class="mockup_table">
         <tr class="mockup_tr">
-            <td rowspan="7">
+            <td rowspan="8">
                 <img
                     :src="image || '@/assets/images/aos/1.webp'"
                     class="mockup_img"
@@ -28,6 +28,19 @@
         <tr>
             <td class="tr_one">服务</td>
             <td colspan="3" class="tr_two">七天无理由退货·晚发必赔·极速退款</td>
+        </tr>
+        <tr>
+            <td class="tr_one">采购热度</td>
+            <td colspan="3" class="tr_two">
+                <img
+                    v-for="n in repeatCount"
+                    :key="n"
+                    src="@/assets/images/supply/fire-icon.png"
+                    alt="Fire Icon"
+                />&nbsp; <span style="color: red;">{{ num1 }}</span> 询价
+        <span style="color: red;">{{ num2 }}</span> 成交
+        <span style="color: red;">{{ num3 }}</span> 评价
+            </td>
         </tr>
         <tr>
             <td class="tr_one">物流</td>
@@ -107,12 +120,15 @@ const router = useRouter();
 const mainStore = useCounterStore();
 const product = mainStore.items;
 
+// 定义重复显示的次数
+const repeatCount = 5;
+
 // const image = product.image;
 // 将 image 改为 ref
 const image = ref(product.image || '@/assets/images/aos/1.webp');
 
 const images = ref([
-    new URL('/src/assets/images/aos/1.webp', import.meta.url).href,
+    new URL(product.image, import.meta.url).href,
     new URL('/src/assets/images/aos/2.webp', import.meta.url).href,
     new URL('/src/assets/images/aos/3.webp', import.meta.url).href,
     new URL('/src/assets/images/aos/4.webp', import.meta.url).href,
@@ -215,7 +231,10 @@ const updateMockupImage = () => {
 };
 
 // 定义一个响应式变量来存储随机库存数量
-const Random = ref(0);
+const num1 = ref(0);
+const num2 = ref(0);
+const num3 = ref(0);
+const Random = ref(0); //可售
 
 // 生成随机数的函数
 const RandomNumbers = () => {
@@ -225,6 +244,9 @@ const RandomNumbers = () => {
 // 在组件挂载时生成随机数
 onMounted(() => {
     Random.value = RandomNumbers();
+    num1.value = RandomNumbers();
+    num2.value = RandomNumbers();
+    num3.value = RandomNumbers();
 });
 
 const addToCollection = () => {
@@ -339,7 +361,7 @@ td {
 
 .tr_one {
     width: 80px;
-    height: 100px;
+    height: 80px;
     color: rgb(94, 88, 88);
 }
 .tr_head {
