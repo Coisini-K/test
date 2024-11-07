@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="foot_container">
         <div v-for="(item, index) in sections" :key="index" class="section">
             <h2>{{ item.title }}</h2>
             <ul>
@@ -37,15 +37,15 @@ const sections = ref([
     {
         title: '合作联系',
         links: [
-            { text: '客户服务 400-008-6888', to: '/' },
-            { text: '商务洽谈 0731-88189999', to: '/' },
-            { text: '媒体合作 0731-88189999', to: '/' },
+            { text: '客户服务 800-888-8888', to: '/' },
+            { text: '商务洽谈 0123-88888888', to: '/' },
+            { text: '媒体合作 0123-88888888', to: '/' },
             {
-                text: '惠农网知识产权综合服务平台',
+                text: '农民伯伯知识产权综合服务平台',
                 to: '/',
             },
             {
-                text: '惠农网乡村振兴合作专区',
+                text: '农民伯伯乡村振兴合作专区',
                 to: '/',
             },
         ],
@@ -64,11 +64,11 @@ const sections = ref([
 </script>
 
 <style scoped>
-.container {
+.foot_container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 30vh;
+    height: 300px;
 }
 
 .section {

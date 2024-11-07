@@ -5,7 +5,7 @@
             <div class="title">
                 <div class="title_left">
                     <div>手机版</div>
-                    <div>欢迎来到惠农网！</div>
+                    <div>欢迎来到农民伯伯！</div>
                     <button
                         type="button"
                         class="edit_button"
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="main_right_txt">
-                        <div>下载惠农网APP</div>
+                        <div>下载农民伯伯APP</div>
                         <div>手机询价，沟通更方便</div>
                     </div>
                 </div>
