@@ -98,18 +98,18 @@ onMounted(() => {
 });
 
 // 轮播图
-const images = [
-    '/src/assets/images/supply/carousel/1.jpg',
-    '/src/assets/images/supply/carousel/2.jpg',
-    '/src/assets/images/supply/carousel/3.jpg',
-    '/src/assets/images/supply/carousel/4.jpg',
-];
 // const images = [
-//     new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
-//     new URL('@/assets/images/supply/carousel/2.jpg', import.meta.url).href,
-//     new URL('@/assets/images/supply/carousel/3.jpg', import.meta.url).href,
-//     new URL('@/assets/images/supply/carousel/4.jpg', import.meta.url).href,
+//     '/src/assets/images/supply/carousel/1.jpg',
+//     '/src/assets/images/supply/carousel/2.jpg',
+//     '/src/assets/images/supply/carousel/3.jpg',
+//     '/src/assets/images/supply/carousel/4.jpg',
 // ];
+const images = [
+    new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
+    new URL('@/assets/images/supply/carousel/2.jpg', import.meta.url).href,
+    new URL('@/assets/images/supply/carousel/3.jpg', import.meta.url).href,
+    new URL('@/assets/images/supply/carousel/4.jpg', import.meta.url).href,
+];
 
 //轮播图 遍历所有照片
 // const images = ref([]);
