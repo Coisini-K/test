@@ -16,26 +16,27 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            items: [
-                { name: '首页', isActive: true },
-                { name: '服务', isActive: false },
-                { name: '关于', isActive: false },
-                { name: '客服', isActive: false },
-            ],
-        };
-    },
-    methods: {
-        navigate(item) {
-            // 模拟导航行为
-            console.log(`Navigating to ${item.name}`);
-            // 设置当前项为激活状态
-            this.items.forEach((i) => (i.isActive = i === item));
-        },
-    },
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const items = ref([
+    { name: '首页', isActive: true },
+    { name: '服务', isActive: false },
+    { name: '关于', isActive: false },
+    { name: '客服', isActive: false },
+]);
+
+const navigate = (item) => {
+    // 模拟导航行为
+    console.log(`Navigating to ${item.name}`);
+    // 设置当前项为激活状态
+    items.value.forEach((i) => (i.isActive = i === item));
+    if (item.name === '首页') {
+        router.push('/');
+    }
 };
 </script>
 
