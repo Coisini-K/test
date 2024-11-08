@@ -9,10 +9,7 @@
         <tbody>
             <tr class="mockup_tr">
                 <td rowspan="8">
-                    <img
-                        :src="image || '@/assets/images/supply/1.jpg'"
-                        class="mockup_img"
-                    />
+                    <img :src="image || '@/assets/images/supply/1.jpg'" class="mockup_img" />
                 </td>
             </tr>
             <tr>
@@ -35,12 +32,8 @@
             <tr>
                 <td class="tr_one">采购热度</td>
                 <td colspan="3" class="tr_two">
-                    <img
-                        v-for="n in repeatCount"
-                        :key="n"
-                        src="@/assets/images/supply/fire-icon.png"
-                        alt="Fire Icon"
-                    />&nbsp; <span style="color: red">{{ num1 }}</span> 询价
+                    <img v-for="n in repeatCount" :key="n" src="@/assets/images/supply/fire-icon.png"
+                        alt="Fire Icon" />&nbsp; <span style="color: red">{{ num1 }}</span> 询价
                     <span style="color: red">{{ num2 }}</span> 成交
                     <span style="color: red">{{ num3 }}</span> 评价
                 </td>
@@ -56,24 +49,9 @@
                     <input type="text" :value="totalPrice" disabled />
                 </td>
                 <td class="td">
-                    <a
-                        href="javascript:;"
-                        class="decrement"
-                        @click="decrement()"
-                        >-</a
-                    >
-                    <input
-                        type="number"
-                        class="itxt"
-                        v-model="quantity"
-                        @blur="onInput"
-                    />
-                    <a
-                        href="javascript:;"
-                        class="increment"
-                        @click="increment()"
-                        >+</a
-                    >
+                    <a href="javascript:;" class="decrement" @click="decrement()">-</a>
+                    <input type="number" class="itxt" v-model="quantity" @blur="onInput" />
+                    <a href="javascript:;" class="increment" @click="increment()">+</a>
                 </td>
             </tr>
             <tr>
@@ -100,13 +78,8 @@
                             :class="{ selected: currentIndex === index }"
                             @click="selectImage(index)"
                         /> -->
-                        <img
-                            v-for="(image, index) in displayedImages"
-                            :key="index"
-                            :src="image"
-                            class="mockup_img"
-                            @click="selectImage(index)"
-                        />
+                        <img v-for="(image, index) in displayedImages" :key="index" :src="image" class="mockup_img"
+                            @click="selectImage(index)" />
                     </div>
                     <button class="right_button" @click="nextImage">
                         &gt;
@@ -317,6 +290,7 @@ const goBack = () => {
     width: 100%;
     text-align: left;
 }
+
 #go-back-btn {
     background-color: rgba(0, 0, 0, 0);
     padding: 10px 13px;
@@ -361,6 +335,7 @@ td {
     height: 500px;
     /* margin-left: 11%; */
 }
+
 .div img:focus,
 .div .selected {
     outline: none;
@@ -375,6 +350,7 @@ td {
     justify-content: center;
     height: 100%;
 }
+
 .td button {
     padding: 0.1vw 0.5vw;
     background-color: none;
@@ -409,6 +385,7 @@ td {
     height: 80px;
     color: rgb(94, 88, 88);
 }
+
 .tr_head {
     color: black;
     font-size: 1.5vw;
@@ -420,6 +397,7 @@ td {
     height: 50px;
     /* text-align: center; */
 }
+
 .tr_there {
     width: 200px;
     height: 50px;
@@ -433,6 +411,7 @@ td {
     border: none;
     /* background-color: wheat; */
 }
+
 .button_group {
     display: flex;
     justify-content: space-around;
@@ -461,17 +440,20 @@ td {
     -webkit-appearance: none;
     -moz-appearance: textfield;
     appearance: textfield;
+
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
 }
+
 .button_one {
     display: flex;
     justify-content: space-between;
     /* width: 50%; */
 }
+
 .button_one button {
     /* width: 30%; */
     padding: 1vw 2vw;
