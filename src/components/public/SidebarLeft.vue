@@ -28,7 +28,7 @@ const items = computed(() => {
 });
 
 const isActive = computed(() => {
-    console.log('items:', items);
+    // console.log('items:', items);
     return items.value.length > 0 ? true : false;
 });
 

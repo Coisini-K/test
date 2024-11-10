@@ -14,8 +14,18 @@
     <div class="home_supply section" id="section-1">
         <NavigationBar :items="items_1" />
         <div class="home_supply_show">
-            <RecommendedProducts :products="products_1" :title="false" width="230px" height="300px" />
-            <RecommendedProducts :products="products_2" :title="false" :width="width" :height="height" />
+            <RecommendedProducts
+                :products="products_1"
+                :title="false"
+                width="230px"
+                height="300px"
+            />
+            <RecommendedProducts
+                :products="products_2"
+                :title="false"
+                :width="width"
+                :height="height"
+            />
         </div>
     </div>
 

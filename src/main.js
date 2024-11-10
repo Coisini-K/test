@@ -2,13 +2,26 @@
 import './assets/main.css';
 
 import { createApp } from 'vue';
+// import axios from 'axios';
 import { createPinia } from 'pinia';
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
 
 import App from './App.vue';
 import router from './router';
 
 const app = createApp(App);
 
+// 全局引入 Element Plus
+app.use(ElementPlus);
+
+// 挂载 ElMessage 到 Vue 实例
+// app.config.globalProperties.$message = ElementPlus.ElMessage;
+
+// 挂载 axios 到 Vue 实例
+// app.config.globalProperties.$axios = axios;
+
+// 全局引入图标库 fortawesome
 /* import specific icons */
 // import { all } from '@awesome.me/kit-KIT_CODE/icons'
 // import { findIconDefinition } from '@fortawesome/fontawesome - svg - core'

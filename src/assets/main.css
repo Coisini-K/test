@@ -83,6 +83,29 @@ button:hover {
     /* background-color: #cff6d6; */
 }
 
+/* WebKit 浏览器的滚动条样式 */
+select::-webkit-scrollbar {
+    width: 1rem;
+    /* 滚动条宽度 */
+}
+
+/* 滚动条滑块样式 */
+select::-webkit-scrollbar-thumb {
+    background-color: #dbfbe1;
+    /* 背景颜色 */
+    outline: transparent solid 1px;
+    /* 外边距透明度 */
+    outline-offset: -1px;
+    /* 外边距偏移 */
+    border-radius: 6px;
+    /* 圆角半径 */
+}
+
+/* 滚动条轨道样式 */
+select::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
 @media (hover: hover) {
 }
 

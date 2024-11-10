@@ -24,6 +24,11 @@ const routes = [
         component: () => import('@/views/MarketView.vue'),
     },
     {
+        path: '/procure',
+        name: 'procure',
+        component: () => import('@/views/ProcureView.vue'),
+    },
+    {
         path: '/login',
         name: 'login',
         component: () => import('@/views/LoginView.vue'),

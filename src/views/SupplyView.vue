@@ -105,12 +105,7 @@ onMounted(() => {
 //     '/src/assets/images/supply/carousel/4.jpg',
 // ];
 
-const images = [
-    'supply_1.jpg',
-    'supply_2.jpg',
-    'supply_3.jpg',
-    'supply_4.jpg',
-];
+const images = ['supply_1.jpg', 'supply_2.jpg', 'supply_3.jpg', 'supply_4.jpg'];
 
 // const images = [
 //     new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
