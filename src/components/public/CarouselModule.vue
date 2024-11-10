@@ -13,16 +13,9 @@ const photos = [
 <template>
     <div class="carousel">
         <!-- 轮播图轨道，使用 transform 属性来平滑地移动幻灯片 -->
-        <div
-            class="carousel-track"
-            :style="{ transform: `translateX(${currentSlide * -100}%)` }"
-        >
+        <div class="carousel-track" :style="{ transform: `translateX(${currentSlide * -100}%)` }">
             <!-- 循环渲染每张幻灯片 -->
-            <div
-                v-for="(slide, index) in slides"
-                :key="index"
-                class="carousel-slide"
-            >
+            <div v-for="(slide, index) in photos" :key="index" class="carousel-slide">
                 <img :src="slide" alt="" />
             </div>
         </div>
@@ -41,12 +34,8 @@ const photos = [
 
         <!-- 指示点，显示当前幻灯片的位置，并允许用户点击跳转到特定的幻灯片 -->
         <div class="carousel-dots">
-            <span
-                v-for="(slide, index) in slides"
-                :key="index"
-                :class="{ 'dot-active': currentSlide === index }"
-                @click="goToSlide(index)"
-            >
+            <span v-for="(slide, index) in slides" :key="index" :class="{ 'dot-active': currentSlide === index }"
+                @click="goToSlide(index)">
             </span>
         </div>
     </div>
@@ -107,22 +96,49 @@ const stopAutoplay = () => {
 
 // 组件挂载时启动自动播放
 const photos = ref([]);
-// onMounted(() => {
-//     photos.value = props.slides.map(
-//         (path) => new URL(path, import.meta.url).href
+
+onMounted(() => {
+    loadImages(props.slides);
+    startAutoplay();
+});
+
+// 加载图片路径
+function loadImages(slides) {
+    photos.value = slides.map((path) => {
+        return new URL(`/src/assets/images/carousel/${path}`, import.meta.url).href;
+    });
+    console.log("photos:", photos.value);
+}
+
+// 监听 props 变化
+// watch(() => props.slides, (newSlides) => {
+//     loadImages(newSlides);
+// });
+
+// // 加载图片路径
+// async function loadImages(slides) {
+//     photos.value = await Promise.all(slides.map(async (path) => {
+//         try {
+//             const imagePath = await import(`/src/assets/images/carousel/${path}`);
+//             return imagePath.default;
+//         } catch (error) {
+//             console.error(`Failed to load image ${path}:`, error);
+//             return null; // 或者返回一个默认图片路径
+//         }
+//     }));
+// }
+
+// onMounted(async () => {
+//     photos.value = await Promise.all(
+//         props.slides.map(async (path) => {
+//             const imagePath = await import(`/src/assets/images/carousel/${path}`);
+//             // const imagePath = await import(`/src/assets/images/carousel/${path.split('/').pop()}`);
+//             // const imagePath = await import(`/src/assets/images/carousel/${path}`);
+//             return imagePath.default;
+//         })
 //     );
 //     startAutoplay();
 // });
-onMounted(async () => {
-    photos.value = await Promise.all(
-        props.slides.map(async (path) => {
-            // const imagePath = await import(`/src/assets/images/home/carousel/${path.split('/').pop()}`);
-            const imagePath = await import(path);
-            return imagePath.default;
-        })
-    );
-    startAutoplay();
-});
 
 // 组件卸载时停止自动播放
 onUnmounted(() => {

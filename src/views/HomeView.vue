@@ -14,18 +14,8 @@
     <div class="home_supply section" id="section-1">
         <NavigationBar :items="items_1" />
         <div class="home_supply_show">
-            <RecommendedProducts
-                :products="products_1"
-                :title="false"
-                width="230px"
-                height="300px"
-            />
-            <RecommendedProducts
-                :products="products_2"
-                :title="false"
-                :width="width"
-                :height="height"
-            />
+            <RecommendedProducts :products="products_1" :title="false" width="230px" height="300px" />
+            <RecommendedProducts :products="products_2" :title="false" :width="width" :height="height" />
         </div>
     </div>
 
@@ -109,13 +99,22 @@ const items_1 = [
 const items_2 = ['大量采购需求', '苹果', '柑桔', '鸡蛋', '红薯', '鸡', '更多'];
 
 const photos = [
-    new URL('/src/assets/images/home/carousel/01.jpg', import.meta.url).href,
-    new URL('/src/assets/images/home/carousel/02.jpg', import.meta.url).href,
-    new URL('/src/assets/images/home/carousel/03.jpg', import.meta.url).href,
-    new URL('/src/assets/images/home/carousel/04.jpg', import.meta.url).href,
-    new URL('/src/assets/images/home/carousel/05.jpg', import.meta.url).href,
-    new URL('/src/assets/images/home/carousel/06.jpg', import.meta.url).href,
+    'home_1.jpg',
+    'home_2.jpg',
+    'home_3.jpg',
+    'home_4.jpg',
+    'home_5.jpg',
+    'home_6.jpg',
 ];
+
+// const photos = [
+// new URL('/src/assets/images/home/carousel/01.jpg', import.meta.url).href,
+// new URL('/src/assets/images/home/carousel/02.jpg', import.meta.url).href,
+// new URL('/src/assets/images/home/carousel/03.jpg', import.meta.url).href,
+// new URL('/src/assets/images/home/carousel/04.jpg', import.meta.url).href,
+// new URL('/src/assets/images/home/carousel/05.jpg', import.meta.url).href,
+// new URL('/src/assets/images/home/carousel/06.jpg', import.meta.url).href,
+// ];
 
 // const photos = [
 //     '@/assets/images/home/carousel/01.jpg',

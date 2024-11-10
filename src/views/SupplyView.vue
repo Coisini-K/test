@@ -1,5 +1,5 @@
 <template>
-    <!-- <div class="home_box"> -->
+    <!-- <div class="supply_box"> -->
     <!-- <div class="about"> -->
     <div class="about-box">
         <CarouselModule :slides="images" :interval="3000" class="carousel" />
@@ -104,12 +104,20 @@ onMounted(() => {
 //     '/src/assets/images/supply/carousel/3.jpg',
 //     '/src/assets/images/supply/carousel/4.jpg',
 // ];
+
 const images = [
-    new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
-    new URL('@/assets/images/supply/carousel/2.jpg', import.meta.url).href,
-    new URL('@/assets/images/supply/carousel/3.jpg', import.meta.url).href,
-    new URL('@/assets/images/supply/carousel/4.jpg', import.meta.url).href,
+    'supply_1.jpg',
+    'supply_2.jpg',
+    'supply_3.jpg',
+    'supply_4.jpg',
 ];
+
+// const images = [
+//     new URL('@/assets/images/supply/carousel/1.jpg', import.meta.url).href,
+//     new URL('@/assets/images/supply/carousel/2.jpg', import.meta.url).href,
+//     new URL('@/assets/images/supply/carousel/3.jpg', import.meta.url).href,
+//     new URL('@/assets/images/supply/carousel/4.jpg', import.meta.url).href,
+// ];
 
 //轮播图 遍历所有照片
 // const images = ref([]);
