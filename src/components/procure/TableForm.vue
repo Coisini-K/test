@@ -1,80 +1,82 @@
 <template>
-    <div>
-        <form class="demo-form-inline">
-            <div class="form-item">
-                <label>收货地区:</label>
-                <select v-model="item" @change="query" size="1">
-                    <option value="">不限地区</option>
-                    <option
-                        v-for="option in options"
-                        :key="option.id"
-                        :value="option.city"
-                    >
-                        {{ option.city }}
-                    </option>
-                </select>
+    <div class="table-form">
+        <div>
+            <form class="demo-form-inline">
+                <div class="form-item">
+                    <label>收货地区:</label>
+                    <select v-model="item" @change="query" size="1">
+                        <option value="">不限地区</option>
+                        <option
+                            v-for="option in options"
+                            :key="option.id"
+                            :value="option.city"
+                        >
+                            {{ option.city }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <input type="checkbox" v-model="checked1" />
+                    <label>最近7天发布</label>
+                </div>
+                <div class="form-item">
+                    <input type="checkbox" v-model="checked2" />
+                    <label>最近30天发布</label>
+                </div>
+            </form>
+        </div>
+        <div class="table-box">
+            <table class="custom-table" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>采购品种</th>
+                        <th>采购量</th>
+                        <th>收货地</th>
+                        <th>采购方</th>
+                        <th>更新时间</th>
+                        <th>采购等级</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="entity in entities" :key="entity.id">
+                        <td>{{ entity.kName }}</td>
+                        <td>{{ entity.amount }}</td>
+                        <td>{{ entity.receipt }}</td>
+                        <td>{{ entity.buyer }}</td>
+                        <td>{{ entity.updateTime }}</td>
+                        <td>{{ entity.level }}</td>
+                        <td>
+                            <button class="success-btn" @click="handle(entity)">
+                                去报价抢单
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button
+                    @click="handleCurrentChange(pageNumber - 1)"
+                    :disabled="pageNumber <= 1"
+                >
+                    上一页
+                </button>
+                <span>第 {{ pageNumber }} 页</span>
+                <button
+                    @click="handleCurrentChange(pageNumber + 1)"
+                    :disabled="pageNumber >= totalPages"
+                >
+                    下一页
+                </button>
+                <span>共 {{ totalPages }} 页</span>
+                <input
+                    type="number"
+                    v-model.number="jumpPage"
+                    min="1"
+                    max="totalPages"
+                />
+                <button @click="handleCurrentChange(jumpPage)">跳转</button>
             </div>
-            <div class="form-item">
-                <input type="checkbox" v-model="checked1" />
-                <label>最近7天发布</label>
-            </div>
-            <div class="form-item">
-                <input type="checkbox" v-model="checked2" />
-                <label>最近30天发布</label>
-            </div>
-        </form>
-    </div>
-    <div class="table-box">
-        <table class="custom-table" style="width: 100%">
-            <thead>
-                <tr>
-                    <th>采购品种</th>
-                    <th>采购量</th>
-                    <th>收货地</th>
-                    <th>采购方</th>
-                    <th>更新时间</th>
-                    <th>采购等级</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="entity in entities" :key="entity.id">
-                    <td>{{ entity.kName }}</td>
-                    <td>{{ entity.amount }}</td>
-                    <td>{{ entity.receipt }}</td>
-                    <td>{{ entity.buyer }}</td>
-                    <td>{{ entity.updateTime }}</td>
-                    <td>{{ entity.level }}</td>
-                    <td>
-                        <button class="success-btn" @click="handle(entity)">
-                            去报价抢单
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="pagination">
-            <button
-                @click="handleCurrentChange(pageNumber - 1)"
-                :disabled="pageNumber <= 1"
-            >
-                上一页
-            </button>
-            <span>第 {{ pageNumber }} 页</span>
-            <button
-                @click="handleCurrentChange(pageNumber + 1)"
-                :disabled="pageNumber >= totalPages"
-            >
-                下一页
-            </button>
-            <span>共 {{ totalPages }} 页</span>
-            <input
-                type="number"
-                v-model.number="jumpPage"
-                min="1"
-                max="totalPages"
-            />
-            <button @click="handleCurrentChange(jumpPage)">跳转</button>
         </div>
     </div>
 </template>
@@ -149,7 +151,8 @@ const totalPages = computed(() => Math.ceil(total.value / pageSize.value));
 <style scoped>
 .table-form {
     width: 100%;
-    height: 50px;
+    height: 100%;
+    padding: 10px 20px;
 }
 
 .demo-form-inline {
@@ -181,7 +184,7 @@ const totalPages = computed(() => Math.ceil(total.value / pageSize.value));
 
 .table-box {
     width: 100%;
-    height: 600px;
+    max-height: 550px;
 }
 
 .custom-table {
