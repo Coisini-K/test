@@ -9,7 +9,10 @@
         <tbody>
             <tr class="mockup_tr">
                 <td rowspan="8">
-                    <img :src="image || '@/assets/images/supply/1.jpg'" class="mockup_img" />
+                    <img
+                        :src="image || '@/assets/images/supply/1.jpg'"
+                        class="mockup_img"
+                    />
                 </td>
             </tr>
             <tr>
@@ -32,8 +35,12 @@
             <tr>
                 <td class="tr_one">采购热度</td>
                 <td colspan="3" class="tr_two">
-                    <img v-for="n in repeatCount" :key="n" src="@/assets/images/supply/fire-icon.png"
-                        alt="Fire Icon" />&nbsp; <span style="color: red">{{ num1 }}</span> 询价
+                    <img
+                        v-for="n in repeatCount"
+                        :key="n"
+                        src="@/assets/images/supply/fire-icon.png"
+                        alt="Fire Icon"
+                    />&nbsp; <span style="color: red">{{ num1 }}</span> 询价
                     <span style="color: red">{{ num2 }}</span> 成交
                     <span style="color: red">{{ num3 }}</span> 评价
                 </td>
@@ -49,9 +56,24 @@
                     <input type="text" :value="totalPrice" disabled />
                 </td>
                 <td class="td">
-                    <a href="javascript:;" class="decrement" @click="decrement()">-</a>
-                    <input type="number" class="itxt" v-model="quantity" @blur="onInput" />
-                    <a href="javascript:;" class="increment" @click="increment()">+</a>
+                    <a
+                        href="javascript:;"
+                        class="decrement"
+                        @click="decrement()"
+                        >-</a
+                    >
+                    <input
+                        type="number"
+                        class="itxt"
+                        v-model="quantity"
+                        @blur="onInput"
+                    />
+                    <a
+                        href="javascript:;"
+                        class="increment"
+                        @click="increment()"
+                        >+</a
+                    >
                 </td>
             </tr>
             <tr>
@@ -78,8 +100,13 @@
                             :class="{ selected: currentIndex === index }"
                             @click="selectImage(index)"
                         /> -->
-                        <img v-for="(image, index) in displayedImages" :key="index" :src="image" class="mockup_img"
-                            @click="selectImage(index)" />
+                        <img
+                            v-for="(image, index) in displayedImages"
+                            :key="index"
+                            :src="image"
+                            class="mockup_img"
+                            @click="selectImage(index)"
+                        />
                     </div>
                     <button class="right_button" @click="nextImage">
                         &gt;

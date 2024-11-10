@@ -1,5 +1,21 @@
 # 待办事项
 
+## centOS system 9
+
+停止 apache
+
+```sh
+sudo systemctl stop httpd
+sudo systemctl restart httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+```
+
+```sh
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+```
+
 ## 路由
 
 - 优化404页面的显示
