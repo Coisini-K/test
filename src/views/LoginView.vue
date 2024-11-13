@@ -78,7 +78,7 @@ const username = ref('');
 const password = ref('');
 const errorMessage = ref('');
 const showCountdown = ref(false);
-const countdown = ref(5);
+const countdown = ref(3);
 
 // 获取路由器实例
 const router = useRouter();

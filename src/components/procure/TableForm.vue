@@ -48,7 +48,7 @@
                         <td>{{ entity.level }}</td>
                         <td>
                             <button class="success-btn" @click="handle(entity)">
-                                去报价抢单
+                                查看行情
                             </button>
                         </td>
                     </tr>
@@ -83,8 +83,9 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 import axios from 'axios';
-
 import { BASE_URL } from '@/constants/routes';
 
 const pageNumber = ref(1);
@@ -142,7 +143,8 @@ onMounted(() => {
 
 const handle = (row) => {
     // 处理点击事件
-    console.log('去报价抢单', row);
+    console.log('查看行情', row);
+    router.push('/market');
 };
 
 const totalPages = computed(() => Math.ceil(total.value / pageSize.value));

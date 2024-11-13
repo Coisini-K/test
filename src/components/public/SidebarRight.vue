@@ -181,7 +181,7 @@ const navigate = (item) => {
     color: #333;
     display: block;
     padding: 0.4rem;
-    border-radius: 7px;
+    border-radius: 10px;
 }
 
 .sidebar-nav a:hover {

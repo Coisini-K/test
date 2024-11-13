@@ -5,8 +5,8 @@
         <div class="home_overview_show">
             <CarouselModule :slides="photos" :interval="3000" />
             <div class="home_overview_show_imgs">
-                <img src="@/assets/images/home/carousel/4.jpg" alt="no!" />
-                <img src="@/assets/images/home/carousel/2.jpg" alt="no!" />
+                <img src="@/assets/images/home/show/1.jpg" alt="no!" />
+                <img src="@/assets/images/home/show/2.jpg" alt="no!" />
             </div>
         </div>
         <UserInformation />

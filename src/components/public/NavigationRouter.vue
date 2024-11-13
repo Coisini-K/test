@@ -34,11 +34,12 @@ const links = [
     { href: '/market', text: '行情大厅' },
     // { href: '/login', text: '登录' },
     { href: '/procure', text: '采购大厅' },
-    { href: '/bigdata', text: '惠农大数据' },
-    { href: '/news', text: '行业资讯' },
-    { href: '/mall', text: '严选商城' },
-    { href: '/npt', text: '农批通' },
-    { href: '/tuliu', text: '土流网' },
+    { href: '/farm', text: '可视农场' },
+    // { href: '/bigdata', text: '惠农大数据' },
+    // { href: '/news', text: '行业资讯' },
+    // { href: '/mall', text: '严选商城' },
+    // { href: '/npt', text: '农批通' },
+    // { href: '/tuliu', text: '土流网' },
 ];
 </script>
 
@@ -55,7 +56,7 @@ nav {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .nav-link {
