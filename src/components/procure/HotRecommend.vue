@@ -1,9 +1,9 @@
 <template>
-    <div class="recommend-cates sub-wrap">
+    <div class="recommend-cates">
         <ul>
             <li class="label-recommend">热门推荐</li>
             <li
-                class="sub-row no-padding"
+                class="sub-row"
                 v-for="(category, index) in categories"
                 :key="index"
             >
@@ -87,12 +87,15 @@ const categories = ref([
 <style scoped>
 .recommend-cates {
     padding: 10px;
+    width: 800px;
+    height: 100%;
 }
 
 .label-recommend {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 10px;
+    color: #39bf3e;
 }
 
 .sub-row {

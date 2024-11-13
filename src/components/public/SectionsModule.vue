@@ -1,3 +1,15 @@
+<!--
+<div class="footer">
+    <SectionsModule />
+</div>
+
+import SectionsModule from '@/components/public/SectionsModule.vue';
+
+.footer{
+width: 100%;
+}
+-->
+
 <template>
     <div class="foot_container">
         <div v-for="(item, index) in sections" :key="index" class="section">
@@ -65,10 +77,11 @@ const sections = ref([
 
 <style scoped>
 .foot_container {
+    height: 300px;
+    padding: 30px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 300px;
 }
 
 .section {

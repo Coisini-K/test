@@ -14,7 +14,10 @@
         <div class="use-container">
             <div class="icon-container">
                 <img :src="iconHref" alt="no" class="icon-img" />
-                <h2 class="login-name">{{ user.name }}</h2>
+                <h2 class="login-name">
+                    Hi,
+                    <span class="name">{{ user.name }}</span>
+                </h2>
             </div>
 
             <!-- 已登录 -->
@@ -102,7 +105,7 @@ const user = computed(() => {
     if (isLoggedIn.value) {
         return { name: mainStore.user.name };
     } else {
-        return { name: 'Hi,农民伯伯欢迎您!' };
+        return { name: '农民伯伯欢迎您!' };
         // return { name: '农民伯伯' };
     }
 });
@@ -229,6 +232,12 @@ const deals = areas.map((area) => ({
     /* flex: 1; */
     font-size: 1.2rem;
     /* margin-bottom: 0.5rem; */
+}
+
+.name {
+    color: #28a745;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .info-container-false {

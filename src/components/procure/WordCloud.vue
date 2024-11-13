@@ -1,10 +1,13 @@
 <template>
-    <div class="box">
-        <vue3-word-cloud
-            :words="wordData"
-            :color="colorFunction"
-            :spacing="1"
-        />
+    <div class="cloud">
+        <p class="title">近7天热门采购榜</p>
+        <div class="box">
+            <vue3-word-cloud
+                :words="wordData"
+                :color="colorFunction"
+                :spacing="1"
+            />
+        </div>
     </div>
 </template>
 
@@ -45,9 +48,35 @@ words: 要显示的单词数组，默认为 []。
 -->
 
 <style scoped>
-.box {
+.cloud {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.title {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    /* text-align: left; */
+    padding-left: 10px;
+    border-left: 4px solid #39bf3e;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* margin: 20px 0; */
+}
+
+.box {
+    width: 100%;
+    height: 200px;
     padding: 20px;
 }
 </style>

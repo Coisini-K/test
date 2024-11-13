@@ -54,29 +54,29 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="pagination">
-                <button
-                    @click="handleCurrentChange(pageNumber - 1)"
-                    :disabled="pageNumber <= 1"
-                >
-                    上一页
-                </button>
-                <span>第 {{ pageNumber }} 页</span>
-                <button
-                    @click="handleCurrentChange(pageNumber + 1)"
-                    :disabled="pageNumber >= totalPages"
-                >
-                    下一页
-                </button>
-                <span>共 {{ totalPages }} 页</span>
-                <input
-                    type="number"
-                    v-model.number="jumpPage"
-                    min="1"
-                    max="totalPages"
-                />
-                <button @click="handleCurrentChange(jumpPage)">跳转</button>
-            </div>
+        </div>
+        <div class="pagination">
+            <button
+                @click="handleCurrentChange(pageNumber - 1)"
+                :disabled="pageNumber <= 1"
+            >
+                上一页
+            </button>
+            <span>第 {{ pageNumber }} 页</span>
+            <button
+                @click="handleCurrentChange(pageNumber + 1)"
+                :disabled="pageNumber >= totalPages"
+            >
+                下一页
+            </button>
+            <span>共 {{ totalPages }} 页</span>
+            <input
+                type="number"
+                v-model.number="jumpPage"
+                min="1"
+                max="totalPages"
+            />
+            <button @click="handleCurrentChange(jumpPage)">跳转</button>
         </div>
     </div>
 </template>
@@ -153,6 +153,11 @@ const totalPages = computed(() => Math.ceil(total.value / pageSize.value));
     width: 100%;
     height: 100%;
     padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
 .demo-form-inline {

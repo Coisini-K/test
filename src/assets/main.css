@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    letter-spacing: 1px;
     /* transition: all 0.3s ease; */
     /* 平滑过渡 */
 }

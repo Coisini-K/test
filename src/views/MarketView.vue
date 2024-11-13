@@ -5,7 +5,6 @@
     <div class="container">
         <div class="left">
             <div class="main">
-                gn
                 <div class="echarts">
                     <EchartsStore :options="chartOptions" height="300px" />
                     <div>吉林通化东昌区 元蘑</div>
@@ -93,20 +92,23 @@
             <ProductNews :news="news_2" />
         </div>
     </div>
-    <SectionsModule />
+
+    <div class="footer">
+        <SectionsModule />
+    </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 // 左侧资讯组件
 import { getDates } from '@/utils/dateUtils';
 import { news_1, news_2 } from '@/constants/home';
 import ProductNews from '@/components/market/ProductNews.vue';
-// 引入计算日期的方法
 // 导入EchartsStore组件
 import EchartsStore from '@/components/public/EchartsStore.vue';
+// 引入计算日期的方法
 import HandoffDAte from '@/components/public/HandoffDAte.vue';
-import SectionsModule from '@/components/supply/SectionsModule.vue';
+import SectionsModule from '@/components/public/SectionsModule.vue';
 
 // 定义曲线图Y轴数据 日期
 const dates = getDates(null, 'MM-DD');
@@ -232,7 +234,7 @@ const chartOptions = ref({
     grid: {
         top: '20%',
         left: '8%',
-        right: '6%',
+        right: '7%',
         bottom: '5%',
         containLabel: true,
     },
@@ -251,6 +253,7 @@ const chartOptions = ref({
     ],
     xAxis: {
         type: 'category',
+        name: '日期',
         data: dates.datesOfWeek,
     },
     yAxis: {
@@ -279,9 +282,9 @@ const chartOptions = ref({
     ],
 });
 
-onMounted(() => {
-    // console.log("bar:", mainStore.bar);
-});
+// onMounted(() => {
+// console.log("bar:", mainStore.bar);
+// });
 </script>
 
 <style scoped>
@@ -398,6 +401,7 @@ onMounted(() => {
 .content td.unit a {
     padding: 6px 12px;
     /* border-radius: 15px; */
+    color: #ff0d0d;
     color: #45b035;
 }
 
@@ -454,5 +458,9 @@ onMounted(() => {
 
 .contact .email-icon::before {
     content: '📧';
+}
+
+.footer {
+    width: 100%;
 }
 </style>

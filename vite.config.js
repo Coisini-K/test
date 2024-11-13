@@ -10,7 +10,7 @@ export default defineConfig({
 
   // 开发服务器配置
   server: {
-    port: 5173  , // 服务器端口号
+    port: 5173, // 服务器端口号
     host: '0.0.0.0', // 服务器主机名，允许外部访问
     open: false, // 启动时自动打开浏览器
     proxy: {
@@ -70,4 +70,9 @@ export default defineConfig({
     envCompatible(), // 环境变量兼容插件
     // 其他插件
   ],
+
+  // 手动指定入口文件
+  optimizeDeps: {
+    include: ['@/main'], // 假设你的入口文件是 src/main.js 或 src/main.ts
+  },
 });

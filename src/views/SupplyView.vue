@@ -35,7 +35,9 @@
         </template>
     </div>
 
-    <SectionsModule />
+    <div class="footer">
+        <SectionsModule />
+    </div>
     <!-- </div> -->
     <!-- </div> -->
 </template>
@@ -50,7 +52,7 @@ import LatestDeals from '@/components/public/LatestDeals.vue';
 import SupplyUlLeft from '@/components/supply/SupplyUlLeft.vue';
 import SupplyUlRight from '@/components/supply/SupplyUlRight.vue';
 import RecommendedProducts from '@/components/public/RecommendedProducts.vue';
-import SectionsModule from '@/components/supply/SectionsModule.vue';
+import SectionsModule from '@/components/public/SectionsModule.vue';
 
 import {
     deals,
@@ -215,5 +217,9 @@ const allSections = computed(() => {
     /* align-items: flex-start; */
     /* justify-content: flex-start; */
     /* border: 1px solid #333; */
+}
+
+.footer {
+    width: 100%;
 }
 </style>

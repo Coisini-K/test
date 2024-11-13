@@ -1,4 +1,3 @@
-<!-- 左边导航栏 -->
 <template>
     <div class="sidebar" v-show="isSticky" v-if="isActive">
         <!-- <div class="sidebar-header"></div> -->
@@ -19,12 +18,9 @@
 <script setup>
 import { computed, onMounted, onUnmounted, watchEffect, ref } from 'vue';
 import useMainStore from '@/stores';
-import useScrollStore from '@/stores/scroll';
-import { throttle } from 'lodash';
-
 const mainStore = useMainStore();
+import useScrollStore from '@/stores/scroll';
 const scrollStore = useScrollStore();
-
 // 创建一个计算属性，依赖于 scrollStore.isSticky 用于判断页面是否吸顶
 const isSticky = computed(() => {
     const sticky = scrollStore.isSticky;
@@ -40,7 +36,8 @@ const items = computed(() => {
 });
 
 const isActive = computed(() => {
-    return items.value.length > 0;
+    // console.log('items:', items);
+    return items.value.length > 0 ? true : false;
 });
 
 // 存储目标元素的位置
@@ -48,98 +45,6 @@ const targetPositions = ref([]);
 
 // 是否已添加滚动监听器
 let hasAddedScrollListener = false;
-
-// 更新目标元素的位置
-const updateTargetPositions = () => {
-    targetPositions.value = items.value.map((item) => {
-        const element = document.querySelector(item.target);
-        return element ? element.offsetTop : null;
-    });
-    // console.log("targetPositions:", targetPositions);
-    // console.log("targetPositions.value.length:", targetPositions.value.length);
-};
-
-// 添加滚动监听器
-const addScrollListener = () => {
-    if (!hasAddedScrollListener) {
-        window.addEventListener('scroll', throttledListenScroll);
-        hasAddedScrollListener = true;
-    }
-};
-
-// 移除滚动监听器
-const removeScrollListener = () => {
-    if (hasAddedScrollListener) {
-        window.removeEventListener('scroll', throttledListenScroll);
-        hasAddedScrollListener = false;
-    }
-};
-
-// 处理滚动事件
-const listenScroll = () => {
-    const scrollTop = window.scrollY;
-    let activeIndex = 0;
-
-    for (let i = 0; i < targetPositions.value.length; i++) {
-        if (scrollTop > targetPositions.value[i] - 100) {
-            activeIndex = i;
-        } else {
-            break;
-        }
-    }
-
-    // 更新激活状态
-    items.value.forEach((item, index) => {
-        item.isActive = index === activeIndex;
-    });
-};
-
-// 节流函数
-const throttledListenScroll = throttle(() => {
-    requestAnimationFrame(listenScroll);
-}, 100);
-
-// 导航到指定位置
-const navigate = (item) => {
-    try {
-        // 更新所有项的激活状态
-        items.value.forEach((i) => (i.isActive = i === item));
-
-        // 滚动到目标位置
-        if (item.target) {
-            const targetElement = document.querySelector(item.target);
-
-            if (targetElement) {
-                // 获取当前的滚动位置
-                const currentScroll = window.scrollY;
-
-                // 获取目标元素相对于视口的位置
-                const rect = targetElement.getBoundingClientRect();
-
-                // 计算目标元素顶部距离视口顶部的距离
-                const distanceToTop = rect.top;
-
-                // 计算新的滚动位置
-                const newScroll = currentScroll + distanceToTop; // 减去 81px 作为偏移量
-                // console.log(newScroll);
-                let position = 0;
-                if (newScroll > 329) {
-                    position = 81;
-                }
-                const newScrollPosition = newScroll - position; // 减去 81px 作为偏移量
-                // console.log(newScrollPosition);
-
-                // 平滑滚动到新位置
-                window.scrollTo({
-                    top: newScrollPosition,
-                    behavior: 'smooth',
-                });
-            }
-        }
-    } catch (error) {
-        console.error('Navigation error:', error);
-    }
-};
 
 // 使用 vue 的 watchEffect 来监听 items 的变化
 watchEffect(() => {
@@ -157,45 +62,89 @@ onMounted(() => {
 
 // 在组件卸载时移除滚动监听器
 onUnmounted(removeScrollListener);
+
+// 更新目标元素的位置
+function updateTargetPositions() {
+    targetPositions.value = items.value.map((item) => {
+        const element = document.querySelector(item.target);
+        return element ? element.offsetTop : null;
+    });
+    // console.log("targetPositions:", targetPositions);
+    // console.log("targetPositions.value.length:", targetPositions.value.length);
+}
+
+// 添加滚动监听器
+function addScrollListener() {
+    if (!hasAddedScrollListener) {
+        window.addEventListener('scroll', listenScroll);
+        hasAddedScrollListener = true;
+    }
+}
+
+// 移除滚动监听器
+function removeScrollListener() {
+    if (hasAddedScrollListener) {
+        window.removeEventListener('scroll', listenScroll);
+        hasAddedScrollListener = false;
+    }
+}
+
+// 处理滚动事件
+function listenScroll() {
+    const scrollTop = window.scrollY;
+    let activeIndex = 0;
+
+    for (let i = 0; i < targetPositions.value.length; i++) {
+        if (scrollTop > targetPositions.value[i] - 100) {
+            activeIndex = i;
+        } else {
+            break;
+        }
+    }
+
+    // 更新激活状态
+    items.value.forEach((item, index) => {
+        item.isActive = index === activeIndex;
+    });
+}
+
+// 导航到指定位置
+function navigate(item) {
+    // 更新所有项的激活状态
+    items.value.forEach((i) => (i.isActive = i === item));
+    // 滚动到目标位置
+    if (item.target) {
+        const targetElement = document.querySelector(item.target);
+
+        if (targetElement) {
+            // 直接滚动到id对应组件的位置，但会被页面顶部导航栏遮挡
+            // targetElement.scrollIntoView({ behavior: 'smooth' });
+
+            // 重新计数滚动距离，以避开页面顶部导航栏
+            const targetElement = document.querySelector(item.target);
+            if (targetElement) {
+                // 获取当前的滚动位置
+                const currentScroll = window.scrollY;
+
+                // 获取目标元素相对于视口的位置
+                const rect = targetElement.getBoundingClientRect();
+
+                // 计算目标元素顶部距离视口顶部的距离
+                const distanceToTop = rect.top;
+
+                // 计算新的滚动位置
+                const newScrollPosition = currentScroll + distanceToTop - 81; // 减去 60px 作为偏移量
+
+                // 平滑滚动到新位置
+                window.scrollTo({
+                    top: newScrollPosition,
+                    behavior: 'smooth',
+                });
+            }
+        }
+    }
+}
 </script>
-
-<!-- <style scoped>
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #f8f9fa;
-    padding: 20px;
-    box-shadow: 1px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-nav ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.sidebar-nav ul li a.active {
-    background-color: #007bff;
-    color: #fff;
-}
-</style> -->
 
 <style scoped>
 .sidebar {

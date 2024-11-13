@@ -36,9 +36,9 @@
                 </div>
             </div>
 
-            <div class="main" :class="{ top: !isSticky }">
+            <div class="main" :class="{ top: isSticky }">
                 <div class="main_left">
-                    <div class="main_left_img_max" v-if="isSticky">
+                    <div class="main_left_img_max" v-if="!isSticky">
                         <img src="@/assets/images/header/DMmax.png" alt="no!" />
                     </div>
                     <div class="main_left_img_min" v-else>
@@ -50,7 +50,7 @@
                         <div class="main_input">
                             <SearchBox />
                         </div>
-                        <div class="main_main_ul" v-if="isSticky">
+                        <div class="main_main_ul" v-if="!isSticky">
                             <ul>
                                 <li>苹果</li>
                                 <li>柑橘</li>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="main_right" :class="{ top_right: !isSticky }">
+                <div class="main_right" :class="{ top_right: isSticky }">
                     <div class="main_right_img">
                         <img src="@/assets/images/header/QR.png" alt="no!" />
                     </div>
@@ -88,15 +88,23 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import useMainStore from '@/stores';
 import NavigationRouter from '@/components/public/NavigationRouter.vue';
 import SearchBox from '@/components/public/SearchBox.vue';
 
+import useScrollStore from '@/stores/scroll';
+const scrollStore = useScrollStore();
+// 创建一个计算属性，依赖于 scrollStore.isSticky 用于判断页面是否吸顶
+const isSticky = computed(() => {
+    const sticky = scrollStore.isSticky;
+    // console.log('sticky value:', sticky);
+    return sticky;
+});
+
 const mainStore = useMainStore();
 const router = useRouter();
-const isSticky = ref(true);
 
 const isLoggedIn = computed(() => {
     return mainStore.isLoggedIn;
@@ -119,27 +127,6 @@ const logout = () => {
     mainStore.logout();
     console.log('is: ', mainStore.isLoggedIn);
 };
-
-const handleScroll = () => {
-    if (window.scrollY > 320) {
-        isSticky.value = false;
-    } else {
-        isSticky.value = true;
-    }
-};
-
-onMounted(() => {
-    // 监听滚动事件
-    window.addEventListener('scroll', handleScroll);
-
-    // 初始化状态
-    handleScroll();
-});
-
-onUnmounted(() => {
-    // 移除滚动监听器
-    window.removeEventListener('scroll', handleScroll);
-});
 </script>
 
 <style scoped>
@@ -182,7 +169,7 @@ onUnmounted(() => {
 .title_left,
 .title_right {
     height: 100%;
-    font-size: 0.8rem;
+    font-size: 14px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -196,15 +183,18 @@ onUnmounted(() => {
 .edit_button,
 .settings_button {
     /* padding: 5px; */
+    /* border:1px solid transparent; */
+    /* height: 100%; */
     border: none;
-    border-radius: 4px;
+    font-size: 14px;
+    padding-bottom: 2px;
+    /* border-radius: 4px; */
     cursor: pointer;
     background-color: transparent;
 }
 
 .edit_button {
     /* background-color: #007bff; */
-    font-size: 1rem;
     color: #28a745;
 }
 
@@ -318,8 +308,14 @@ onUnmounted(() => {
 }
 
 .main_right {
-    width: 120px;
-    height: 160px;
+    width: 140px;
+    /* height: 160px; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 .main_right_img {
@@ -328,7 +324,7 @@ onUnmounted(() => {
 }
 
 .main_right_txt {
-    font-size: 0.7rem;
+    font-size: 12px;
     text-align: center;
 }
 
@@ -357,9 +353,10 @@ onUnmounted(() => {
 }
 
 .top_right {
-    width: 180px;
+    width: 200px;
     height: 60px;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }

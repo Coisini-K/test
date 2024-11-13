@@ -70,6 +70,10 @@
             :iterations="iterations"
         />
     </div>
+
+    <div class="footer">
+        <SectionsModule />
+    </div>
 </template>
 
 <script setup>
@@ -78,6 +82,7 @@ import useMainStore from '@/stores';
 const mainStore = useMainStore();
 
 import LatestDeals from '@/components/public/LatestDeals.vue';
+import SectionsModule from '@/components/public/SectionsModule.vue';
 
 const title = true;
 const info = '最新成交';
@@ -207,5 +212,9 @@ button:hover {
     height: 720px;
     background-color: #fff;
     margin-bottom: 100px;
+}
+
+.footer {
+    width: 100%;
 }
 </style>

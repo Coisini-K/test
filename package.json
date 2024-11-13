@@ -43,6 +43,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "latest-3",
     "@typescript-eslint/utils": "^8.10.0",
+    "@vue/compiler-sfc": "^3.5.12",
+    "@vue/runtime-dom": "^3.5.12",
     "@vueuse/core": "^11.1.0",
     "axios": "^1.7.7",
     "babel-plugin-component": "^1.1.1",

@@ -119,7 +119,7 @@ function loadImages(slides) {
         return new URL(`/src/assets/images/carousel/${path}`, import.meta.url)
             .href;
     });
-    console.log('photos:', photos.value);
+    // console.log('photos:', photos.value);
 }
 
 // 监听 props 变化

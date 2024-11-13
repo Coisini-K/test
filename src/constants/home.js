@@ -33,6 +33,17 @@ export const news_2 = [
         ],
     },
 ];
+export const news_3 = [
+    {
+        name: '精品课程',
+        items: [
+            '芍药花冬季怎么管理？',
+            '孔雀草的种植方法和时间',
+            '绣球花过冬怎么管理？',
+            '三角梅的修剪时间和方法',
+        ],
+    },
+];
 
 export const products_1 = [
     {

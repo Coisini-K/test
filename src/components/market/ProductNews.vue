@@ -67,13 +67,13 @@ onMounted(() => {
     /* margin: 0 auto; */
     background-color: #fff;
     /* padding-bottom: 20px; */
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 3px 1px #ccc;
+    /* border: 1px solid #ccc; */
+    /* box-shadow: 1px 1px 3px 1px #ccc; */
 }
 
 .title {
     width: 100%;
-    height: 45px;
+    height: 42px;
     padding-right: 10px;
     display: flex;
     align-items: center;

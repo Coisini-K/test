@@ -21,7 +21,7 @@ const props = defineProps({
     // 设置高度，默认值为 400px
     height: {
         type: String,
-        default: '400px',
+        default: '100%',
     },
     // ECharts 的配置项，为必传项
     options: {

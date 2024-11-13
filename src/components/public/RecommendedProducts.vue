@@ -31,8 +31,8 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { DETAIL_PATH } from '@/constants/routes';
-import useCounterStore from '@/stores/detail';
-const mainStore = useCounterStore();
+import useDetailStore from '@/stores/detail';
+const detailStore = useDetailStore();
 const detailPath = ref(DETAIL_PATH);
 const router = useRouter();
 
@@ -48,9 +48,9 @@ const navigateToHome = (product) => {
 // 把商品信息数组设置到 store 中
 const initItems = (arr) => {
     const Items = arr;
-    mainStore.clearItems();
-    mainStore.setItems(Items);
-    // console.log(mainStore.items);
+    detailStore.clearItems();
+    detailStore.setItems(Items);
+    // console.log(detailStore.items);
 };
 
 defineProps({
@@ -145,19 +145,20 @@ defineProps({
 }
 
 .product-info .price {
-    width: 45%;
-    height: 50px;
-    font-size: 1.2em;
+    width: 55%;
+    height: 30px;
+    font-size: 16px;
     color: red;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     /* margin-right: 9px; */
 }
 
 .product-info .description {
     width: 45%;
-    height: 50px;
+    height: 40px;
+    font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: flex-end;

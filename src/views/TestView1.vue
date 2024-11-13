@@ -27,6 +27,10 @@
         <!-- 引入EchartsStore组件，并传递图表配置选项 -->
         <EchartsStore :options="chartOptions" />
     </div>
+
+    <div class="footer">
+        <SectionsModule />
+    </div>
 </template>
 
 <script setup>
@@ -38,6 +42,7 @@ import ToolingIcon from '@/components/icons/IconTooling.vue';
 import EcosystemIcon from '@/components/icons/IconEcosystem.vue';
 import CommunityIcon from '@/components/icons/IconCommunity.vue';
 import SupportIcon from '@/components/icons/IconSupport.vue';
+import SectionsModule from '@/components/public/SectionsModule.vue';
 
 // 导入并使用mainStore
 import useMainStore from '@/stores';
@@ -88,5 +93,9 @@ const chartOptions = ref({
 /* 为图标设置样式 */
 i {
     margin: 10px;
+}
+
+.footer {
+    width: 100%;
 }
 </style>

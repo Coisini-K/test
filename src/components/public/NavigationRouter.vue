@@ -8,7 +8,6 @@
                 :key="link.href"
                 :to="link.href"
                 class="nav-link"
-                @click="handleLinkClick(link)"
             >
                 {{ link.text }}
             </RouterLink>
@@ -19,11 +18,13 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 
-import useMainStore from '@/stores';
-const mainStore = useMainStore();
-const clearBar = () => {
-    mainStore.clearBar();
-};
+// import useMainStore from '@/stores';
+// const mainStore = useMainStore();
+
+// const handleLinkClick = (link) => {
+//     console.log(`Clicked on link: ${link.text} (${link.href})`);
+//     clearBar();
+// };
 
 const links = [
     // { href: '/test1', text: '测试1' },
@@ -39,11 +40,6 @@ const links = [
     { href: '/npt', text: '农批通' },
     { href: '/tuliu', text: '土流网' },
 ];
-
-const handleLinkClick = (link) => {
-    console.log(`Clicked on link: ${link.text} (${link.href})`);
-    clearBar();
-};
 </script>
 
 <style scoped>

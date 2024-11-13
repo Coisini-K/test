@@ -47,7 +47,9 @@
     </div>
     <!-- </div> -->
 
-    <SectionsModule />
+    <div class="footer">
+        <SectionsModule />
+    </div>
 </template>
 
 <script setup>
@@ -60,7 +62,7 @@ import UserInformation from '@/components/home/UserInformation.vue';
 import PurchaseTable from '@/components/home/PurchaseTable.vue';
 import NewLatest from '@/components/home/NewLatest.vue';
 import HotSupply from '@/components/home/HotSupply.vue';
-import SectionsModule from '@/components/supply/SectionsModule.vue';
+import SectionsModule from '@/components/public/SectionsModule.vue';
 
 import useMainStore from '@/stores';
 import { products_1, products_2 } from '@/constants/home';
@@ -239,5 +241,9 @@ const photos = [
 .purchase_right {
     width: 280px;
     height: 100%;
+}
+
+.footer {
+    width: 100%;
 }
 </style>

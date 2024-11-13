@@ -2,7 +2,13 @@
     <div class="not-found">
         <h1>404 Not Found</h1>
         <p>请您稍后再尝试访问。</p>
-        <p>将在 {{ countdown }} 秒后自动返回首页。</p>
+        <p>
+            您将在
+            <span>
+                {{ countdown }}
+            </span>
+            秒后自动返回首页。
+        </p>
         <RouterLink to="/">立即返回首页</RouterLink>
     </div>
 </template>
@@ -50,16 +56,20 @@ p {
     color: #666;
 }
 
+span {
+    color: #4be350;
+}
+
 a {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #4be350;
     color: white;
     border-radius: 5px;
 }
 
 a:hover {
-    background-color: #0056b3;
+    background-color: #25be2a;
 }
 </style>

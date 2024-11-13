@@ -64,7 +64,7 @@
                     >
                     <input
                         type="number"
-                        class="itxt"
+                        class="i_txt"
                         v-model="quantity"
                         @blur="onInput"
                     />
@@ -83,7 +83,7 @@
         <a href="javascript:;" class="decrement" @click="decrement('2')"
           >-</a
         >
-        <input type="text" class="itxt" v-model.number="quantities['2']" />
+        <input type="text" class="i_txt" v-model.number="quantities['2']" />
         <a href="javascript:;" class="increment" @click="increment('2')"
           >+</a
         >
@@ -128,56 +128,27 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="footer">
+        <SectionsModule />
+    </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import useCounterStore from '@/stores/detail';
+import useDetailStore from '@/stores/detail';
+import SectionsModule from '@/components/public/SectionsModule.vue';
 
 const router = useRouter();
-const mainStore = useCounterStore();
-const product = mainStore.items;
-// console.log(product.image)
+const detailStore = useDetailStore();
+const product = detailStore.items;
+
 // 定义重复显示的次数
 const repeatCount = 5;
 
-// const image = product.image;
 // 将 image 改为 ref
 const image = ref(product.image || '@/assets/images/supply/1.jpg');
-
-// const images = ref([
-//     new URL(product.image, import.meta.url).href,
-//     new URL('/src/assets/images/supply/2.jpg', import.meta.url).href,
-//     new URL('/src/assets/images/supply/3.jpg', import.meta.url).href,
-//     new URL('/src/assets/images/supply/4.jpg', import.meta.url).href,
-//     new URL('/src/assets/images/supply/5.jpg', import.meta.url).href,
-//     new URL('/src/assets/images/supply/6.jpg', import.meta.url).href,
-// ]);
-
-// 定义图片数组
-// const images = ref([]);
-// onMounted(async () => {
-//     try {
-//         // 使用 import.meta.glob 动态导入所有图片
-//         const modules = import.meta.glob('/src/assets/images/supply/*.jpg');
-
-//         let count = 0;
-//         const maxImages = 6; // 设置最大导入图片数量
-
-//         for (const path in modules) {
-//             if (count >= maxImages) {
-//                 break; // 达到最大数量，停止导入
-//             }
-
-//             const imagePath = await modules[path]();
-//             images.value.push(imagePath.default);
-//             count++;
-//         }
-//     } catch (error) {
-//         console.error('Failed to load images:', error);
-//     }
-// });
 
 // 初始化数量
 const quantity = ref(1);
@@ -260,8 +231,19 @@ const RandomNumbers = () => {
     return Math.floor(Math.random() * 1000) + 1; // 生成1到1000之间的随机数
 };
 
-// 在组件挂载时生成随机数
-onMounted(() => {
+// 定义所有图片的路径
+const allImages = Array.from({ length: 30 }, (_, index) => {
+    return new URL(
+        `/src/assets/images/supply/${index + 1}.jpg`,
+        import.meta.url
+    ).href;
+});
+
+// 定义显示的图片数组
+const displayedImages = ref([]);
+
+// 初始化图片和随机数的函数
+const initializeData = () => {
     Random.value = RandomNumbers();
     num1.value = RandomNumbers();
     num2.value = RandomNumbers();
@@ -281,18 +263,12 @@ onMounted(() => {
 
     // 构建最终的显示图片数组
     displayedImages.value = [productImage, ...randomImages];
-});
+};
 
-// 定义所有图片的路径
-const allImages = Array.from({ length: 30 }, (_, index) => {
-    return new URL(
-        `/src/assets/images/supply/${index + 1}.jpg`,
-        import.meta.url
-    ).href;
+// 在组件挂载时调用初始化函数
+onMounted(() => {
+    initializeData();
 });
-
-// 定义显示的图片数组
-const displayedImages = ref([]);
 
 const addToCollection = () => {
     alert('收藏成功');
@@ -452,7 +428,7 @@ td {
     text-decoration: none;
 }
 
-.itxt {
+.i_txt {
     width: 30px;
     height: 30px;
     text-align: center;
@@ -489,5 +465,10 @@ td {
     /* background-color: transparent; */
     font-size: 1vw;
     border-radius: 10px;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 50px;
 }
 </style>

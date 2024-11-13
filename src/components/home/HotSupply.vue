@@ -197,15 +197,19 @@ const getIconHref = (index) => {
 .product_price {
     width: 55%;
     height: 100%;
-    font-size: 0.9rem;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .product_description {
     width: 45%;
     height: 100%;
-    font-size: 0.6rem;
+    font-size: 8px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .product_title {
