@@ -51,6 +51,7 @@
     "echarts": "^5.5.1",
     "element-plus": "^2.8.7",
     "eslint": "^9.14.0",
+    "lodash": "^4.17.21",
     "pinia": "^2.2.4",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
